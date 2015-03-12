@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
 
+  skip_before_filter :authenticate_user!, only: [:create]
+
   def create
-    @user = User.create!(user_params)
-    render json: @user, serializer: UserSerializer
+    user = User.create!(user_params)
+    render json: user, serializer: UserSerializer
+  end
+
+  def show
+    render json: current_user, serializer: UserSerializer
   end
 
   private

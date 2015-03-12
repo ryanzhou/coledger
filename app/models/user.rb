@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
   include ActiveModel::SecurePassword
 
   field :username, type: String
@@ -9,6 +10,8 @@ class User
   field :last_name, type: String
 
   has_secure_password
+
+  has_many :sessions
 
   validates :username, uniqueness: true, presence: true, length: { within: 3..64 }
   validates :password, length: { within: 6..256 }

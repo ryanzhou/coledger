@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users Requests" do
+describe "Users Requests" do
   describe "POST /users" do
     it "signs up a user" do
       post "/users", { username: "test" }.to_json
