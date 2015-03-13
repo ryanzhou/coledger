@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:create]
 
   def create
-    user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
+    user = User.where(username: params[:username]).first.try(:authenticate, params[:password])
     if user
       session = user.sessions.create!
       render json: session, serializer: SessionSerializer
@@ -13,6 +13,11 @@ class SessionsController < ApplicationController
   end
 
   def show
+    render json: current_session, serializer: SessionSerializer
+  end
+
+  def destroy
+    current_session.delete
     render json: current_session, serializer: SessionSerializer
   end
 
