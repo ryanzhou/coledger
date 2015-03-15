@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
   resources :users, only: [:create, :update, :show]
   resources :sessions, only: [:create, :show, :destroy]
 

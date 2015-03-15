@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'mongoid'
 gem 'active_model_serializers'
+gem 'angular-rails-templates'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,4 +53,6 @@ end
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
+  gem 'rails-assets-angular-route'
+  gem 'rails-assets-angular-resource'
 end
