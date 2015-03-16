@@ -15,9 +15,13 @@
         <li class="active"><a href="#/">Projects</a></li>
         <li><a href="#">Link</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a>Hello, {{ user.first_name }} (@{{ user.username }})</a></li>
+      <ul class="nav navbar-nav navbar-right" ng-if="currentUser">
+        <li><a>Hello, {{ currentUser.first_name }} (@{{ currentUser.username }})</a></li>
         <li><a href="#/users/sign_out">Sign out</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-if="!currentUser">
+        <li><a href="#/users/sign_in">Sign in</a></li>
+        <li><a href="#/users/sign_up">Sign up</a></li>
       </ul>
     </div>
   </div>

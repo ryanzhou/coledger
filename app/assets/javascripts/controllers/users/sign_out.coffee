@@ -3,5 +3,6 @@ angular.module("coledger").controller("SignOutController", ['$scope', '$location
     Resources.Session.delete(id: 'current', (data) ->
       $window.sessionStorage.token = null
       $location.path("/users/sign_in")
+      $scope.$parent.refreshUser()
     )
 ])

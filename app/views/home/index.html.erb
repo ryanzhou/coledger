@@ -1,4 +1,10 @@
-<div class="container">
+<div class="container" ng-controller="MainController">
+  <header></header>
+  <div flash-alert active-class="in" class="alert fade" duration="5000">
+    <button type="button" class="close" ng-click="hide()">&times;</button>
+    <span class="alert-message">{{ flash.message }}</span>
+  </div>
+
   <div class="view-container">
     <div ng-view class="view-frame animate-view"></div>
   </div>
