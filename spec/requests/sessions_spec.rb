@@ -17,7 +17,7 @@ describe "Sessions Requests" do
     context "incorrect credentials" do
       it "responds 401" do
         post_json "/sessions", { username: "test_user", password: "password002" }
-        expect(last_response.status).to eq(401)
+        expect(last_response.status).to eq(403)
         expect(json["error_code"]).to eq("AUTHENTICATION_ERROR")
       end
     end
