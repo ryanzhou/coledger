@@ -47,6 +47,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 # Install bower components here. See https://rails-assets.org
