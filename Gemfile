@@ -49,6 +49,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'tzinfo-data'
 end
 
 # Install bower components here. See https://rails-assets.org
