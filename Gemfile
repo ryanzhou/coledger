@@ -52,7 +52,7 @@ group :development, :test do
 end
 
 # Install bower components here. See https://rails-assets.org
-source 'https://rails-assets.org' do
+source 'http://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-angular'
   gem 'rails-assets-angular-route'
