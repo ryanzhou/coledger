@@ -40,7 +40,8 @@ RSpec.configure do |config|
 
   config.include Rack::Test::Methods
   config.include FactoryGirl::Syntax::Methods
-  config.include RequestHelpers
+  config.include RequestHelpers, type: :request
+  config.include FeatureHelpers, type: :feature
 
   # Cleanup the DB in between test runs
   config.before(:suite) do
