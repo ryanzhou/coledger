@@ -4,7 +4,7 @@ class Session
 
   VALIDITY_PERIOD = 15.minutes
 
-  field :token
+  field :token, type: String
   index({ updated_at: 1 }, { expire_after_seconds: VALIDITY_PERIOD })
 
   belongs_to :user
