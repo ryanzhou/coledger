@@ -21,11 +21,13 @@ app.factory('authInterceptor', ['$rootScope', '$q', '$window', '$location', 'fla
     $q.reject(response)
 ])
 
-app.config ($httpProvider) ->
+app.config ["$httpProvider", ($httpProvider) ->
   $httpProvider.interceptors.push('authInterceptor')
+]
 
-app.config (flashProvider) ->
+app.config ["flashProvider", (flashProvider) ->
   flashProvider.errorClassnames.push('alert-danger')
   flashProvider.successClassnames.push('alert-success')
   flashProvider.warnClassnames.push('alert-warn')
   flashProvider.infoClassnames.push('alert-info')
+]
