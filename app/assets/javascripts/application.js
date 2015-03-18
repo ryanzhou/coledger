@@ -16,6 +16,6 @@
 //= require angular-route
 //= require angular-resource
 //= require angular-flash
-//= require angular-bootstrap
+//= require angular-ui-bootstrap-bower
 //= require angular-autoFields-bootstrap
 //= require_tree .
