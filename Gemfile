@@ -52,6 +52,10 @@ group :development, :test do
   gem 'tzinfo-data'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # Install bower components here. See https://rails-assets.org
 source 'http://rails-assets.org' do
   gem 'rails-assets-bootstrap'
@@ -60,3 +64,6 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-angular-resource'
   gem 'rails-assets-angular-flash'
 end
+
+# For Heroku
+ruby "2.2.0"
