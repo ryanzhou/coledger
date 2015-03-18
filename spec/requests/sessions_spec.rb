@@ -10,14 +10,14 @@ describe "Sessions Requests" do
       it "signs in the user and returns a new token" do
         post_json "/sessions", { username: "test_user", password: "password001" }
         expect(last_response.status).to eq(200)
-        expect(json["session"]["token"]).to be_a(String)
+        expect(json["token"]).to be_a(String)
       end
     end
 
     context "incorrect credentials" do
       it "responds 401" do
         post_json "/sessions", { username: "test_user", password: "password002" }
-        expect(last_response.status).to eq(401)
+        expect(last_response.status).to eq(403)
         expect(json["error_code"]).to eq("AUTHENTICATION_ERROR")
       end
     end
@@ -30,7 +30,7 @@ describe "Sessions Requests" do
       it "returns the current session information" do
         get_json "/sessions/current"
         expect(last_response.status).to eq(200)
-        expect(json["session"]["id"]).to be_a(String)
+        expect(json["id"]).to be_a(String)
       end
     end
 

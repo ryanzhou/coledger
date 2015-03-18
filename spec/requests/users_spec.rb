@@ -8,8 +8,8 @@ describe "Users Requests" do
           post_json "/users", { username: "foobar", password: "passw0rd", email: "foobar@example.com", first_name: "John", last_name: "Doe" }
         }.to change(User, :count).by(1)
         expect(last_response.status).to eq(200)
-        expect(json["user"]["id"]).to be_a(String)
-        expect(json["user"]["username"]).to eq("foobar")
+        expect(json["id"]).to be_a(String)
+        expect(json["username"]).to eq("foobar")
       end
     end
 
@@ -32,7 +32,7 @@ describe "Users Requests" do
     it "gets the current user information" do
       get_json "/users/current"
       expect(last_response.status).to eq(200)
-      expect(json["user"]["username"]).to eq(@user.username)
+      expect(json["username"]).to eq(@user.username)
     end
   end
 end

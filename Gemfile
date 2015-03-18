@@ -4,11 +4,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-# gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-# gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'mongoid'
 gem 'active_model_serializers'
+gem 'angular-rails-templates'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,4 +47,23 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'tzinfo-data'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
+
+# Install bower components here. See https://rails-assets.org
+source 'http://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-angular-route'
+  gem 'rails-assets-angular-resource'
+  gem 'rails-assets-angular-flash'
+end
+
+# For Heroku
+ruby "2.2.0"

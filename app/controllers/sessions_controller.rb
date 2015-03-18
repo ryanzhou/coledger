@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session = user.sessions.create!
       render json: session, serializer: SessionSerializer
     else
-      render json: { error: "Invalid username/password.", error_code: "AUTHENTICATION_ERROR" }, status: 401
+      render json: { error: "Invalid username/password.", error_code: "AUTHENTICATION_ERROR" }, status: 403
     end
   end
 

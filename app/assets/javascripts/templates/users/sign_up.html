@@ -1,0 +1,28 @@
+<h2>Sign Up</h2>
+<a href="/#/users/sign_in">Already have an account? Sign in</a>
+<hr>
+
+<form ng-submit="submitForm(signUpForm)" name="signUpForm" id="signUpForm">
+  <div class="alert alert-danger" ng-show="alert" role="alert">{{ alert }}</div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" ng-model="signUpForm.username" id="username" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" ng-model="signUpForm.password" id="password" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" ng-model="signUpForm.email" id="email" required>
+  </div>
+  <div class="form-group">
+    <label for="first_name">First name</label>
+    <input type="text" class="form-control" ng-model="signUpForm.first_name" id="first_name" required>
+  </div>
+  <div class="form-group">
+    <label for="last_name">Last name</label>
+    <input type="text" class="form-control" ng-model="signUpForm.last_name" id="last_name" required>
+  </div>
+  <button type="submit" class="btn btn-default">Sign Up</button>
+</form>

@@ -12,6 +12,7 @@ class User
   has_secure_password
 
   has_many :sessions
+  has_many :projects
 
   validates :username, uniqueness: true, presence: true, length: { within: 3..64 }
   validates :password, length: { within: 6..256 }
