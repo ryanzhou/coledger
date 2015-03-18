@@ -1,5 +1,5 @@
 class ProjectSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :default_currency, :created_at, :updated_at
+  attributes :id, :name, :currency, :created_at, :updated_at
 
 end

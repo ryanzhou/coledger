@@ -11,6 +11,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.permit(:name, :default_currency)
+    params.permit(:name, :currency)
   end
 end
