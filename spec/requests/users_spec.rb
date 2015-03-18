@@ -20,8 +20,8 @@ describe "Users Requests" do
         }.to change(User, :count).by(0)
         expect(last_response.status).to eq(422)
         expect(json["error_code"]).to eq("VALIDATION_ERROR")
-        expect(json["errors"]["username"]).to eq(["is too short (minimum is 3 characters)"])
-        expect(json["errors"]["email"]).to eq(["is invalid"])
+        expect(json["errors"]).to include("Username is too short (minimum is 3 characters)")
+        expect(json["errors"]).to include("Email is invalid")
       end
     end
   end
