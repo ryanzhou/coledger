@@ -1,22 +1,14 @@
 <h2>Projects</h2>
 
-<form ng-submit="createProject(createProjectForm)" name="createProjectForm" id="createProjectForm">
-  <div class="form-group">
-    <label for="name">Project name</label>
-    <input type="text" class="form-control" ng-model="createProjectForm.name" id="name">
-  </div>
-  <div class="form-group">
-    <label for="currency">Default currency</label>
-    <select class="form-control" ng-options="currency.iso_code as currency.select_name for currency in currencies" ng-model="createProjectForm.currency" id="currency"></select>
-  </div>
-  <button type="submit" class="btn btn-default">Create Project</button>
+<form ng-submit="createProject(createProjectForm)" name="createProjectForm" id="createProjectForm" sf-schema="schema" sf-form="form" sf-model="project">
 </form>
 <hr>
+
 <div class="list-group">
   <div ng-repeat="project in projects">
     <a ng-href="#/projects/{{ project.id }}" class="list-group-item">
       <h4 class="list-group-item-heading">{{ project.name }}</h4>
-      <p class="list-group-item-text">{{ project.created_at | date}} {{ project.default_currency.name }}</p>
+      <p class="list-group-item-text">{{ project.created_at | date}} {{ project.currency.name }}</p>
     </a>
   </div>
 </div>

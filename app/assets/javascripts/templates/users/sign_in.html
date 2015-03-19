@@ -5,11 +5,7 @@
     <a href="/#/users/sign_up">Don't have an account? Sign up</a>
     <hr>
 
-    <form ng-submit="submitForm(signInForm)" name="signInForm" id="signInForm">
-      <auto:fields fields="schema" data="user" options="options"></auto:fields>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Sign In</button>
-      </div>
+    <form ng-submit="submitForm(signInForm)" name="signInForm" id="signInForm" sf-schema="schema" sf-form="form" sf-model="user">
     </form>
   </div>
 </div>
