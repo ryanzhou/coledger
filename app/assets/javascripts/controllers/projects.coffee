@@ -4,7 +4,6 @@ angular.module("coledger").controller("ProjectsController", ['$scope', '$locatio
       $scope.projects = Resources.Project.query()
 
     Resources.Currency.query (data) ->
-      console.log(data)
       $scope.currencies = data
       $scope.schema.properties.currency.enum = data.map((c) -> c.iso_code)
       $scope.form[1].titleMap = data.map((c) -> { value: c.iso_code, name: c.select_name })
@@ -35,7 +34,7 @@ angular.module("coledger").controller("ProjectsController", ['$scope', '$locatio
       project = new Resources.Project($scope.project)
       project.$save (success) ->
         $scope.project = {}
-        form.$setPrestine()
+        form.$setPristine()
         $scope.refreshProjects()
       , (failure) ->
         flash.error = "There is an error with your input."
