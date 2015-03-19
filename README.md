@@ -3,7 +3,9 @@ CoLedger
 
 CoLedger is a simple accounting software designed for small teams.
 
-This is the backend repository of CoLedger.
+This is the backend and frontend repository of CoLedger.
+
+[CoLedger API documentation](http://docs.coledger.apiary.io)
 
 ## Installation
 
