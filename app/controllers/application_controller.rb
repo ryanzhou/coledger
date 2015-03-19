@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     render json: {errors: exception.record.errors.full_messages, error_code: "VALIDATION_ERROR" }, status: 422
   end
 
+  rescue_from Mongoid::Errors::DocumentNotFound do |exception|
+    render json: { error: "The object does not exist or you do not have the permission to access it.", error_code: "DOCUMENT_NOT_FOUND"}, status: 404
+  end
+
   protected
   def authenticate_user!
     authenticate_or_request_with_http_token('CoLedger API') do |token, options|

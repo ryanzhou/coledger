@@ -1,8 +1,12 @@
 class ProjectSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :currency, :created_at, :updated_at
+  attributes :id, :name, :currency, :memberships, :created_at, :updated_at
 
   def currency
-    object.money_currency
+    CurrencySerializer.new(object.money_currency, root: false)
+  end
+
+  def memberships
+    ActiveModel::ArraySerializer.new(object.memberships, each_serializer: MembershipSerializer)
   end
 end
