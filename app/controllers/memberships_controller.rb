@@ -1,12 +1,19 @@
 class MembershipsController < ApplicationController
   def create
-    project = current_user.memberships.admin.find_by(project_id: params[:project_id])
     user = User.find_by(username: params[:username])
-    membership = project.memberships.build(user: user, project: project, role: params[:role])
+    membership = current_project.memberships.build(user: user, role: params[:role])
     membership.save!
     render json: membership, serializer: MembershipSerializer
   end
 
   def update
+    membership = current_project.memberships.find_by(id: params[:id])
+    membership.update!(role: params[:role])
+    render json: membership, serializer: MembershipSerializer
+  end
+
+  private
+  def current_project
+    current_user.memberships.admin.find_by(project_id: params[:project_id]).project
   end
 end

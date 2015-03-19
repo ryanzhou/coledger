@@ -17,6 +17,19 @@ describe "Projects Requests" do
     end
   end
 
+  describe "GET /projects/:id" do
+    let!(:project) { create(:project) }
+    let!(:membership_1) { create(:membership, user: @user, project: project) }
+    let!(:membership_2) { create(:membership, project: project)}
+
+    it "returns the details of the project" do
+      get_json "/projects/#{project.id}"
+      expect(last_response.status).to eq(200)
+      expect(json["id"]).to eq(project.id.to_s)
+      expect(json["memberships"].size).to eq(3)
+    end
+  end
+
   describe "POST /projects" do
     context "valid project" do
       it "creates a project" do
