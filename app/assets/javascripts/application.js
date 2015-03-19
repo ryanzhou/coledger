@@ -17,5 +17,8 @@
 //= require angular-resource
 //= require angular-flash
 //= require angular-ui-bootstrap-bower
-//= require angular-autoFields-bootstrap
+//= require angular-sanitize
+//= require tv4
+//= require objectpath
+//= require angular-schema-form
 //= require_tree .

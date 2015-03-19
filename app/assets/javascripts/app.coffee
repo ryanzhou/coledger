@@ -5,7 +5,7 @@ app = angular.module("coledger", [
   "angular-flash.service",
   "angular-flash.flash-alert-directive",
   "ui.bootstrap",
-  "autofields"
+  "schemaForm"
 ])
 
 app.factory('authInterceptor', ['$rootScope', '$q', '$window', '$location', 'flash', ($rootScope, $q, $window, $location, flash) ->
