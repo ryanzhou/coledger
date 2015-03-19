@@ -59,7 +59,7 @@ end
 
 # Install bower components here. See https://rails-assets.org
 source 'http://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-bootswatch-dist', '3.3.1.2.paper'
   gem 'rails-assets-angular'
   gem 'rails-assets-angular-route'
   gem 'rails-assets-angular-resource'
