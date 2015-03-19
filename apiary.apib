@@ -1,0 +1,230 @@
+FORMAT: 1A
+HOST: https://coledger-api.herokuapp.com/
+
+# CoLedger API
+CoLedger is a simple accounting software designed for small teams.
+
+Unless noted otherwise, all CoLedger API requests require a session token in HTTP Header, for example:
+
+    Authorization: Token token="bfr7I2-DZoK3Sn0pWL2_-oM8KrDoX243voEOC3SNfSc"
+
+# Group Authentication
+API requests related to authentication and users.
+
+## Users Collection [/users]
+### Sign up [POST]
+
+Sign up a new user with this API request. 
+
+Session token is not required for this request.
+
++ Request (application/json)
+
+        {
+          "username": "foobar",
+          "email": "foobar@example.com",
+          "password": "passw0rd",
+          "first_name": "John",
+          "last_name": "Doe"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "id": "55017b92313932e614070000",
+          "username": "foobar",
+          "email": "foobar@example.com",
+          "first_name": "John",
+          "last_name": "Doe"
+        }
+        
+## Sessions Collection [/sessions]
+### Sign in [POST]
+
+A session is valid for approximately 15 minutes. However, each request using the session token will extend the expiration of the session.
+
+Session token is not required for this request.
+
++ Request (application/json)
+
+        {
+          "username": "foobar",
+          "password": "passw0rd"
+        }
+        
++ Response 200 (application/json)
+
+        {
+          "id": "55017c91313932e614090000",
+          "token": "xV88bfG_zROnwJl-UDkvYjUwLTqKIz15wIMnUfLN9Jk",
+          "expires_at": "2015-03-12T12:01:25.444Z"
+        }
+
+## Current User [/users/current]
+
+### Get current User [GET]
+
+Retrives some information about the currently logged in user.
+
++ Response 200 (application/json)
+
+        {
+          "id": "55017b92313932e614070000",
+          "username": "foobar",
+          "email": "foobar@example.com",
+          "first_name": "John",
+          "last_name": "Doe"
+        }
+
+### Update current user [PATCH]
+
+Updates the currently logged in user. All fields are optional.
+
++ Request (application/json)
+
+        {
+          "username": "foobarbaz",
+          "email": "foobarbaz@example.com",
+          "password": "passw0rd22",
+          "first_name": "Jane",
+          "last_name": "Citizen"
+        }
+        
++ Response 200 (application/json)
+
+        {
+          "id": "55017b92313932e614070000",
+          "username": "foobarbaz",
+          "email": "foobarbaz@example.com",
+          "first_name": "Jane",
+          "last_name": "Citizen"
+        }
+
+## Current Session [/sessions/current]
+### Get current Session [GET]
+
+This request will extend the current session, and it will return the new expiration time.
+
++ Response 200 (application/json)
+
+        {
+          "id": "55017e88313932e6140a0000",
+          "token": "bfr7I2-DZoK3Sn0pWL2_-oM8KrDoX243voEOC3SNfSc",
+          "expires_at": "2015-03-12T12:09:50.186Z"
+        }
+
+# Group Project and Account Management
+
+API requests related to managing projects and accounts.
+
+## Projects Collection [/projects]
+
+### List all Projects [GET]
+
+Retrives all projects the user is part of.
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": "550a732375612d6932010000",
+            "name": "Hackett, Fahey and Kozey",
+            "currency": {
+              "id": "usd",
+              "name": "United States Dollar",
+              "iso_code": "USD",
+              "symbol": "$",
+              "select_name": "USD - United States Dollar"
+            },
+            "memberships": [
+              {
+                "id": "550a732375612d6932020000",
+                "role": "admin",
+                "user": {
+                  "username": "ryan",
+                  "first_name": "Ryan",
+                  "last_name": "Zhou",
+                  "email_digest": "de2e1a2816b4891210c408cfefedfec9"
+                }
+              },
+              {
+                "id": "550a758b75612d6917010000",
+                "role": "editor",
+                "user": {
+                  "username": "foobarbaz",
+                  "first_name": "Jane",
+                  "last_name": "Citizen",
+                  "email_digest": "1441dc9291d31a89e0ae4e51f672b46f"
+                }
+              }
+            ],
+            "created_at": "2015-03-19T06:56:35.070Z",
+            "updated_at": "2015-03-19T07:18:10.292Z"
+          },
+          {
+            "id": "550a64af75612d615c080000",
+            "name": "New Project",
+            "currency": {
+              "id": "usd",
+              "name": "United States Dollar",
+              "iso_code": "USD",
+              "symbol": "$",
+              "select_name": "USD - United States Dollar"
+            },
+            "memberships": [
+              {
+                "id": "550a784575612d6917020000",
+                "role": "admin",
+                "user": {
+                  "username": "foobarbaz",
+                  "first_name": "Jane",
+                  "last_name": "Citizen",
+                  "email_digest": "1441dc9291d31a89e0ae4e51f672b46f"
+                }
+              }
+            ],
+            "created_at": "2015-03-19T05:54:55.757Z",
+            "updated_at": "2015-03-19T05:54:55.757Z"
+          }
+        ]
+        
+### Create a new Project [POST]
+
+Creates a new project and makes the current user the owner of the project as well as an admin member.
+
++ Request (application/json)
+
+        {
+          "name": "Test Project",
+          "currency": "USD"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "id": "550aa94c3139326fe3100000",
+          "name": "Test Project",
+          "currency": {
+            "id": "usd",
+            "name": "United States Dollar",
+            "iso_code": "USD",
+            "symbol": "$",
+            "select_name": "USD - United States Dollar"
+          },
+          "memberships": [
+            {
+              "id": "550aa94c3139326fe3110000",
+              "role": "admin",
+              "user": {
+                "username": "jonathon_hartmann",
+                "first_name": "Oren",
+                "last_name": "Roob",
+                "email_digest": "83510d49bbaa49093a8d597d5a2b2b68"
+              }
+            }
+          ],
+          "created_at": "2015-03-19T10:47:40.472Z",
+          "updated_at": "2015-03-19T10:47:40.472Z"
+        }
+        
+        
