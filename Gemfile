@@ -61,7 +61,9 @@ end
 
 # Install bower components here. See https://rails-assets.org
 source 'http://rails-assets.org' do
+<<<<<<< HEAD
   gem 'rails-assets-bootswatch'
+  gem 'rails-assets-fontawesome'
   gem 'rails-assets-angular'
   gem 'rails-assets-angular-route'
   gem 'rails-assets-angular-resource'

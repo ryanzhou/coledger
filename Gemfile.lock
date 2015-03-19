@@ -157,6 +157,7 @@ GEM
       rails-assets-jquery (>= 1.9.1)
     rails-assets-bootswatch (3.3.4)
       rails-assets-bootstrap (~> 3.3.4)
+    rails-assets-fontawesome (4.3.0)
     rails-assets-jquery (2.1.3)
     rails-assets-objectpath (1.1.0)
     rails-assets-tv4 (1.0.17)
@@ -268,7 +269,12 @@ DEPENDENCIES
   rails-assets-angular-route!
   rails-assets-angular-schema-form!
   rails-assets-angular-ui-bootstrap-bower!
+<<<<<<< HEAD
   rails-assets-bootswatch!
+=======
+  rails-assets-bootswatch-dist (= 3.3.1.2.paper)!
+  rails-assets-fontawesome!
+>>>>>>> Created User Panel Dropdown
   rails_12factor
   rspec-rails
   sass-rails (~> 5.0)

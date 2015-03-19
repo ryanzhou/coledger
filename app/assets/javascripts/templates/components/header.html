@@ -16,8 +16,32 @@
         <li><a href="#">Link</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" ng-if="currentUser">
-        <li><a>Hello, {{ currentUser.first_name }} (@{{ currentUser.username }})</a></li>
-        <li><a href="#/users/sign_out">Sign out</a></li>
+        <li ng-controller="UserPanel" class="dropdown" dropdown on-toggle="toggled(open)">
+          <a href="javascript:void(null)" class="dropdown-toggle" dropdown-toggle>
+            <i class="fa fa-user"></i> Hello, {{ currentUser.first_name }} (@{{ currentUser.username }})
+            <span class="glyphicon" ng-class="isOpen ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down'">
+            </span>
+          </a>
+          <ul class="dropdown-menu user-panel">
+            <li>
+              <div class="clearfix">
+                <div class="col-md-4 text-center">
+                  <img class="user-image img-rounded" src="http://www.gravatar.com/avatar/54a346e8c8ac60956dd08a6e16ba1218.png" />
+                </div>
+                <div class="col-md-8">
+                  <ul class="list-unstyled">
+                    <li><a href="#/users/edit_profile">Edit profile</a>
+                    <li><a href="">Some action</a></li>
+                </div> 
+              </div>
+              <div class="clearfix user-signout">
+                <div class="col-md-12">
+                  <a href="#/users/sign_out" class="btn btn-danger btn-block">Sign out</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" ng-if="!currentUser">
         <li><a href="#/users/sign_in">Sign in</a></li>
