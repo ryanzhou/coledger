@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project = current_user.projects.build(project_params)
+    project = Project.new(project_params)
+    project.owner = current_user
     project.save!
     render json: project, serializer: ProjectSerializer
   end

@@ -5,11 +5,18 @@ class Project
   field :name, type: String
   field :currency, type: String
 
+  has_many :memberships
+  belongs_to :owner, class_name: "User"
+
   validates :currency, inclusion: Money::Currency.all.map(&:iso_code)
 
-  belongs_to :user
+  after_create :create_owner_membership
 
-  def currency
+  def money_currency
     Money::Currency.wrap(self[:currency])
+  end
+
+  def create_owner_membership
+    memberships.create!(user: owner, role: :admin)
   end
 end

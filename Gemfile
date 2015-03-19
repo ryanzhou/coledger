@@ -34,6 +34,7 @@ gem 'mongoid'
 gem 'active_model_serializers'
 gem 'angular-rails-templates'
 gem 'money-rails'
+gem "mongoid-enum"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
