@@ -1,22 +1,46 @@
 angular.module("coledger").controller("SignUpController", ['$scope', '$window', '$location', 'Resources', 'flash'
   ($scope, $window, $location, Resources, flash) ->
     $scope.user = {}
-    $scope.schema = [
-      { property: 'username', type: 'text', attr: { ngMinlength: 3, required: true }, columns: 3}
-      { property: 'password', type: 'password', attr: { required: true }}
-      { property: 'email', type: 'email', attr: { required: true }}
-      { type: 'multiple', fields: [
-        { property: 'first_name', label: 'First Name', type: 'text', attr: { required: true }}
-        { property: 'last_name', label: 'Last Name', type: 'text', attr: { required: true }}
-      ], columns: 6}
-    ]
+    $scope.errorMessages = []
 
-    $scope.options =
-		  validation:
-			  enabled: true,
-			  showMessages: true
-		  layout:
-			  type: 'basic'
+    $scope.schema =
+      type: 'object'
+      title: 'User'
+      properties:
+        username:
+          title: 'Username'
+          type: 'string'
+          minLength: 3
+          required: true
+        password:
+          title: 'Password'
+          type: 'string'
+          minLength: 6
+          required: true
+        email:
+          title: 'Email'
+          type: 'string'
+          required: true
+        first_name:
+          title: 'First Name'
+          type: 'string'
+          required: true
+        last_name:
+          title: 'Last Name'
+          type: 'string'
+          required: true
+
+    $scope.form = [
+      'username'
+      { key: 'password', type: 'password' }
+      { key: 'email', type: 'email', validationMessage: "is not a valid email address" }
+      { type: 'section', htmlClass: 'row', items: [
+          { type: 'section', htmlClass: 'col-sm-6', items: ['first_name'] }
+          { type: 'section', htmlClass: 'col-sm-6', items: ['last_name'] }
+        ]
+      }
+      { type: 'submit', style: 'btn btn-primary', title: 'Sign Up'}
+    ]
 
     $scope.submitForm = (form) ->
       user = new Resources.User($scope.user)
@@ -29,5 +53,5 @@ angular.module("coledger").controller("SignUpController", ['$scope', '$window', 
           $location.path("/")
       , (failure) ->
         if failure.data.error_code == "VALIDATION_ERROR"
-          form.errorMessages = failure.data.errors
+          $scope.errorMessages = failure.data.errors
 ])
