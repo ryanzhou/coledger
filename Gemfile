@@ -52,6 +52,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'tzinfo-data'
+  gem 'faker'
 end
 
 group :production do

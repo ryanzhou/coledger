@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :project do
-    user
-    name "The Monopoly Game"
+    owner(:user)
+    name { Faker::Company.name }
     currency "USD"
   end
 end

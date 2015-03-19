@@ -4,10 +4,12 @@ class Project
 
   field :name, type: String
   field :currency, type: String
+  field :description, type: String
 
   has_many :memberships
   belongs_to :owner, class_name: "User"
 
+  validates :name, presence: true
   validates :currency, inclusion: Money::Currency.all.map(&:iso_code)
 
   after_create :create_owner_membership

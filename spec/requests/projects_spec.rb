@@ -1,9 +1,23 @@
 require 'rails_helper'
 
 describe "Projects Requests" do
-  describe "POST /projects" do
-    before { auth }
+  before { auth }
 
+  describe "GET /projects" do
+    before do
+      create(:project, owner: @user)
+      create(:membership, user: @user)
+    end
+
+    it "returns a list of joined projects" do
+      get_json "/projects"
+      expect(last_response.status).to eq(200)
+      expect(json.size).to eq(2)
+      expect(json[0]["id"]).to be_a(String)
+    end
+  end
+
+  describe "POST /projects" do
     context "valid project" do
       it "creates a project" do
         post_json "/projects", { name: "Test Project", currency: "USD" }
