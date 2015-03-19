@@ -269,12 +269,8 @@ DEPENDENCIES
   rails-assets-angular-route!
   rails-assets-angular-schema-form!
   rails-assets-angular-ui-bootstrap-bower!
-<<<<<<< HEAD
   rails-assets-bootswatch!
-=======
-  rails-assets-bootswatch-dist (= 3.3.1.2.paper)!
   rails-assets-fontawesome!
->>>>>>> Created User Panel Dropdown
   rails_12factor
   rspec-rails
   sass-rails (~> 5.0)
