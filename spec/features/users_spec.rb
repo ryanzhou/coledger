@@ -8,8 +8,8 @@ describe "Users Features", js: true do
         fill_in "Username", with: "foobar"
         fill_in "Password", with: "passw0rd"
         fill_in "Email", with: "foobar@example.com"
-        fill_in "First name", with: "John"
-        fill_in "Last name", with: "Doe"
+        fill_in "First Name", with: "John"
+        fill_in "Last Name", with: "Doe"
       end
       click_button 'Sign Up'
       expect(page).to have_content 'You have successfully signed up'

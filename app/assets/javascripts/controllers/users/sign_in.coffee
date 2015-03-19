@@ -1,9 +1,21 @@
 angular.module("coledger").controller("SignInController", ['$scope', '$location', '$window', 'Resources', 'flash',
   ($scope, $location, $window, Resources, flash) ->
+    $scope.user = {}
+    $scope.schema = [
+      { property: 'username', type: 'text', attr: { ngMinlength: 3, required: true }, columns: 3}
+      { property: 'password', type: 'password', attr: { required: true }}
+    ]
+
+    $scope.options =
+		  validation:
+			  enabled: true,
+			  showMessages: false
+		  layout:
+			  type: 'basic'
+
     $scope.submitForm = (form) ->
       flash.error = null
-
-      session = new Resources.Session(form)
+      session = new Resources.Session($scope.user)
       session.$save (success) ->
         $window.sessionStorage.token = session.token
         $scope.$parent.refreshUser()

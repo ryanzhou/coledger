@@ -33,6 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'mongoid'
 gem 'active_model_serializers'
 gem 'angular-rails-templates'
+gem 'money-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,11 +59,13 @@ end
 
 # Install bower components here. See https://rails-assets.org
 source 'http://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-bootswatch-dist', '3.3.1.2.paper'
   gem 'rails-assets-angular'
   gem 'rails-assets-angular-route'
   gem 'rails-assets-angular-resource'
   gem 'rails-assets-angular-flash'
+  gem 'rails-assets-angular-ui-bootstrap-bower'
+  gem 'rails-assets-angular-autoFields-bootstrap'
 end
 
 # For Heroku

@@ -3,6 +3,8 @@ angular.module("coledger").controller("ProjectsController", ['$scope', '$locatio
     $scope.refreshProjects = ->
       $scope.projects = Resources.Project.query()
 
+    $scope.currencies = Resources.Currency.query()
+
     $scope.createProject = (form) ->
       project = new Resources.Project(form)
       project.$save (success) ->

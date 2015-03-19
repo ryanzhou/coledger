@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
 
   rescue_from Mongoid::Errors::Validations do |exception|
-    render json: {errors: exception.record.errors.messages, error_code: "VALIDATION_ERROR" }, status: 422
+    render json: {errors: exception.record.errors.full_messages, error_code: "VALIDATION_ERROR" }, status: 422
   end
 
   protected
