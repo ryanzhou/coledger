@@ -14,7 +14,7 @@ API requests related to authentication and users.
 ## Users Collection [/users]
 ### Sign up [POST]
 
-Sign up a new user with this API request. 
+Sign up a new user with this API request.
 
 Session token is not required for this request.
 
@@ -37,7 +37,7 @@ Session token is not required for this request.
           "first_name": "John",
           "last_name": "Doe"
         }
-        
+
 ## Sessions Collection [/sessions]
 ### Sign in [POST]
 
@@ -51,7 +51,7 @@ Session token is not required for this request.
           "username": "foobar",
           "password": "passw0rd"
         }
-        
+
 + Response 200 (application/json)
 
         {
@@ -89,7 +89,7 @@ Updates the currently logged in user. All fields are optional.
           "first_name": "Jane",
           "last_name": "Citizen"
         }
-        
+
 + Response 200 (application/json)
 
         {
@@ -187,7 +187,7 @@ Retrives all projects the user is part of.
             "updated_at": "2015-03-19T05:54:55.757Z"
           }
         ]
-        
+
 ### Create a new Project [POST]
 
 Creates a new project and makes the current user the owner of the project as well as an admin member.
@@ -226,5 +226,85 @@ Creates a new project and makes the current user the owner of the project as wel
           "created_at": "2015-03-19T10:47:40.472Z",
           "updated_at": "2015-03-19T10:47:40.472Z"
         }
-        
-        
+
+
+## Project [/projects/:id]
+
+### Retrive a Project [GET]
+
+This request gets a single project identified by its id.
+
++ Response 200 (application/json)
+
+        {
+          "id": "550aa94c3139326fe3100000",
+          "name": "Test Project",
+          "currency": {
+            "id": "usd",
+            "name": "United States Dollar",
+            "iso_code": "USD",
+            "symbol": "$",
+            "select_name": "USD - United States Dollar"
+          },
+          "memberships": [
+            {
+              "id": "550aa94c3139326fe3110000",
+              "role": "admin",
+              "user": {
+                "username": "jonathon_hartmann",
+                "first_name": "Oren",
+                "last_name": "Roob",
+                "email_digest": "83510d49bbaa49093a8d597d5a2b2b68"
+              }
+            }
+          ],
+          "created_at": "2015-03-19T10:47:40.472Z",
+          "updated_at": "2015-03-19T10:47:40.472Z"
+        }
+
+## Memberships Collection [/projects/:project_id/memberships]
+
+### Add a member [POST]
+
++ Request (application/json)
+
+        {
+          "username": "meda.hansen",
+          "role": "editor"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "id": "550ab044313932761d050000",
+          "role": "editor",
+          "user": {
+            "username": "meda.hansen",
+            "first_name": "Mazie",
+            "last_name": "Wiza",
+            "email_digest": "afa30d9b6e7404d66b9c3eb65a87c578"
+          }
+        }
+
+## Membership [/projects/:project_id/memberships/:id]
+
+### Update permission [PATCH]
+
++ Request (application/json)
+
+        {
+          "role": "admin"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "id": "550ab044313932761d050000",
+          "role": "admin",
+          "user": {
+            "username": "meda.hansen",
+            "first_name": "Mazie",
+            "last_name": "Wiza",
+            "email_digest": "afa30d9b6e7404d66b9c3eb65a87c578"
+          }
+        }
