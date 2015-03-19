@@ -10,3 +10,28 @@ footer {
     color: #999;
   }
 }
+
+.project {
+  .title {
+    font-size: 24px;
+    color: #000;
+  }
+  .members img {
+    margin-right: 5px
+  }
+}
+
+.project-description {
+  font-size: 16px;
+}
+
+.nav-stacked {
+  width: 240px;
+  float:left;
+}
+
+.tab-content {
+  width: 900px;
+  padding-left: 40px;
+  float: left;
+}

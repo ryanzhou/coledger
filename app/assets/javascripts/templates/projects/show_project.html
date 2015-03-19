@@ -1,0 +1,40 @@
+<h2>{{ project.name }}</h2>
+<p class="project-description">{{ project.description }}</p>
+<hr>
+
+<tabset vertical="true" type="pills">
+  <tab heading="Accounts">
+
+  </tab>
+  <tab heading="Timeline">
+
+  </tab>
+  <tab heading="Members">
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 32px"></th>
+          <th>Username</th>
+          <th>Full name</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="membership in project.memberships">
+          <td>
+            <img src="https://www.gravatar.com/avatar/{{ membership.user.email_digest }}?s=32&d=retro"
+              class="img-circle" tooltip="{{ membership.user.username}}" />
+          </td>
+          <td>{{ membership.user.username }}</td>
+          <td>{{ membership.user.first_name }} {{ membership.user.last_name }}</td>
+          <td>
+            <form sf-schema="membershipSchema" sf-form="membershipForm" sf-model="membership"></form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </tab>
+  <tab heading="Settings">
+
+  </tab>
+</tabset>
