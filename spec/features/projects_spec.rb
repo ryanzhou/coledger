@@ -38,4 +38,15 @@ describe "Projects Features", js: true do
       expect(page).to have_content(description)
     end
   end
+
+  describe "view a project" do
+    let!(:project) { create(:project, owner: @user) }
+
+    it "shows the project name and description" do
+      visit '#/'
+      click_link project.name
+      expect(page).to have_content(project.name)
+      expect(page).to have_content(project.description)
+    end
+  end
 end

@@ -15,6 +15,15 @@ describe "Memberships Requests" do
         expect(json["id"]).to be_a(String)
         expect(json["user"]["username"]).to eq(user.username)
       end
+
+      context "user already added" do
+        it "returns a validation error" do
+          post_json "/projects/#{project.id}/memberships", { username: user.username, role: "editor" }
+          post_json "/projects/#{project.id}/memberships", { username: user.username, role: "editor" }
+          expect(last_response.status).to eq(422)
+          expect(json["errors"][0]).to eq("User is already taken")
+        end
+      end
     end
 
     context "with no permission" do

@@ -20,7 +20,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="membership in project.memberships">
+        <tr ng-repeat="membership in project.memberships" id="membership-{{ membership.id }}">
           <td>
             <img src="https://www.gravatar.com/avatar/{{ membership.user.email_digest }}?s=32&d=retro"
               class="img-circle" tooltip="{{ membership.user.username}}" />

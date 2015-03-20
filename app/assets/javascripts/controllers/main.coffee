@@ -14,4 +14,6 @@ angular.module("coledger").controller("MainController", ['$scope', '$rootScope',
       )
 
     $scope.refreshUser()
+    $rootScope.$on "refresh-user", ->
+      $scope.refreshUser()
 ])
