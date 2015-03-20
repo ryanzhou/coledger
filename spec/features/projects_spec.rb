@@ -23,16 +23,19 @@ describe "Projects Features", js: true do
     end
 
     let(:project_name) { Faker::Company.name }
+    let(:description) { Faker::Company.catch_phrase }
 
     it "adds a project to the list" do
       visit '#/'
+      click_link "New Project"
       within '#createProjectForm' do
         fill_in "Project Name", with: project_name
+        fill_in "Description", with: description
         select "AUD", from: "currency"
       end
       click_button "Create Project"
       expect(page).to have_content(project_name)
-      expect(page).to have_content("Australian Dollar")
+      expect(page).to have_content(description)
     end
   end
 end
