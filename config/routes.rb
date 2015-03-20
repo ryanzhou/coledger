@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :users, only: [:create, :update, :show]
+  resources :users, only: [:create, :update, :show] do
+    collection do
+      post :search
+    end
+  end
   resources :sessions, only: [:create, :show, :destroy]
   resources :projects, only: [:index, :create, :show, :update, :destroy] do
     resources :memberships, only: [:create, :update, :destroy]

@@ -4,6 +4,7 @@ angular.module("coledger").factory "Resources", ["$resource", ($resource) ->
   Resources.Session = $resource('/sessions/:id')
   Resources.User = $resource('/users/:id', null,
     update: { method: 'PATCH' }
+    search: { url: '/users/search', method: "POST", isArray: true }
   )
   Resources.Project = $resource('/projects/:id')
   Resources.Membership = $resource('/projects/:project_id/memberships/:id', null,
