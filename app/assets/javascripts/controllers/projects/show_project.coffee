@@ -1,5 +1,5 @@
-angular.module("coledger").controller("ShowProjectController", ['$scope', '$location', '$routeParams', 'Resources'
-  ($scope, $location, $routeParams, Resources) ->
+angular.module("coledger").controller("ShowProjectController", ['$scope', '$location', '$routeParams', 'Resources', 'flash'
+  ($scope, $location, $routeParams, Resources, flash) ->
 
     Resources.Project.get $routeParams, (project) ->
       $scope.project = project
@@ -23,11 +23,21 @@ angular.module("coledger").controller("ShowProjectController", ['$scope', '$loca
           { name: "Admin", value: "admin"}
           { name: "Editor", value: "editor"}
           { name: "Viewer", value: "viewer"}
-        ], condition: "membership.canEdit" }
+        ], notitle: true, onChange: "updateMembershipRole(membership)" }
+      ]
+
+    $scope.membershipFormReadonly = [
         { key: 'role', type: 'radios-inline', titleMap: [
           { name: "Admin", value: "admin"}
           { name: "Editor", value: "editor"}
           { name: "Viewer", value: "viewer"}
-        ], condition: "!membership.canEdit", readonly: true }
+        ], notitle: true, readonly: true }
       ]
+
+    $scope.updateMembershipRole = (membership) ->
+      Resources.Membership.update { project_id: $scope.project.id, id: membership.id }, { role: membership.role }, (response) ->
+        membership = response
+        flash.success = "The role of @#{membership.user.username} in this project has been changed to #{membership.role}"
+      , (failure) ->
+        flash.error = failure.data.error
 ])

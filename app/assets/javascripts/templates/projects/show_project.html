@@ -28,7 +28,8 @@
           <td>{{ membership.user.username }}</td>
           <td>{{ membership.user.first_name }} {{ membership.user.last_name }}</td>
           <td>
-            <form sf-schema="membershipSchema" sf-form="membershipForm" sf-model="membership"></form>
+            <form sf-schema="membershipSchema" sf-form="membershipForm" sf-model="membership" ng-if="membership.canEdit"></form>
+            <form sf-schema="membershipSchema" sf-form="membershipFormReadonly" sf-model="membership" ng-if="!membership.canEdit"></form>
           </td>
         </tr>
       </tbody>
