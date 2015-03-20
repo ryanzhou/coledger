@@ -51,9 +51,11 @@ angular.module("coledger").controller("ShowProjectController", ['$scope', '$loca
 
     $scope.addMember = (form) ->
       Resources.Membership.save { project_id: $scope.project.id }, $scope.newMembership, (response) ->
+        $scope.newMembership = { role: "viewer" }
         form.$setPristine()
         flash.success = "@#{response.user.username} has been added to this project"
         $scope.refreshProject()
       , (failure) ->
-        flash.error = failure.data.errors[0] || failure.data.error
+        flash.error = failure.data.errors?[0] || failure.data.error
+
 ])
