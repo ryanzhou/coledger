@@ -80,6 +80,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     ffi (1.9.8)
     ffi (1.9.8-x64-mingw32)
     globalid (0.3.3)
@@ -108,6 +110,8 @@ GEM
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-enum (0.2.0)
+      mongoid (~> 4.0)
     moped (2.0.4)
       bson (~> 2.2)
       connection_pool (~> 2.0)
@@ -253,8 +257,10 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
+  faker
   money-rails
   mongoid
+  mongoid-enum
   rails (= 4.2.0)
   rails-assets-angular!
   rails-assets-angular-flash!

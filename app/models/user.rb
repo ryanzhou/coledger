@@ -12,10 +12,14 @@ class User
   has_secure_password
 
   has_many :sessions
-  has_many :projects
+  has_many :memberships
 
   validates :username, uniqueness: true, presence: true, length: { within: 3..64 }
   validates :password, length: { within: 6..256 }, allow_nil: true
   validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\z/i }
   validates :first_name, presence: true
+
+  def projects
+    memberships.map(&:project)
+  end
 end

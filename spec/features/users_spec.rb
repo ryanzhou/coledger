@@ -5,11 +5,11 @@ describe "Users Features", js: true do
     it "signs me up" do
       visit "/#/users/sign_up"
       within '#signUpForm' do
-        fill_in "Username", with: "foobar"
-        fill_in "Password", with: "passw0rd"
-        fill_in "Email", with: "foobar@example.com"
-        fill_in "First Name", with: "John"
-        fill_in "Last Name", with: "Doe"
+        fill_in "Username", with: Faker::Internet.user_name
+        fill_in "Password", with: Faker::Internet.password
+        fill_in "Email", with: Faker::Internet.free_email
+        fill_in "First Name", with: Faker::Name.first_name
+        fill_in "Last Name", with: Faker::Name.last_name
       end
       click_button 'Sign Up'
       expect(page).to have_content 'You have successfully signed up'

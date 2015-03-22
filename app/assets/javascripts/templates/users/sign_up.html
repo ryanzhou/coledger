@@ -3,12 +3,7 @@
     <h2>Sign Up</h2>
     <a href="/#/users/sign_in">Already have an account? Sign in</a>
     <hr>
-
-    <div class="alert alert-danger" ng-show="errorMessages.length">
-      <ul>
-        <li class="alert-message" ng-repeat="message in errorMessages">{{ message }}</li>
-      </ul>
-    </div>
+    <error-messages></error-messages>
     <form ng-submit="submitForm(signUpForm)" name="signUpForm" sf-schema="schema" sf-form="form" sf-model="user" id="signUpForm">
     </form>
   </div>

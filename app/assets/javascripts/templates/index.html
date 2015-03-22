@@ -1,14 +1,14 @@
+<a href class="btn btn-lg btn-primary pull-right" ng-click="newProjectModal()">New Project</a>
 <h2>Projects</h2>
-
-<form ng-submit="createProject(createProjectForm)" name="createProjectForm" id="createProjectForm" sf-schema="schema" sf-form="form" sf-model="project">
-</form>
 <hr>
-
-<div class="list-group">
-  <div ng-repeat="project in projects">
-    <a ng-href="#/projects/{{ project.id }}" class="list-group-item">
-      <h4 class="list-group-item-heading">{{ project.name }}</h4>
-      <p class="list-group-item-text">{{ project.created_at | date}} {{ project.currency.name }}</p>
-    </a>
+<div class="panel panel-default project" ng-repeat="project in projects">
+  <div class="panel-body">
+    <div class="title"><a ng-href="#/projects/{{ project.id }}">{{ project.name }}</a></div>
+    <p class="description">{{ project.description }}</p>
+    <div class="members">
+        <img ng-repeat="membership in project.memberships"
+          src="https://www.gravatar.com/avatar/{{ membership.user.email_digest }}?s=32&d=retro"
+          class="img-circle" tooltip="{{ membership.user.username}}" />
+    </div>
   </div>
 </div>
