@@ -9,6 +9,7 @@
           <th>Username</th>
           <th>Full name</th>
           <th>Role</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,9 @@
           <td>
             <form sf-schema="membershipSchema" sf-form="membershipForm" sf-model="membership" ng-if="membership.canEdit"></form>
             <form sf-schema="membershipSchema" sf-form="membershipFormReadonly" sf-model="membership" ng-if="!membership.canEdit"></form>
+          </td>
+          <td>
+            <a href class="btn btn-danger" ng-click="removeMember(membership)" ng-class="{ disabled: !membership.canDelete }">Remove</a>
           </td>
         </tr>
       </tbody>

@@ -15,6 +15,12 @@ class ProjectsController < ApplicationController
     render json: project, serializer: ProjectSerializer
   end
 
+  def update
+    project = current_user.memberships.admin.find_by(project_id: params[:id]).project
+    project.update!(project_params)
+    render json: project, serializer: ProjectSerializer
+  end
+
   private
   def project_params
     params.permit(:name, :description, :currency)

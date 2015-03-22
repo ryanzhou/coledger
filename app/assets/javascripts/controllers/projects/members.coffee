@@ -7,6 +7,7 @@ angular.module("coledger").controller("ProjectsMembersController", ['$scope', '$
         if $scope.currentUserMembership.role == "admin"
           project.memberships.filter((m) -> m.id != $scope.currentUserMembership.id).forEach (m) ->
             m.canEdit = true
+            m.canDelete = true
 
     $scope.refreshProject()
 
@@ -56,6 +57,13 @@ angular.module("coledger").controller("ProjectsMembersController", ['$scope', '$
         form.$setPristine()
         flash.success = "@#{response.user.username} has been added to this project"
         $scope.refreshProject()
+      , (failure) ->
+        flash.error = failure.data.errors?[0] || failure.data.error
+
+    $scope.removeMember = (membership) ->
+      Resources.Membership.remove { project_id: $scope.project.id, id: membership.id }, null, (response) ->
+        $scope.refreshProject()
+        flash.success = "@#{response.user.username} has been removed from this project"
       , (failure) ->
         flash.error = failure.data.errors?[0] || failure.data.error
 ])
