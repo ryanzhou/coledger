@@ -1,15 +1,7 @@
-<h2>{{ project.name }}</h2>
-<p class="project-description">{{ project.description }}</p>
-<hr>
-
-<tabset vertical="true" type="pills">
-  <tab heading="Accounts">
-
-  </tab>
-  <tab heading="Timeline">
-
-  </tab>
-  <tab heading="Members">
+<div ng-include="'projects/title.html'"></div>
+<div class="row">
+  <div class="col-md-3" ng-include="'projects/sidebar.html'"></div>
+  <div class="col-md-9">
     <table class="table">
       <thead>
         <tr>
@@ -17,6 +9,7 @@
           <th>Username</th>
           <th>Full name</th>
           <th>Role</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +24,9 @@
             <form sf-schema="membershipSchema" sf-form="membershipForm" sf-model="membership" ng-if="membership.canEdit"></form>
             <form sf-schema="membershipSchema" sf-form="membershipFormReadonly" sf-model="membership" ng-if="!membership.canEdit"></form>
           </td>
+          <td>
+            <a href class="btn btn-danger" ng-click="removeMember(membership)" ng-class="{ disabled: !membership.canDelete }">Remove</a>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -44,8 +40,5 @@
         <button type="submit" class="btn btn-primary">Add to this project</button>
       </div>
     </form>
-  </tab>
-  <tab heading="Settings">
-
-  </tab>
-</tabset>
+  </div>
+</div>

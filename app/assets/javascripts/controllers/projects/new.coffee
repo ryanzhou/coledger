@@ -1,4 +1,4 @@
-angular.module("coledger").controller("NewProjectController", ['$scope', '$modalInstance', 'Resources'
+angular.module("coledger").controller("ProjectsNewController", ['$scope', '$modalInstance', 'Resources'
   ($scope, $modalInstance, Resources) ->
     Resources.Currency.query (data) ->
       $scope.currencies = data
@@ -25,6 +25,7 @@ angular.module("coledger").controller("NewProjectController", ['$scope', '$modal
           type: 'string'
           required: true
           enum: []
+          description: "Currency cannot be changed ater the project is created."
 
     $scope.form = [
       'name'

@@ -1,6 +1,5 @@
-angular.module("coledger").controller("ShowProjectController", ['$scope', '$location', '$routeParams', 'Resources', 'flash'
+angular.module("coledger").controller("ProjectsMembersController", ['$scope', '$location', '$routeParams', 'Resources', 'flash'
   ($scope, $location, $routeParams, Resources, flash) ->
-
     $scope.refreshProject = ->
       Resources.Project.get $routeParams, (project) ->
         $scope.project = project
@@ -8,8 +7,11 @@ angular.module("coledger").controller("ShowProjectController", ['$scope', '$loca
         if $scope.currentUserMembership.role == "admin"
           project.memberships.filter((m) -> m.id != $scope.currentUserMembership.id).forEach (m) ->
             m.canEdit = true
+            m.canDelete = true
 
     $scope.refreshProject()
+
+    $scope.currentTab = "members"
 
     $scope.membershipSchema =
       type: 'object'
@@ -58,4 +60,10 @@ angular.module("coledger").controller("ShowProjectController", ['$scope', '$loca
       , (failure) ->
         flash.error = failure.data.errors?[0] || failure.data.error
 
+    $scope.removeMember = (membership) ->
+      Resources.Membership.remove { project_id: $scope.project.id, id: membership.id }, null, (response) ->
+        $scope.refreshProject()
+        flash.success = "@#{response.user.username} has been removed from this project"
+      , (failure) ->
+        flash.error = failure.data.errors?[0] || failure.data.error
 ])

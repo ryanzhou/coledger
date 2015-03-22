@@ -5,8 +5,8 @@ angular.module("coledger").controller("ProjectsController", ['$scope', '$locatio
 
     $scope.newProjectModal = ->
       $modal.open
-        templateUrl: 'projects/new_project.html'
-        controller: 'NewProjectController'
+        templateUrl: 'projects/new.html'
+        controller: 'ProjectsNewController'
       .result.then (project) ->
         $scope.refreshProjects()
 
