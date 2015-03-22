@@ -7,6 +7,7 @@ class Project
   field :description, type: String
 
   has_many :memberships
+  has_many :accounts
   belongs_to :owner, class_name: "User"
 
   validates :name, presence: true

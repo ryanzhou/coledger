@@ -2,4 +2,5 @@ angular.module("coledger").controller("ProjectsAccountsController", ['$scope', '
   ($scope, $location, $routeParams, Resources, flash) ->
     $scope.project = Resources.Project.get $routeParams
     $scope.currentTab = "accounts"
+    $scope.accounts = Resources.Account.query { project_id: $routeParams.id }
 ])
