@@ -25,6 +25,7 @@ angular.module("coledger").controller("ProjectsNewController", ['$scope', '$moda
           type: 'string'
           required: true
           enum: []
+          description: "Currency cannot be changed ater the project is created."
 
     $scope.form = [
       'name'
