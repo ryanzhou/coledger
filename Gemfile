@@ -71,4 +71,4 @@ source 'http://rails-assets.org' do
 end
 
 # For Heroku
-ruby "2.2.0"
+ruby "2.1.5"
