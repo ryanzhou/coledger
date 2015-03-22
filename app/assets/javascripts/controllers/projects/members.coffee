@@ -1,6 +1,5 @@
-angular.module("coledger").controller("ShowProjectController", ['$scope', '$location', '$routeParams', 'Resources', 'flash'
+angular.module("coledger").controller("ProjectsMembersController", ['$scope', '$location', '$routeParams', 'Resources', 'flash'
   ($scope, $location, $routeParams, Resources, flash) ->
-
     $scope.refreshProject = ->
       Resources.Project.get $routeParams, (project) ->
         $scope.project = project
@@ -10,6 +9,8 @@ angular.module("coledger").controller("ShowProjectController", ['$scope', '$loca
             m.canEdit = true
 
     $scope.refreshProject()
+
+    $scope.currentTab = "members"
 
     $scope.membershipSchema =
       type: 'object'
@@ -57,5 +58,4 @@ angular.module("coledger").controller("ShowProjectController", ['$scope', '$loca
         $scope.refreshProject()
       , (failure) ->
         flash.error = failure.data.errors?[0] || failure.data.error
-
 ])

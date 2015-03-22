@@ -12,6 +12,12 @@ class MembershipsController < ApplicationController
     render json: membership, serializer: MembershipSerializer
   end
 
+  def destroy
+    membership = current_project.memberships.find_by(id: params[:id])
+    membership.delete
+    render json: membership, serializer: MembershipSerializer
+  end
+
   private
   def current_project
     current_user.memberships.admin.find_by(project_id: params[:project_id]).project

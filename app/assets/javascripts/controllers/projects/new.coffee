@@ -1,4 +1,4 @@
-angular.module("coledger").controller("NewProjectController", ['$scope', '$modalInstance', 'Resources'
+angular.module("coledger").controller("ProjectsNewController", ['$scope', '$modalInstance', 'Resources'
   ($scope, $modalInstance, Resources) ->
     Resources.Currency.query (data) ->
       $scope.currencies = data

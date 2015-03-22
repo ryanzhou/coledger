@@ -1,15 +1,7 @@
-<h2>{{ project.name }}</h2>
-<p class="project-description">{{ project.description }}</p>
-<hr>
-
-<tabset vertical="true" type="pills">
-  <tab heading="Accounts">
-
-  </tab>
-  <tab heading="Timeline">
-
-  </tab>
-  <tab heading="Members">
+<div ng-include="'projects/title.html'"></div>
+<div class="row">
+  <div class="col-md-3" ng-include="'projects/sidebar.html'"></div>
+  <div class="col-md-9">
     <table class="table">
       <thead>
         <tr>
@@ -44,8 +36,5 @@
         <button type="submit" class="btn btn-primary">Add to this project</button>
       </div>
     </form>
-  </tab>
-  <tab heading="Settings">
-
-  </tab>
-</tabset>
+  </div>
+</div>
