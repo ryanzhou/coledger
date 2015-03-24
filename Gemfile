@@ -63,7 +63,7 @@ end
 source 'http://rails-assets.org' do
   gem 'rails-assets-bootswatch'
   gem 'rails-assets-fontawesome'
-  gem 'rails-assets-angular'
+  gem 'rails-assets-angular', '1.3.15'
   gem 'rails-assets-angular-route'
   gem 'rails-assets-angular-resource'
   gem 'rails-assets-angular-flash'
