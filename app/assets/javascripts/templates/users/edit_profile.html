@@ -1,4 +1,12 @@
-<h2>Edit Profile</h2>
-
-<form ng-submit="submitForm(editProfileForm)" name="editProfileForm" id="editProfileForm" sf-schema="schema" sf-form="form" sf-model="user">
-</form>
+<div class="row">
+  <div class="col-md-7">
+    <h3>Edit Profile</h3>
+    <form ng-submit="submitForm(editProfileForm)" name="editProfileForm" id="editProfileForm" sf-schema="profileSchema" sf-form="profileForm" sf-model="user">
+    </form>
+  </div>
+  <div class="col-md-5">
+    <h3>Edit Password</h3>
+    <form ng-submit="submitForm(editPasswordForm)" name="editPasswordForm" id="editPasswordForm" sf-schema="passwordSchema" sf-form="passwordForm" sf-model="user">
+    </form>
+  </div>
+</div>
