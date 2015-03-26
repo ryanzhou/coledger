@@ -67,7 +67,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-angular-route'
   gem 'rails-assets-angular-resource'
   gem 'rails-assets-angular-flash'
-  gem 'rails-assets-angular-ui-bootstrap-bower'
+  gem 'rails-assets-angular-bootstrap'
   gem 'rails-assets-angular-schema-form'
 end
 

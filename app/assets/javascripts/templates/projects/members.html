@@ -1,44 +1,40 @@
-<div ng-include="'projects/title.html'"></div>
-<div class="row">
-  <div class="col-md-3" ng-include="'projects/sidebar.html'"></div>
-  <div class="col-md-9">
-    <table class="table">
-      <thead>
-        <tr>
-          <th style="width: 32px"></th>
-          <th>Username</th>
-          <th>Full name</th>
-          <th>Role</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="membership in project.memberships" id="membership-{{ membership.id }}">
-          <td>
-            <img src="https://www.gravatar.com/avatar/{{ membership.user.email_digest }}?s=32&d=retro"
-              class="img-circle" tooltip="{{ membership.user.username}}" />
-          </td>
-          <td>{{ membership.user.username }}</td>
-          <td>{{ membership.user.first_name }} {{ membership.user.last_name }}</td>
-          <td>
-            <form sf-schema="membershipSchema" sf-form="membershipForm" sf-model="membership" ng-if="membership.canEdit"></form>
-            <form sf-schema="membershipSchema" sf-form="membershipFormReadonly" sf-model="membership" ng-if="!membership.canEdit"></form>
-          </td>
-          <td>
-            <a href class="btn btn-danger" ng-click="removeMember(membership)" ng-class="{ disabled: !membership.canDelete }">Remove</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="members">
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width: 32px"></th>
+        <th>Username</th>
+        <th>Full name</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="membership in project.memberships" id="membership-{{ membership.id }}">
+        <td>
+          <img src="https://www.gravatar.com/avatar/{{ membership.user.email_digest }}?s=32&d=retro"
+            class="img-circle" tooltip="{{ membership.user.username}}" />
+        </td>
+        <td>{{ membership.user.username }}</td>
+        <td>{{ membership.user.first_name }} {{ membership.user.last_name }}</td>
+        <td>
+          <form sf-schema="membershipSchema" sf-form="membershipForm" sf-model="membership" ng-if="membership.canEdit"></form>
+          <form sf-schema="membershipSchema" sf-form="membershipFormReadonly" sf-model="membership" ng-if="!membership.canEdit"></form>
+        </td>
+        <td>
+          <a href class="btn btn-danger" ng-click="removeMember(membership)" ng-class="{ disabled: !membership.canDelete }">Remove</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    <h5>Invite a member</h5>
-    <form ng-submit="addMember(addMemberForm)" name="addMemberForm" class="form-inline">
-      <div class="form-group">
-        <input type="text" ng-model="newMembership.username" placeholder="Enter username..." typeahead="user.username for user in searchUsers($viewValue)" typeahead-template-url="components/user_typeahead.html" class="form-control">
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Add to this project</button>
-      </div>
-    </form>
-  </div>
+  <h5>Invite a member</h5>
+  <form ng-submit="addMember(addMemberForm)" name="addMemberForm" class="form-inline">
+    <div class="form-group">
+      <input type="text" ng-model="newMembership.username" placeholder="Enter username..." typeahead="user.username for user in searchUsers($viewValue)" typeahead-template-url="components/user_typeahead.html" class="form-control">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add to this project</button>
+    </div>
+  </form>
 </div>
