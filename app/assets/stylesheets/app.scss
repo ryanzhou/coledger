@@ -10,7 +10,6 @@ footer {
     color: #999;
   }
 }
-
 .project {
   .title {
     font-size: 24px;
@@ -34,4 +33,27 @@ footer {
   width: 900px;
   padding-left: 40px;
   float: left;
+}
+nav {
+  .user-panel {
+    margin-top: 0px !important;
+    width: 250px;
+    padding: 10px 20px;
+    .user-image {
+      width: 50px;
+    }
+    .user-signout {
+      margin-top: 10px;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+  }
+  .glyphicon {
+    color: #b2dbfb;
+  }
+}
+
+.has-success input[type="radio"] {
+  box-shadow: none;
+  -webkit-box-show: none;
 }
