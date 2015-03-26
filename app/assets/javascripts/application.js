@@ -16,7 +16,7 @@
 //= require angular-route
 //= require angular-resource
 //= require angular-flash
-//= require angular-ui-bootstrap-bower
+//= require angular-bootstrap
 //= require angular-sanitize
 //= require tv4
 //= require objectpath

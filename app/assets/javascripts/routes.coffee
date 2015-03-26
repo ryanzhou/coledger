@@ -6,7 +6,5 @@ angular.module("coledger").config(["$routeProvider",
       .when("/users/sign_in", templateUrl: 'users/sign_in.html', controller: 'SignInController')
       .when("/users/sign_up", templateUrl: 'users/sign_up.html', controller: 'SignUpController')
       .when("/users/sign_out", template: null, controller: 'SignOutController')
-      .when("/projects/:id", templateUrl: 'projects/accounts.html', controller: 'ProjectsAccountsController')
-      .when("/projects/:id/members", templateUrl: 'projects/members.html', controller: 'ProjectsMembersController')
-      .when("/projects/:id/settings", templateUrl: 'projects/settings.html', controller: 'ProjectsSettingsController')
+      .when("/projects/:id", templateUrl: 'projects/show.html', controller: 'ProjectsShowController')
 ])
