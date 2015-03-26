@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h3 class="modal-title">New Account</h3>
+</div>
+<div class="modal-body">
+  <error-messages></error-messages>
+  <form ng-submit="submitForm(newAccountForm)" name="newAccountForm" sf-schema="schema" sf-form="form" sf-model="account">
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="submitForm(newAccountForm)">Create Account</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
