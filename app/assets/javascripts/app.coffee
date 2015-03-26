@@ -1,11 +1,11 @@
 app = angular.module("coledger", [
-  "templates",
   "ngRoute",
   "ngResource",
   "angular-flash.service",
   "angular-flash.flash-alert-directive",
   "ui.bootstrap",
-  "schemaForm"
+  "schemaForm",
+  "templates"
 ])
 
 app.factory('authInterceptor', ['$rootScope', '$q', '$window', '$location', 'flash', ($rootScope, $q, $window, $location, flash) ->
