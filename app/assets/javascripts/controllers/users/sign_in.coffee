@@ -28,7 +28,7 @@ angular.module("coledger").controller("SignInController", ['$scope', '$location'
       session.$save (success) ->
         $window.sessionStorage.token = session.token
         $scope.$parent.refreshUser()
-        $location.path($location.search().return_to || "/").search('return_to', null)
+        $location.path($location.search().return_to || "/projects").search('return_to', null)
       , (failure) ->
           if failure.data.error
             flash.error = failure.data.error
