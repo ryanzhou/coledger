@@ -17,7 +17,8 @@ app.factory('authInterceptor', ['$rootScope', '$q', '$window', '$location', 'fla
   responseError: (response) ->
     if response.status == 401
       path = $location.path()
-      if !$location.path().match(/^\/users\//)
+      console.log($location.path())
+      if !$location.path().match(/^\/users\/(sign_in|sign_up)/)
         flash.error = "You need to sign in to complete the previous action"
         $location.path("/users/sign_in").search('return_to', path)
     $q.reject(response)
