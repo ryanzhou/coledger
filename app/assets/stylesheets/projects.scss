@@ -1,0 +1,30 @@
+.members-list {
+  border-bottom: 1px solid #EEE;
+  
+  .member {
+    padding: 10px;
+    border-top: 1px solid #EEE;
+
+    .avatar {
+      width: 48px;
+      float: left;
+    }
+
+    .name {
+      margin-left: 20px;
+      padding-top: 4px;
+      float: left;
+      min-width: 200px;
+      .username {
+        font-weight: bold;
+      }
+      .fullname {
+        color: #999;
+      }
+    }
+
+    .role, .actions {
+      padding-top: 10px;
+    }
+  }
+}

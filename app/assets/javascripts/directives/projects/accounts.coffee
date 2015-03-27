@@ -6,7 +6,7 @@ angular.module("coledger").directive "projectsAccounts", ['Resources', 'flash', 
     scope.accounts = []
 
     scope.refreshAccounts = ->
-      scope.project.$promise.then (data) ->
+      scope.projectPromise.then (data) ->
         scope.accounts = Resources.Account.query { project_id: data.id }
 
     scope.refreshAccounts()
