@@ -37,7 +37,39 @@ footer {
   padding-left: 40px;
   float: left;
 }
-nav {
+nav.navbar-coledger {
+  background-color: #222;
+  color: white;
+  border-radius: 0px;
+  .navbar-nav {
+    > li {
+      > a, a:focus {
+        background-color: #222;
+        color: white;
+        &:hover, &:focus {
+          color: #b2dbfb;
+        }
+      }
+      &.active > a, &.active > a:focus, &.active > a:hover {
+        background-color: black;
+        color: #b2dbfb;
+        font-weight: bold;
+      }
+    }
+    > .open > a, > .open a:focus {
+      background-color: black;
+      &:hover {
+        background-color: black;
+        color: #b2dbfb;
+      }
+    }
+  }
+  .navbar-brand {
+    color: white;
+    .co {
+      color: #b2dbfb;
+    }
+  }
   .user-panel {
     margin-top: 0px !important;
     width: 250px;
@@ -52,7 +84,7 @@ nav {
     }
   }
   .glyphicon {
-    color: #b2dbfb;
+    // color: ;
   }
 }
 

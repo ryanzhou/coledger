@@ -1,14 +1,3 @@
-<a href class="btn btn-lg btn-primary pull-right" ng-click="newProjectModal()">New Project</a>
-<h2>Projects</h2>
+<h2>Landing page</h2>
 <hr>
-<div class="panel panel-default project" ng-repeat="project in projects">
-  <div class="panel-body">
-    <div class="title"><a ng-href="#/projects/{{ project.id }}">{{ project.name }}</a></div>
-    <p class="description">{{ project.description }}</p>
-    <div class="members">
-        <img ng-repeat="membership in project.memberships"
-          src="https://www.gravatar.com/avatar/{{ membership.user.email_digest }}?s=32&d=retro"
-          class="img-circle" tooltip="{{ membership.user.username}}" />
-    </div>
-  </div>
-</div>
+
