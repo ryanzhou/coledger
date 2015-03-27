@@ -1,8 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
-
 body {
-  padding-top: 20px;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  padding-top: 100px;
 }
 
 footer {
@@ -15,7 +12,7 @@ footer {
 }
 .project {
   .title {
-    font-size: 24px;
+    font-size: 20px;
     color: #000;
   }
   .members img {
@@ -38,32 +35,6 @@ footer {
   float: left;
 }
 nav.navbar-coledger {
-  background-color: #222;
-  color: white;
-  border-radius: 0px;
-  .navbar-nav {
-    > li {
-      > a, a:focus {
-        background-color: #222;
-        color: white;
-        &:hover, &:focus {
-          color: #b2dbfb;
-        }
-      }
-      &.active > a, &.active > a:focus, &.active > a:hover {
-        background-color: black;
-        color: #b2dbfb;
-        font-weight: bold;
-      }
-    }
-    > .open > a, > .open a:focus {
-      background-color: black;
-      &:hover {
-        background-color: black;
-        color: #b2dbfb;
-      }
-    }
-  }
   .navbar-brand {
     color: white;
     .co {
@@ -86,6 +57,13 @@ nav.navbar-coledger {
   .glyphicon {
     // color: ;
   }
+}
+
+.alert-fixed-top {
+  top: 50px;
+  position: fixed;
+  width: 100%;
+  border-radius: 0px;
 }
 
 .has-success input[type="radio"] {
