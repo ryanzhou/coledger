@@ -8,5 +8,7 @@ class Membership
   belongs_to :project
   belongs_to :user
 
+  scope :editing, -> { any_of({ role: :editor }, { role: :admin }) }
+
   validates :user, uniqueness: { scope: :project }
 end
