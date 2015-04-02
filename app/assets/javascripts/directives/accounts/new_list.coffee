@@ -15,11 +15,19 @@ angular.module("coledger").directive "accountsNewList", ['Resources', 'flash', '
         color:
           title: 'Color Scheme'
           type: 'string'
-          enum: ['red', 'green', 'blue', 'gray']
+          enum: ['red', 'green', 'blue', 'gray', 'orange']
           required: true
 
     scope.form = [
-      'name', 'color',
+      'name',
+      { key: 'color', type: 'radiobuttons', titleMap: [
+          { name: "<i class='fa fa-square red-scheme'></i>", value: "red" }
+          { name: "<i class='fa fa-square green-scheme'></i>", value: "green" }
+          { name: "<i class='fa fa-square blue-scheme'></i>", value: "blue" }
+          { name: "<i class='fa fa-square gray-scheme'></i>", value: "gray" }
+          { name: "<i class='fa fa-square orange-scheme'></i>", value: "orange" }
+        ], style: { selected: 'btn-primary' }
+      }
       { type: 'submit', title: 'Create List', style: 'btn btn-primary' }
     ]
 
@@ -30,8 +38,9 @@ angular.module("coledger").directive "accountsNewList", ['Resources', 'flash', '
         flash.success = "List #{scope.list.name} has been successfully created!"
         scope.list = {}
         form.$setPristine()
+        scope.errorMessages = []
         scope.refreshAccount()
       , (failure) ->
-        scope.errorMessages = failure.data.errors? || [failure.data.error]
+        scope.errorMessages = failure.data.errors || [failure.data.error]
 
 ]

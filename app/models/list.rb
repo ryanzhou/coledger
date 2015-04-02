@@ -4,7 +4,9 @@ class List
   include Mongoid::Enum
 
   field :name, type: String
-  enum :color, [:red, :green, :blue, :gray]
+  enum :color, [:red, :green, :blue, :gray, :orange]
 
   belongs_to :account
+
+  validates :name, presence: true
 end
