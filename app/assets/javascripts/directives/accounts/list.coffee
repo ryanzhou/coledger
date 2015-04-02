@@ -3,7 +3,11 @@ angular.module("coledger").directive "accountsList", ['Resources', 'flash', '$mo
   templateUrl: 'accounts/list.html'
   scope: {
     list: '='
+    project: '='
+    account: '='
   }
   link: (scope, element, attrs) ->
-    scope.list
+    scope.updateList = ->
+      Resources.List.update { project_id: scope.project.id, account_id: scope.account.id, id: scope.list.id }, scope.list, (success) ->
+        flash.success = "The list has been saved."
 ]

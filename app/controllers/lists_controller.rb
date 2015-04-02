@@ -4,7 +4,13 @@ class ListsController < ApplicationController
   end
 
   def create
-    list = current_account.lists.create!(list_params)
+    list = current_editing_account.lists.create!(list_params)
+    render json: list, serializer: ListSerializer
+  end
+
+  def update
+    list = current_editing_account.lists.find(params[:id])
+    list.update!(list_params)
     render json: list, serializer: ListSerializer
   end
 

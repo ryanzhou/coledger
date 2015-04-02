@@ -1,6 +1,10 @@
 <div class="panel list list-{{ list.color }}">
   <div class="panel-heading">
-    <h3 class="panel-title">{{ list.name }}</h3>
+    <h3 class="panel-title">
+      <span editable-text="list.name"  onaftersave="updateList()">
+        {{ list.name }}
+      </span>
+    </h3>
   </div>
   <div class="panel-body">
 

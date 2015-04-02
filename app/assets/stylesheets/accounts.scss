@@ -12,6 +12,20 @@
   }
 }
 
+.list {
+  .panel-heading {
+    padding: 15px 10px;
+  }
+
+  .panel-title input {
+    width: 150px;
+  }
+
+  .panel-title form.editable-text {
+    margin: -10px 0;
+  }
+}
+
 .list.list-red {
   > .panel-heading {
     color: #a94442;
