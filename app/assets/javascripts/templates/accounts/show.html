@@ -1,0 +1,10 @@
+<h2>
+  <span editable-text="account.name" e-form="accountNameForm" onaftersave="updateAccount()">
+    {{ account.name }}
+  </span>
+  <button class="btn btn-default" ng-click="accountNameForm.$show()" ng-hide="accountNameForm.$visible">
+    <i class="fa fa-pencil"></i>
+  </button>
+</h2>
+<a href="#/projects/{{ project.id }}">Back to <strong>{{ project.name }}</strong></a>
+<hr>

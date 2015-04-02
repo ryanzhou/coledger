@@ -8,4 +8,5 @@ angular.module("coledger").config(["$routeProvider",
       .when("/users/sign_out", template: null, controller: 'SignOutController')
       .when("/projects", templateUrl: 'projects/list.html', controller: 'ProjectsController')
       .when("/projects/:id", templateUrl: 'projects/show.html', controller: 'ProjectsShowController')
+      .when("/projects/:project_id/accounts/:id", templateUrl: 'accounts/show.html', controller: 'AccountsShowController')
 ])

@@ -21,4 +21,5 @@
 //= require tv4
 //= require objectpath
 //= require angular-schema-form
+//= require angular-xeditable
 //= require_tree .

@@ -153,6 +153,8 @@ GEM
       rails-assets-angular-sanitize (>= 1.2)
       rails-assets-objectpath (~> 1.1.0)
       rails-assets-tv4 (~> 1.0.15)
+    rails-assets-angular-xeditable (0.1.8)
+      rails-assets-angular (~> 1.0)
     rails-assets-bootstrap (3.3.4)
       rails-assets-jquery (>= 1.9.1)
     rails-assets-fontawesome (4.3.0)
@@ -267,6 +269,7 @@ DEPENDENCIES
   rails-assets-angular-resource!
   rails-assets-angular-route!
   rails-assets-angular-schema-form!
+  rails-assets-angular-xeditable (= 0.1.8)!
   rails-assets-bootstrap!
   rails-assets-fontawesome!
   rails_12factor
