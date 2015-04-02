@@ -8,3 +8,11 @@
 </h2>
 <a href="#/projects/{{ project.id }}">Back to <strong>{{ project.name }}</strong></a>
 <hr>
+<div class="row">
+  <div class="col-md-3" ng-repeat="list in account.lists">
+    <accounts-list list="list"></accounts-list>
+  </div>
+  <div class="col-md-3">
+    <accounts-new-list></accounts-new-list>
+  </div>
+</div>

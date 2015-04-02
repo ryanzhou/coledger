@@ -16,6 +16,9 @@ angular.module("coledger").factory "Resources", ["$resource", ($resource) ->
   Resources.Account = $resource('/projects/:project_id/accounts/:id', null,
     update: { method: 'PATCH' }
   )
+  Resources.List = $resource('/projects/:project_id/accounts/:account_id/lists/:id', null,
+    update: { method: 'PATCH' }
+  )
 
   Resources
 ]
