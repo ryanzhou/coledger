@@ -14,6 +14,12 @@ class AccountsController < ApplicationController
     render json: account, serializer: AccountSerializer
   end
 
+  def update
+    account = current_editing_project.accounts.find(params[:id])
+    account.update!(account_params)
+    render json: account, serializer: AccountSerializer
+  end
+
   private
   def current_project
     current_user.memberships.find_by(project_id: params[:project_id]).project

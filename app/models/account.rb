@@ -9,6 +9,7 @@ class Account
   validates :name, :account_type, presence: true
 
   belongs_to :project
+  has_many :lists
 
   def total
     BigDecimal.new("0.00")  # TODO

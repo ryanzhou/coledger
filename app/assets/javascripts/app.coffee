@@ -5,6 +5,7 @@ app = angular.module("coledger", [
   "angular-flash.flash-alert-directive",
   "ui.bootstrap",
   "schemaForm",
+  "xeditable",
   "templates"
 ])
 
@@ -32,4 +33,8 @@ app.config ["flashProvider", (flashProvider) ->
   flashProvider.successClassnames.push('alert-success')
   flashProvider.warnClassnames.push('alert-warn')
   flashProvider.infoClassnames.push('alert-info')
+]
+
+app.run ["editableOptions", (editableOptions) ->
+  editableOptions.theme = 'bs3'  # Bootstrap 3
 ]
