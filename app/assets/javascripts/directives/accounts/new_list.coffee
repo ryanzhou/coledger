@@ -20,13 +20,12 @@ angular.module("coledger").directive "accountsNewList", ['Resources', 'flash', '
 
     scope.form = [
       'name',
-      { key: 'color', type: 'radiobuttons', titleMap: [
-          { name: "<i class='fa fa-square red-scheme'></i>", value: "red" }
-          { name: "<i class='fa fa-square green-scheme'></i>", value: "green" }
-          { name: "<i class='fa fa-square blue-scheme'></i>", value: "blue" }
-          { name: "<i class='fa fa-square gray-scheme'></i>", value: "gray" }
-          { name: "<i class='fa fa-square orange-scheme'></i>", value: "orange" }
-        ], style: { selected: 'btn-primary' }
+      {
+        key: 'color',
+        type: 'radiobuttons',
+        titleMap: ['red', 'green', 'blue', 'gray', 'orange'].map (color) ->
+          { name: "<i class='fa fa-square #{color}-scheme'></i>", value: color }
+        style: { selected: 'btn-primary' }
       }
       { type: 'submit', title: 'Create List', style: 'btn btn-primary' }
     ]
