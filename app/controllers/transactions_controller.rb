@@ -1,11 +1,15 @@
 class TransactionsController < ApplicationController
+  include CurrentProject
+
   def index
-    render json: current_account.transactions, serializer: TransactionSerializer
+    render json: current_account.transactions, each_serializer: TransactionSerializer
   end
 
   def create
-    transaction = current_editing_account.transactions.create!(transaction_params)
-    render json:
+    transaction = current_editing_account.transactions.build
+    transaction.attributes = transaction_params
+    transaction.save!
+    render json: transaction, serializer: TransactionSerializer
   end
 
   private

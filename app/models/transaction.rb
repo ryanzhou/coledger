@@ -9,8 +9,8 @@ class Transaction
   belongs_to :account
   belongs_to :list
 
-  validates :name, :amount, presence: true
-  validates :list_id, inclusion: account.lists.pluck(:id).map(&:to_s)
+  validates :name, :amount, :account, :list_id, presence: true
+  validate :list_belongs_to_account
 
   def money_currency
     @money_currency = account.project.money_currency
@@ -20,7 +20,11 @@ class Transaction
     Money.new(amount_fractional, money_currency)
   end
 
-  def amount=(decimal)
-    self.amount_fractional = (decimal * money_currency.subunit_to_unit).to_i
+  def amount=(str)
+    self.amount_fractional = (BigDecimal.new(str) * money_currency.subunit_to_unit).to_i
+  end
+
+  def list_belongs_to_account
+    errors.add(:list, "does not belong to account") unless list && list.account == account
   end
 end

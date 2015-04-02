@@ -5,6 +5,7 @@ angular.module("coledger").directive "accountsList", ['Resources', 'flash', '$mo
     list: '='
     project: '='
     account: '='
+    transactions: '='
   }
   link: (scope, element, attrs) ->
     scope.updateList = ->
