@@ -16,11 +16,10 @@ angular.module("coledger").config(["$stateProvider", "$urlRouterProvider", "$url
       $stateProvider.state(state, route)
 
 
-]).run(['$rootScope', 'Auth', '$location', 'flash', '$state', ($rootScope, Auth, $location, flash, $state) ->
+]).run(['$rootScope', 'Auth', 'flash', '$state', ($rootScope, Auth, flash, $state) ->
   $rootScope.$on "$stateChangeStart", (event, toState) ->
       if toState.data && toState.data.requireLogin && !Auth.isLoggedIn()
         event.preventDefault()
-        console.log('redirecting')
         flash.error = "You need to sign in to complete the previous action"
         $state.go("sign_in")
 ])
