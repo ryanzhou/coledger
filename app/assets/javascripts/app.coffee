@@ -1,5 +1,5 @@
 app = angular.module("coledger", [
-  "ngRoute",
+  "ui.router",
   "ngResource",
   "angular-flash.service",
   "angular-flash.flash-alert-directive",
@@ -15,13 +15,12 @@ app.factory('authInterceptor', ['$rootScope', '$q', '$window', '$location', 'fla
     if ($window.sessionStorage.token)
       request.headers.Authorization = "Token token=\"#{$window.sessionStorage.token}\""
     request
-  responseError: (response) ->
-    if response.status == 401
-      path = $location.path()
-      if !(path == "/" || path.match(/^\/users\/(sign_in|sign_up)/))
-        flash.error = "You need to sign in to complete the previous action"
-        $location.path("/users/sign_in").search('return_to', path)
-    $q.reject(response)
+  # responseError: (response) ->
+  #   if response.status == 401
+  #     path = $location.path()
+  #     if !(path == "/" || path.match(/^\/users\/(sign_in|sign_up)/))
+        
+  #   $q.reject(response)
 ])
 
 app.config ["$httpProvider", ($httpProvider) ->
