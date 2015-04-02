@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+  include CurrentProject
+
   def index
     accounts = current_project.accounts
     render json: accounts, each_serializer: AccountSerializer
@@ -21,14 +23,6 @@ class AccountsController < ApplicationController
   end
 
   private
-  def current_project
-    current_user.memberships.find_by(project_id: params[:project_id]).project
-  end
-
-  def current_editing_project
-    current_user.memberships.editing.find_by(project_id: params[:project_id]).project
-  end
-
   def account_params
     params.permit(:name, :account_type)
   end
