@@ -1,4 +1,6 @@
+
 body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding-top: 100px;
 }
 
@@ -24,16 +26,10 @@ footer {
   font-size: 16px;
 }
 
-.nav-stacked {
-  width: 240px;
-  float:left;
+.tab-content {
+  padding-top: 20px;
 }
 
-.tab-content {
-  width: 900px;
-  padding-left: 40px;
-  float: left;
-}
 nav.navbar-coledger {
   .navbar-brand {
     color: white;
@@ -64,9 +60,22 @@ nav.navbar-coledger {
   position: fixed;
   width: 100%;
   border-radius: 0px;
+  z-index: 1000;
 }
 
 .has-success input[type="radio"] {
   box-shadow: none;
   -webkit-box-show: none;
+}
+
+.has-success .radio-inline {
+  color: #333;
+}
+
+.well {
+  box-shadow: none;
+  background: #fcfcfc;
+  h4 {
+    margin-top: 0px;
+  }
 }
