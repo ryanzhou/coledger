@@ -3,6 +3,7 @@
   overflow-y: hidden;
   min-height: 400px;
   height: auto;
+  white-space: nowrap;
 
   [class*="col-lg"], [class*="col-md"], [class*="col-sm"] {
     float: none;

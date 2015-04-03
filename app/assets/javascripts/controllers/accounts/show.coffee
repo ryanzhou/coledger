@@ -1,7 +1,7 @@
 angular.module("coledger").controller("AccountsShowController", ['$scope', '$location', '$routeParams', 'Resources', 'flash'
   ($scope, $location, $routeParams, Resources, flash) ->
     $scope.account = {}
-    $scope.listTransactions = {}
+    $scope.transactions = []
     $scope.project = Resources.Project.get(id: $routeParams.project_id)
     $scope.refreshAccount = ->
       $scope.accountPromise = Resources.Account.get(project_id: $routeParams.project_id, id: $routeParams.id).$promise
@@ -15,9 +15,7 @@ angular.module("coledger").controller("AccountsShowController", ['$scope', '$loc
     $scope.refreshTransactions = ->
       $scope.transactionsPromise = Resources.Transaction.query(project_id: $routeParams.project_id, account_id: $routeParams.id).$promise
       $scope.transactionsPromise.then (data) ->
-        data.map (t) ->
-          $scope.listTransactions[t.list_id] ||= []
-          $scope.listTransactions[t.list_id].push(t)
+        $scope.transactions = data
 
     $scope.refreshAccount()
     $scope.refreshTransactions()
