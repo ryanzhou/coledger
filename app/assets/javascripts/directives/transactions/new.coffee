@@ -1,4 +1,4 @@
-angular.module("coledger").directive "TransactionsNew", ['Resources', 'flash', '$modal', (Resources, flash, $modal) ->
+angular.module("coledger").directive "transactionsNew", ['Resources', 'flash', '$modal', (Resources, flash, $modal) ->
   restrict: 'E'
   templateUrl: 'transactions/new.html'
   scope: true
@@ -11,17 +11,13 @@ angular.module("coledger").directive "TransactionsNew", ['Resources', 'flash', '
         name:
           title: 'Name'
           type: 'string'
-          required: true
-        description:
-          title: 'Description'
-          type: 'string'
         amount:
           title: 'Amount'
           type: 'string'
 
     scope.form = [
-      'name', 'description', 'amount'
-      { type: 'submit', title: 'Create Transaction', style: 'btn btn-primary' }
+      { key: 'name', title: null, placeholder: "New transaction...", feedback: false, autocomplete: false }
+      { key: 'amount', title: null, placeholder: "0.00", feedback: false, autocomplete: false }
     ]
 
     scope.errorMessages = []

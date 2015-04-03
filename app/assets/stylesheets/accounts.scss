@@ -6,7 +6,7 @@
   white-space: nowrap;
   margin: 0px;
 
-  [class*="col-lg"], [class*="col-md"], [class*="col-sm"] {
+  > [class*="col-lg"], > [class*="col-md"], > [class*="col-sm"] {
     float: none;
     display: inline-block;
     vertical-align: top;
@@ -91,17 +91,19 @@
   }
 }
 
-.transaction {
+.well.transaction {
   padding: 10px;
-  margin: 2px 0;
+  margin: 5px 0;
   border-left-width: 5px;
-  border-radius: 3px;
-  border-left-color: #777;
+  border-left-color: #aaa;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 
   .name {
 
   }
   .amount {
+    text-align: right;
     float: right;
     font-family: Courier, monospace;
   }
@@ -111,5 +113,24 @@
     color: #999;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  input {
+    margin: 0;
+    padding: 0;
+    box-shadow: none!important;
+    border: none!important;
+    height: 20px;
+  }
+
+  .form-group {
+    margin: 0;
+    padding: 0;
+  }
+
+  .input-group-addon {
+    background: none;
+    border: none;
+    padding: 2px 0 0 10px;
   }
 }
