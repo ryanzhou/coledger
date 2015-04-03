@@ -1,4 +1,4 @@
-angular.module("coledger").controller("ProjectsController", ['$scope', '$location', '$modal', 'Resources', 'flash'
+angular.module("coledger").controller("ProjectsIndexController", ['$scope', '$location', '$modal', 'Resources', 'flash'
   ($scope, $location, $modal, Resources, flash) ->
     $scope.refreshProjects = ->
       $scope.projects = Resources.Project.query()
