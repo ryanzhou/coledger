@@ -1,4 +1,11 @@
 <div class="transaction well">
-  <h4>{{ transaction.name }}</h4>
-  <p>Amount: {{ transaction.amount.formatted }}</p>
+  <div class="amount">
+    {{ transaction.amount.formatted }}
+  </div>
+  <div class="name">
+    {{ transaction.name }}
+  </div>
+  <div class="description">
+    {{ transaction.description }}
+  </div>
 </div>

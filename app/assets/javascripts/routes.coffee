@@ -10,7 +10,8 @@ angular.module("coledger").config(["$stateProvider", "$urlRouterProvider", "$url
       "projects": { url: "/projects", template: "<ui-view/>", abstract: true, data: { requireLogin: true } }
       "projects.index": { url: "", templateUrl: 'projects/index.html', controller: 'ProjectsIndexController' }
       "projects.show": { url: "/:id", templateUrl: 'projects/show.html', controller: 'ProjectsShowController' }
-      "projects.accounts.show": { url: "/projects/:project_id/accounts/:id", templateUrl: 'accounts/show.html', controller: 'AccountsShowController' }
+      "projects.accounts": { url: "/:project_id/accounts", template: "<ui-view/>", abstract: true }
+      "projects.accounts.show": { url: "/:id", templateUrl: 'accounts/show.html', controller: 'AccountsShowController' }
     }
     for state, route of states
       $stateProvider.state(state, route)

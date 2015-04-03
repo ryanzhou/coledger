@@ -13,7 +13,7 @@ class Transaction
   validate :list_belongs_to_account
 
   def money_currency
-    @money_currency = account.project.money_currency
+    @money_currency = account.money_currency
   end
 
   def amount

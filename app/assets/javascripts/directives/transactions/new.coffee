@@ -1,6 +1,6 @@
-angular.module("coledger").directive "accountsNewTransaction", ['Resources', 'flash', '$modal', (Resources, flash, $modal) ->
+angular.module("coledger").directive "TransactionsNew", ['Resources', 'flash', '$modal', (Resources, flash, $modal) ->
   restrict: 'E'
-  templateUrl: 'accounts/new_transaction.html'
+  templateUrl: 'transactions/new.html'
   scope: true
   link: (scope, element, attrs) ->
     scope.transaction = { list_id: scope.list.id }

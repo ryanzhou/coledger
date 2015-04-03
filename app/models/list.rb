@@ -10,4 +10,8 @@ class List
   has_many :transactions
 
   validates :name, presence: true
+
+  def total
+    Money.new(transactions.sum(:amount_fractional), account.money_currency)
+  end
 end

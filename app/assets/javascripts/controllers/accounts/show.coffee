@@ -13,7 +13,7 @@ angular.module("coledger").controller("AccountsShowController", ['$scope', '$loc
         flash.success = "The account has been saved."
 
     $scope.refreshTransactions = ->
-      $scope.transactionsPromise = Resources.Transaction.query(project_id: $routeParams.project_id, account_id: $routeParams.id).$promise
+      $scope.transactionsPromise = Resources.Transaction.query(project_id: $stateParams.project_id, account_id: $stateParams.id).$promise
       $scope.transactionsPromise.then (data) ->
         $scope.transactions = data
 
