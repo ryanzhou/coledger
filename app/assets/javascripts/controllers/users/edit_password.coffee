@@ -19,10 +19,7 @@ angular.module("coledger").controller("EditPasswordController", ['$scope', '$loc
 
     $scope.form = [
       { key: 'password', type: 'password' }
-      { 
-        key: 'confirmPassword'
-        type: 'password'
-      }
+      { key: 'confirmPassword', type: 'password' }
       { type: 'submit', style: 'btn btn-primary', title: 'Update Password' }]
 
     $scope.$watch("user.confirmPassword", (value) -> 

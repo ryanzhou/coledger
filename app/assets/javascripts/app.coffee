@@ -1,5 +1,5 @@
 app = angular.module("coledger", [
-  "ngRoute",
+  "ui.router",
   "ngResource",
   "angular-flash.service",
   "angular-flash.flash-alert-directive",
@@ -9,19 +9,24 @@ app = angular.module("coledger", [
   "templates"
 ])
 
-app.factory('authInterceptor', ['$rootScope', '$q', '$window', '$location', 'flash', ($rootScope, $q, $window, $location, flash) ->
-  request: (request) ->
-    request.headers = request.headers || {}
-    if ($window.sessionStorage.token)
-      request.headers.Authorization = "Token token=\"#{$window.sessionStorage.token}\""
-    request
-  responseError: (response) ->
-    if response.status == 401
-      path = $location.path()
-      if !(path == "/" || path.match(/^\/users\/(sign_in|sign_up)/))
+app.factory('authInterceptor', ['$rootScope', '$timeout', '$q', '$window', '$injector', 'flash', ($rootScope, $timeout, $q, $window, $injector, flash) ->
+  # this trick must be done so that we don't receive
+  # `Uncaught Error: [$injector:cdep] Circular dependency found`
+  $timeout () ->
+    $rootScope.$state = $injector.get('$state');
+
+  return {
+    request: (request) ->
+      request.headers = request.headers || {}
+      if ($window.sessionStorage.token)
+        request.headers.Authorization = "Token token=\"#{$window.sessionStorage.token}\""
+      request
+    responseError: (response) ->
+      if response.status == 401
         flash.error = "You need to sign in to complete the previous action"
-        $location.path("/users/sign_in").search('return_to', path)
-    $q.reject(response)
+        $rootScope.$state.go('sign_in')
+      $q.reject(response)
+  }
 ])
 
 app.config ["$httpProvider", ($httpProvider) ->

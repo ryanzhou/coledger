@@ -1,8 +1,8 @@
-angular.module("coledger").controller("ProjectsShowController", ['$scope', '$location', '$routeParams', 'Resources', 'flash'
-  ($scope, $location, $routeParams, Resources, flash) ->
+angular.module("coledger").controller("ProjectsShowController", ['$scope', '$location', '$stateParams', 'Resources', 'flash'
+  ($scope, $location, $stateParams, Resources, flash) ->
     $scope.project = {}
     $scope.refreshProject = ->
-      $scope.projectPromise = Resources.Project.get($routeParams).$promise
+      $scope.projectPromise = Resources.Project.get($stateParams).$promise
       $scope.projectPromise.then (data) ->
         $scope.project = data
         $scope.currentUserMembership = $scope.project.memberships.filter((m) -> m.user.username == $scope.$parent.currentUser.username)[0]

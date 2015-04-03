@@ -1,9 +1,9 @@
-angular.module("coledger").controller("AccountsShowController", ['$scope', '$location', '$routeParams', 'Resources', 'flash'
-  ($scope, $location, $routeParams, Resources, flash) ->
+angular.module("coledger").controller("AccountsShowController", ['$scope', '$location', '$stateParams', 'Resources', 'flash'
+  ($scope, $location, $stateParams, Resources, flash) ->
     $scope.account = {}
-    $scope.project = Resources.Project.get(id: $routeParams.project_id)
+    $scope.project = Resources.Project.get(id: $stateParams.project_id)
     $scope.refreshAccount = ->
-      $scope.accountPromise = Resources.Account.get(project_id: $routeParams.project_id, id: $routeParams.id).$promise
+      $scope.accountPromise = Resources.Account.get(project_id: $stateParams.project_id, id: $stateParams.id).$promise
       $scope.accountPromise.then (data) ->
         $scope.account = data
 
