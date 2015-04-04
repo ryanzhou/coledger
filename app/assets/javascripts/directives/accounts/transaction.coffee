@@ -5,4 +5,15 @@ angular.module("coledger").directive "accountsTransaction", ['Resources', 'flash
     transaction: '='
   }
   link: (scope, element, attrs) ->
+    scope.showTransactionModal = ($event) ->
+      return if scope.transaction.noClick
+      $modal.open
+        templateUrl: 'transactions/show.html'
+        controller: 'TransactionsShowController'
+        resolve:
+          transaction: -> scope.transaction
+          project: -> scope.$parent.project
+          account: -> scope.$parent.account
+      .result.then (data) ->
+        $scope.refreshTransactions()
 ]

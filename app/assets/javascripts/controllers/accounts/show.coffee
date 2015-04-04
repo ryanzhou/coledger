@@ -17,6 +17,11 @@ angular.module("coledger").controller("AccountsShowController", ['$scope', '$loc
       $scope.transactionsPromise.then (data) ->
         $scope.transactions = data
 
+    $scope.moveTransaction = (transaction, list) ->
+      candidate = $scope.transactions.filter((t) -> t.id == transaction.id)[0]
+      candidate.list_id = list.id
+      Resources.Transaction.update { project_id: $scope.project.id, account_id: $scope.account.id, id: transaction.id }, { list_id: list.id }
+
     $scope.refreshAccount()
     $scope.refreshTransactions()
 ])

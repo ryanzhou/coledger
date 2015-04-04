@@ -1,4 +1,4 @@
-<div class="well transaction">
+<div class="well transaction" ng-click="showTransactionModal($event)">
   <div class="amount">
     {{ transaction.amount.formatted }}
   </div>
@@ -8,4 +8,5 @@
   <div class="description">
     {{ transaction.description }}
   </div>
+  <div class="clearfix"></div>
 </div>

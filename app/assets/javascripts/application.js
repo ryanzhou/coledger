@@ -22,4 +22,5 @@
 //= require objectpath
 //= require angular-schema-form
 //= require angular-xeditable
+//= require ngDraggable
 //= require_tree .
