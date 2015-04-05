@@ -2,7 +2,7 @@ angular.module("coledger").config(["$stateProvider", "$urlRouterProvider", "$url
   ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) ->
     $urlMatcherFactoryProvider.strictMode(false)
     states = {
-      "home": { url: "", templateUrl: 'index.html' }
+      "home": { url: "", templateUrl: 'index.html', controller: 'IndexController' }
       "sign_in": { url: "/users/sign_in", templateUrl: 'users/sign_in.html', controller: 'SignInController' }
       "sign_up": { url: "/users/sign_up", templateUrl: 'users/sign_up.html', controller: 'SignUpController' }
       "sign_out": { url: "/users/sign_out", template: null, controller: 'SignOutController' }

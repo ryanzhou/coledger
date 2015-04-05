@@ -23,4 +23,5 @@
 //= require angular-schema-form
 //= require angular-xeditable
 //= require ngDraggable
+//= require jquery-flipster
 //= require_tree .
