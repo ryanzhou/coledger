@@ -1,0 +1,22 @@
+<div class="well transaction">
+  <form ng-submit="createTransaction(createTransactionForm)" name="createTransactionForm" class="form-vertical">
+    <div class="form-group">
+      <input type="text" ng-model="transaction.name" placeholder="New transaction..." class="form-control">
+    </div>
+    <div class="row" ng-show="transaction.name.length > 0">
+      <div class="col-sm-10">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" ng-model="transaction.amount" placeholder="0.00" class="form-control amount">
+            <div class="input-group-addon">
+              {{ project.currency.iso_code }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-xs btn-primary pull-right"><i class="fa fa-plus"></i></button>
+      </div>
+    </div>
+  </form>
+</div>

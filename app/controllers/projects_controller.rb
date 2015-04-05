@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
+  include CurrentProject
+
   def index
     render json: current_user.projects, each_serializer: ProjectSerializer
   end
 
   def show
-    project = current_user.memberships.find_by(project_id: params[:id]).project
-    render json: project, serializer: ProjectSerializer
+    render json: current_project, serializer: ProjectSerializer
   end
 
   def create
@@ -16,9 +17,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    project = current_user.memberships.admin.find_by(project_id: params[:id]).project
-    project.update!(project_params)
-    render json: project, serializer: ProjectSerializer
+    current_admin_project.update!(project_params)
+    render json: current_admin_project, serializer: ProjectSerializer
   end
 
   private

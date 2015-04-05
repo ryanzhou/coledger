@@ -70,6 +70,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-angular-bootstrap'
   gem 'rails-assets-angular-schema-form'
   gem 'rails-assets-angular-xeditable', '0.1.8'
+  gem 'rails-assets-ngDraggable'
 end
 
 # For Heroku

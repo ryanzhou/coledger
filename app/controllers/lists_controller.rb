@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  include CurrentProject
+
   def index
     render json: current_account.lists, serializer: ListSerializer
   end
@@ -16,13 +18,11 @@ class ListsController < ApplicationController
 
   private
   def current_account
-    project = current_user.memberships.find_by(project_id: params[:project_id]).project
-    project.accounts.find(params[:account_id])
+    current_project.accounts.find(params[:account_id])
   end
 
   def current_editing_account
-    project = current_user.memberships.editing.find_by(project_id: params[:project_id]).project
-    project.accounts.find(params[:account_id])
+    current_editing_project.accounts.find(params[:account_id])
   end
 
   def list_params

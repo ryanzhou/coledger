@@ -4,9 +4,12 @@ describe "Users Features", js: true do
   describe "sign up a new user" do
     it "signs me up" do
       visit "/#/users/sign_up"
+      visit "/#/users/sign_up"
       within '#signUpForm' do
         fill_in "Username", with: Faker::Internet.user_name
-        fill_in "Password", with: Faker::Internet.password
+        password = Faker::Internet.password
+        fill_in "Password", with: password
+        fill_in "Repeat Password", with: password
         fill_in "Email", with: Faker::Internet.free_email
         fill_in "First Name", with: Faker::Name.first_name
         fill_in "Last Name", with: Faker::Name.last_name

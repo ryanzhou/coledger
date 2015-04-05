@@ -1,12 +1,18 @@
-<div class="panel list list-{{ list.color }}">
+<div class="panel list list-{{ list.color }}" ng-drop="true" ng-drag-start="onDragStart($data)" ng-drop-success="onDropComplete($data, list)">
   <div class="panel-heading">
     <h3 class="panel-title">
       <span editable-text="list.name"  onaftersave="updateList()">
         {{ list.name }}
+        <span class="pull-right">{{ list.total.formatted }}</span>
       </span>
     </h3>
   </div>
   <div class="panel-body">
-
+    <div class="transactions">
+      <accounts-transaction transaction="transaction" ng-repeat="transaction in listTransactions"
+      ng-drag="true" ng-drag-data="transaction" ng-drag-success="onDragComplete($data)">
+      </accounts-transaction>
+    </div>
+    <transactions-new></transactions-new>
   </div>
 </div>

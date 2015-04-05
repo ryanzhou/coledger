@@ -1,17 +1,15 @@
-angular.module("coledger").controller("MainController", ['$scope', '$rootScope', '$location', 'Resources'
-  ($scope, $rootScope, $location, Resources) ->
+angular.module("coledger").controller("MainController", ['$scope', '$rootScope', '$location', 'Auth', 'Resources'
+  ($scope, $rootScope, $location, Auth, Resources) ->
 
     $scope.refreshUser = ->
-      Resources.User.get(id: 'current', (data) ->
-        $scope.currentUser = data
-      , (failure) ->
+      if Auth.isLoggedIn()
         $scope.currentUser = null
-      )
-      Resources.Session.get(id: 'current', (data) ->
-        $scope.currentSession = data
-      , (failure) ->
-        $scope.currentSession = null
-      )
+        Resources.User.get id: 'current', (data) ->
+          $scope.currentUser = data
+        Resources.Session.get id: 'current', (data) ->
+          $scope.currentSession = data
+      else
+        $scope.currentUser = null
 
     $scope.refreshUser()
     $rootScope.$on "refresh-user", ->
