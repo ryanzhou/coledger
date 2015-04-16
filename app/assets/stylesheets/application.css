@@ -13,6 +13,7 @@
  *= require bootstrap
  *= require fontawesome
  *= require angular-xeditable
+ *= require jquery-flipster
  *= require_tree .
  *= require_self
  */
