@@ -6,27 +6,33 @@ angular.module("coledger").controller("EditPasswordController", ['$scope', '$loc
       type: 'object'
       title: 'User'
       properties:
-        password:
-          title: 'Password'
+        current_password:
+          title: 'Current Password'
           type: 'string'
           minLength: 6
           required: true
-        confirmPassword:
-          title: 'Repeat Password'
+        password:
+          title: 'New Password'
+          type: 'string'
+          minLength: 6
+          required: true
+        confirm_password:
+          title: 'Repeat New Password'
           type: 'string'
           minLength: 6
           required: true
 
     $scope.form = [
+      { key: 'current_password', type: 'password' }
       { key: 'password', type: 'password' }
-      { key: 'confirmPassword', type: 'password' }
+      { key: 'confirm_password', type: 'password' }
       { type: 'submit', style: 'btn btn-primary', title: 'Update Password' }]
 
-    $scope.$watch("user.confirmPassword", (value) -> 
+    $scope.$watch("user.confirm_password", (value) -> 
       if (value != $scope.user.password)
-        $scope.$broadcast('schemaForm.error.confirmPassword', 'matchPassword', "Passwords must match")
+        $scope.$broadcast('schemaForm.error.confirm_password', 'matchPassword', "Passwords must match")
       else
-        $scope.$broadcast('schemaForm.error.confirmPassword', 'matchPassword', true)
+        $scope.$broadcast('schemaForm.error.confirm_password', 'matchPassword', true)
     )
     $scope.submitForm = (form) ->
       $scope.$broadcast("schemaFormValidate")
