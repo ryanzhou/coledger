@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   include CurrentProject
 
   def index
-    render json: current_transaction.comments.order(created_at: :desc), each_serializer: CommentSerializer
+    render json: current_transaction.comments.order(created_at: :asc), each_serializer: CommentSerializer
   end
 
   def create
@@ -16,6 +16,6 @@ class CommentsController < ApplicationController
   end
 
   def current_transaction
-    current_account.transactions.find(params[:id])
+    current_account.transactions.find(params[:transaction_id])
   end
 end
