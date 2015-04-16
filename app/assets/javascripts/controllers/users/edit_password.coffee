@@ -27,7 +27,9 @@ angular.module("coledger").controller("EditPasswordController", ['$scope', '$loc
       { key: 'password', type: 'password' }
       { key: 'confirm_password', type: 'password' }
       { type: 'submit', style: 'btn btn-primary', title: 'Update Password' }]
-
+    $scope.$watch("user.current_password", (value) ->
+      $scope.$broadcast('schemaForm.error.current_password', 'incorrect', true)
+    )
     $scope.$watch("user.confirm_password", (value) -> 
       if (value != $scope.user.password)
         $scope.$broadcast('schemaForm.error.confirm_password', 'matchPassword', "Passwords must match")
