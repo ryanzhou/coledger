@@ -6,6 +6,7 @@ class Transaction
   field :description, type: String
   field :amount_fractional, type: Integer
 
+  has_many :comments
   belongs_to :account
   belongs_to :list
 
