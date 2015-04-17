@@ -1,10 +1,10 @@
 <div class="accounts" ng-show="accounts.length">
   <div class="list-group">
     <a ng-href="#/projects/{{ project.id }}/accounts/{{ account.id }}" class="list-group-item" ng-repeat="account in accounts">
-      <h4 class="list-group-item-heading">
+      <h5 class="list-group-item-heading">
         {{ account.name }}
         <small><span class="label label-default">{{ account.account_type | uppercase }}</span></small>
-      </h4>
+      </h5>
     </a>
   </div>
   <a href ng-click="newAccountModal()" class="btn btn-primary"><i class="fa fa-plus"></i> New Account</a>

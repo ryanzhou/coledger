@@ -31,6 +31,8 @@ footer {
 }
 
 nav.navbar-coledger {
+  background: #333;
+
   .navbar-brand {
     color: white;
     .co {
@@ -56,7 +58,7 @@ nav.navbar-coledger {
 }
 
 .alert-fixed-top {
-  top: 50px;
+  top: 64px;
   position: fixed;
   width: 100%;
   border-radius: 0px;
@@ -73,8 +75,10 @@ nav.navbar-coledger {
 }
 
 .well {
+  border: 1px solid #EEE;
   box-shadow: none;
   background: #fcfcfc;
+  border-radius: 5px;
   h4 {
     margin-top: 0px;
   }

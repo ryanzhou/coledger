@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :memberships, only: [:create, :update, :destroy]
     resources :accounts, only: [:index, :create, :show, :update, :destroy] do
       resources :lists, only: [:index, :create, :update, :destroy]
-      resources :transactions, only: [:index, :create, :update, :destroy]
+      resources :transactions, only: [:index, :create, :update, :destroy] do
+        resources :comments, only: [:index, :create]
+      end
     end
   end
   resources :currencies, only: [:index]
