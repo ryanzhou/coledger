@@ -11,5 +11,9 @@ angular.module("coledger").controller("ProjectsShowController", ['$scope', '$loc
             m.canEdit = true
             m.canDelete = true
 
+    $scope.updateProject = ->
+      Resources.Project.update { id: $scope.project.id }, $scope.project, (success) ->
+        flash.success = "This project has been saved."
+
     $scope.refreshProject()
 ])
