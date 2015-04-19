@@ -7,6 +7,7 @@ app = angular.module("coledger", [
   "schemaForm",
   "xeditable",
   "ngDraggable",
+  "angularMoment",
   "templates"
 ])
 

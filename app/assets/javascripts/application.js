@@ -24,5 +24,7 @@
 //= require angular-xeditable
 //= require ngDraggable
 //= require jquery-flipster
+//= require moment
+//= require angular-moment
 //= require_tree ./templates
 //= require_tree .

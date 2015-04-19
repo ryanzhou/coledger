@@ -142,12 +142,17 @@
     float: right;
     font-family: Courier, monospace;
   }
-  .description {
+  .description, .due-date {
     font-size: 12px;
     white-space: nowrap;
     color: #999;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  .due-date.overdue {
+    color: #a94442;
+    font-weight: bold;
   }
 
   input {
