@@ -7,16 +7,38 @@
     </button>
   </h3>
   <p>
-    <span editable-text="transaction.description" onaftersave="updateTransaction()" e-form="transactionDescriptionForm">
+    <span editable-textarea="transaction.description" e-rows="3" e-cols="80" onaftersave="updateTransaction()" >
       {{ transaction.description || 'Edit description...' }}
     </span>
-    <button class="btn btn-xs btn-default" ng-click="transactionDescriptionForm.$show()" ng-hide="transactionDescriptionForm.$visible">
-      <i class="fa fa-pencil"></i>
-    </button>
   </p>
 </div>
 <div class="modal-body">
-  <transactions-comments></transactions-comments>
+  <div class="row transaction-detail">
+    <div class="col-sm-3">
+      <h6>Amount</h6>
+      <div class="amount">
+        <span editable-text="transaction.amount.decimal" onaftersave="updateTransaction()">{{ transaction.amount.formatted }}</span>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <h6>Due date</h6>
+    </div>
+    <div class="col-sm-3">
+      <h6>Assignee</h6>
+    </div>
+    <div class="col-sm-3">
+      <h6></h6>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-8">
+      <transactions-comments></transactions-comments>
+    </div>
+    <div class="col-sm-4">
+      <h4>Attachments</h4>
+    </div>
+  </div>
 </div>
 <div class="modal-footer">
 </div>
