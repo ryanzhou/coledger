@@ -23,9 +23,9 @@ app.factory('authInterceptor', ['$rootScope', '$timeout', '$q', '$window', '$inj
         request.headers.Authorization = "Token token=\"#{$window.sessionStorage.token}\""
       request
     responseError: (response) ->
-      if response.status == 401
+      if response.status == 401 && !$rootScope.$state.is("users.sign_up")
         flash.error = "You need to sign in to complete the previous action"
-        $rootScope.$state.go('sign_in')
+        $rootScope.$state.go('users.sign_in')
       $q.reject(response)
   }
 ])

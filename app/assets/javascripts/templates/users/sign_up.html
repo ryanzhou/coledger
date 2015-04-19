@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h2>Sign Up</h2>
-    <a href="/#/users/sign_in">Already have an account? Sign in</a>
+    <a ui-sref="users.sign_in">Already have an account? Sign in</a>
     <hr>
     <error-messages></error-messages>
     <form ng-submit="submitForm(signUpForm)" name="signUpForm" sf-schema="schema" sf-form="form" sf-model="user" id="signUpForm">
