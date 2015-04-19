@@ -32,9 +32,12 @@ footer {
 
 nav.navbar-coledger {
   background: #333;
+  min-height: 53px;
 
   .navbar-brand {
     color: white;
+    padding: 15px 15px;
+    height: 53px;
     .co {
       color: #b2dbfb;
     }
@@ -55,10 +58,14 @@ nav.navbar-coledger {
   .glyphicon {
     // color: ;
   }
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }
 
 .alert-fixed-top {
-  top: 64px;
+  top: 53px;
   position: fixed;
   width: 100%;
   border-radius: 0px;
