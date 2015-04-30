@@ -27,16 +27,15 @@ CoLedger offers a range of features which exceed the mininum accounting transact
 
 * **Flash messages**: All `POST` actions in the app will render flash messages after the redirections. This will allow users to receive immediate feedback on what they have done.
 * **Data validation**: All forms have sensible validations. If something is invalid an error message will be displayed clearly next to the user input.
-* **User CRUD:
+* **User CRUD**:
 * **Instant Figure calculations**:
-* **Visualisation:
-* **One to many poject management:
-* **Comments and attachments for accounting column:
-* **Customization of account scheme, background customization:
-* **Figure trends visulazation:
+* **Visualisation**:
+* **One to many poject management**:
+* **Comments and attachments for accounting column**:
+* **Customization of account scheme, background customization**:
+* **Figure trends visulazation**:
 
 ## Technical Feature:
-
 
 
 
