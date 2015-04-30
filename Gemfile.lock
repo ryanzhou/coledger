@@ -65,7 +65,11 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
+<<<<<<< HEAD
     coffee-script-source (1.9.1.1)
+=======
+    coffee-script-source (1.8.0)
+>>>>>>> WIP Mail handler
     columnize (0.9.0)
     connection_pool (2.2.0)
     database_cleaner (1.4.1)
@@ -258,6 +262,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  coffee-script-source (= 1.8.0)
   database_cleaner
   factory_girl_rails
   faker

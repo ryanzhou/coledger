@@ -2,6 +2,7 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   include ActiveModel::SecurePassword
+  include GlobalID::Identification
 
   field :username, type: String
   field :email, type: String

@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'coffee-script-source', '1.8.0'
 
 gem 'sprockets', '2.12.3'  # Do not upgrade to 3.0 until angular-rails-templates supports it
 
