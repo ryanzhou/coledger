@@ -36,10 +36,10 @@ CoLedger offers a range of features which exceed the mininum accounting transact
 * **Customization of account scheme, background customization**: The account scheme and webpage backgound colors could be customised.
 
 ## Technical Feature
-***Front end browser**: JavaScript and AngularJS
-***Communication between fron end and application**: AJAX
-***Application Server**: Rails Back-end (RESTfull API)
-***Database Server**: MongoDB
+* **Front end browser**: JavaScript and AngularJS
+* **Communication between fron end and application**: AJAX
+* **Application Server**: Rails Back-end (RESTfull API)
+* **Database Server**: MongoDB
 
 ## External Framework
 
