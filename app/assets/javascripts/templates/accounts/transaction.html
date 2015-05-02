@@ -8,8 +8,5 @@
   <div class="description">
     {{ transaction.description }}
   </div>
-  <div class="due-date" ng-show="transaction.due_date" ng-class="{overdue:isOverdue(transaction)}">
-    <i class="fa fa-calendar"></i> Due <span am-time-ago="transaction.due_date"></span>
-  </div>
   <div class="clearfix"></div>
 </div>

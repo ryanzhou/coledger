@@ -28,6 +28,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.permit(:name, :description, :amount, :list_id, :due_date)
+    params.permit(:name, :description, :amount, :list_id)
   end
 end

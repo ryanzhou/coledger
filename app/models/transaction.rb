@@ -5,7 +5,6 @@ class Transaction
   field :name, type: String
   field :description, type: String
   field :amount_fractional, type: Integer
-  field :due_date, type: Date
 
   has_many :comments
   belongs_to :account

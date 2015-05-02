@@ -3,9 +3,6 @@ angular.module("coledger").directive "accountsTransaction", ['Resources', 'flash
   templateUrl: 'accounts/transaction.html'
   scope: true
   link: (scope, element, attrs) ->
-    scope.isOverdue = (transaction) ->
-      new Date(transaction.due_date) <= new Date()
-
     scope.showTransactionModal = ($event) ->
       return if scope.transaction.noClick
       $modal.open

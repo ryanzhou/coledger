@@ -72,9 +72,8 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-angular-bootstrap'
   gem 'rails-assets-angular-schema-form'
   gem 'rails-assets-angular-xeditable', '0.1.8'
-  gem 'rails-assets-ngDraggable', '0.1.4'
+  gem 'rails-assets-ngDraggable'
   gem 'rails-assets-jquery-flipster'
-  gem 'rails-assets-angular-moment'
 end
 
 # For Heroku

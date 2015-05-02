@@ -6,7 +6,7 @@
         class="img-rounded" tooltip="{{ comment.user.username}}" />
     </div>
     <div class="main col-sm-10">
-      <div class="author">{{ comment.user.first_name }} {{ comment.user.last_name }} <date>{{ comment.created_at | amCalendar }}</date></div>
+      <div class="author">{{ comment.user.first_name }} {{ comment.user.last_name }} <date>{{ comment.created_at | date:'medium' }}</date></div>
       <div class="content">{{ comment.content }}</div>
     </div>
   </div>

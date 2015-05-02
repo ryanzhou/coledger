@@ -14,20 +14,20 @@
 </div>
 <div class="modal-body">
   <div class="row transaction-detail">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <h6>Amount</h6>
-      <div class="detail-value">
-        <span editable-text="transaction.amount.decimal" onaftersave="updateTransaction()">{{ transaction.amount.formatted || "Add an amount..." }}</span>
+      <div class="amount">
+        <span editable-text="transaction.amount.decimal" onaftersave="updateTransaction()">{{ transaction.amount.formatted }}</span>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <h6>Due date</h6>
-      <div class="detail-value">
-        <a editable-text="transaction.due_date" e-type="date" onaftersave="updateTransaction()">{{ (transaction.due_date | amDateFormat:"LL") || "Add a due date..." }}</a>
-      </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <h6>Assignee</h6>
+    </div>
+    <div class="col-sm-3">
+      <h6></h6>
     </div>
   </div>
   <hr>
