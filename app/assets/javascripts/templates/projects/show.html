@@ -1,14 +1,8 @@
-<h2>
-  <span editable-text="project.name" e-form="projectNameForm" onaftersave="updateProject()">
-    {{ project.name }}
-  </span>
-  <button class="btn btn-default" ng-click="projectNameForm.$show()" ng-hide="projectNameForm.$visible">
-    <i class="fa fa-pencil"></i>
-  </button>
-</h2>
-<p class="project-description"><span editable-textarea="project.description" onaftersave="updateProject()" e-rows="4" e-cols="80">{{ project.description || 'Edit description...' }}</span></p>
+<h2>{{ project.name }}</h2>
+<p class="project-description">{{ project.description }}</p>
 <hr>
 <tabset type="tabs">
   <tab heading="Accounts"><projects-accounts></projects-accounts></tab>
   <tab heading="Members"><projects-members></projects-members></tab>
+  <tab heading="Settings"><projects-settings></projects-settings></tab>
 </tabset>
