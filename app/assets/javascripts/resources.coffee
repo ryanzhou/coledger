@@ -1,28 +1,28 @@
 angular.module("coledger").factory "Resources", ["$resource", ($resource) ->
   Resources = {}
 
-  Resources.Session = $resource('/api/sessions/:id')
-  Resources.User = $resource('/api/users/:id', null,
+  Resources.Session = $resource('/sessions/:id')
+  Resources.User = $resource('/users/:id', null,
     update: { method: 'PATCH' }
-    search: { url: '/api/users/search', method: "POST", isArray: true }
+    search: { url: '/users/search', method: "POST", isArray: true }
   )
-  Resources.Project = $resource('/api/projects/:id', null
-    update: { method: 'PATCH' }
-  )
-  Resources.Membership = $resource('/api/projects/:project_id/memberships/:id', null,
+  Resources.Project = $resource('/projects/:id', null
     update: { method: 'PATCH' }
   )
-  Resources.Currency = $resource('/api/currencies/:id')
-  Resources.Account = $resource('/api/projects/:project_id/accounts/:id', null,
+  Resources.Membership = $resource('/projects/:project_id/memberships/:id', null,
     update: { method: 'PATCH' }
   )
-  Resources.List = $resource('/api/projects/:project_id/accounts/:account_id/lists/:id', null,
+  Resources.Currency = $resource('/currencies/:id')
+  Resources.Account = $resource('/projects/:project_id/accounts/:id', null,
     update: { method: 'PATCH' }
   )
-  Resources.Transaction = $resource('/api/projects/:project_id/accounts/:account_id/transactions/:id', null,
+  Resources.List = $resource('/projects/:project_id/accounts/:account_id/lists/:id', null,
     update: { method: 'PATCH' }
   )
-  Resources.Comment = $resource('/api/projects/:project_id/accounts/:account_id/transactions/:transaction_id/comments/:id')
+  Resources.Transaction = $resource('/projects/:project_id/accounts/:account_id/transactions/:id', null,
+    update: { method: 'PATCH' }
+  )
+  Resources.Comment = $resource('/projects/:project_id/accounts/:account_id/transactions/:transaction_id/comments/:id')
 
   Resources
 ]

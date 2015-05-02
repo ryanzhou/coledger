@@ -3,14 +3,14 @@ require 'rails_helper'
 describe "Memberships Requests" do
   before { auth }
 
-  describe "POST /api/projects/:project_id/memberships" do
+  describe "POST /projects/:project_id/memberships" do
     let(:user) { create(:user) }
 
     context "with admin permissions" do
       let(:project) { create(:project, owner: @user) }
 
       it "creates a membership" do
-        post_json "/api/projects/#{project.id}/memberships", { username: user.username, role: "editor" }
+        post_json "/projects/#{project.id}/memberships", { username: user.username, role: "editor" }
         expect(last_response.status).to eq(200)
         expect(json["id"]).to be_a(String)
         expect(json["user"]["username"]).to eq(user.username)
@@ -18,8 +18,8 @@ describe "Memberships Requests" do
 
       context "user already added" do
         it "returns a validation error" do
-          post_json "/api/projects/#{project.id}/memberships", { username: user.username, role: "editor" }
-          post_json "/api/projects/#{project.id}/memberships", { username: user.username, role: "editor" }
+          post_json "/projects/#{project.id}/memberships", { username: user.username, role: "editor" }
+          post_json "/projects/#{project.id}/memberships", { username: user.username, role: "editor" }
           expect(last_response.status).to eq(422)
           expect(json["errors"][0]).to eq("User is already taken")
         end
@@ -31,7 +31,7 @@ describe "Memberships Requests" do
       let!(:membership) { create(:membership, role: :editor, user: @user, project: project)}
 
       it "returns 404" do
-        post_json "/api/projects/#{project.id}/memberships", { username: user.username }
+        post_json "/projects/#{project.id}/memberships", { username: user.username }
         expect(last_response.status).to eq(404)
         expect(json["error_code"]).to eq("DOCUMENT_NOT_FOUND")
       end

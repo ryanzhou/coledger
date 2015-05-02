@@ -3,7 +3,7 @@
 <hr>
 <div class="panel panel-default project" ng-repeat="project in projects">
   <div class="panel-body">
-    <div class="title"><a ui-sref="projects.show({id:project.id})">{{ project.name }}</a></div>
+    <div class="title"><a ng-href="#/projects/{{ project.id }}">{{ project.name }}</a></div>
     <p class="description">{{ project.description }}</p>
     <div class="members">
         <img ng-repeat="membership in project.memberships"

@@ -16,7 +16,7 @@ describe "Memberships Features", js: true do
     end
 
     it "lists all members in the project" do
-      visit "/projects/#{project.id}"
+      visit "#/projects/#{project.id}"
       click_link "Members"
       expect(page).to have_content(@user.username)
       expect(page).to have_content(user_1.username)
@@ -35,7 +35,7 @@ describe "Memberships Features", js: true do
     end
 
     it "updates the role of the member" do
-      visit "/projects/#{project.id}"
+      visit "#/projects/#{project.id}"
       click_link "Members"
       within "#membership-#{@membership_1.id}" do
         choose "Admin"
@@ -55,7 +55,7 @@ describe "Memberships Features", js: true do
     let(:other_user) { create(:user) }
 
     it "adds the member to the project as viewer" do
-      visit "/projects/#{project.id}"
+      visit "#/projects/#{project.id}"
       click_link "Members"
       fill_in "Enter username...", with: other_user.username[0,2]
       expect(page).to have_content(other_user.username)

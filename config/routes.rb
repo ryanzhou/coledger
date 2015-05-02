@@ -2,27 +2,22 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  scope "/api" do
-    resources :users, only: [:create, :update, :show] do
-      collection do
-        post :search
-      end
+  resources :users, only: [:create, :update, :show] do
+    collection do
+      post :search
     end
-    resources :sessions, only: [:create, :show, :destroy]
-    resources :projects, only: [:index, :create, :show, :update, :destroy] do
-      resources :memberships, only: [:create, :update, :destroy]
-      resources :accounts, only: [:index, :create, :show, :update, :destroy] do
-        resources :lists, only: [:index, :create, :update, :destroy]
-        resources :transactions, only: [:index, :create, :update, :destroy] do
-          resources :comments, only: [:index, :create]
-        end
-      end
-    end
-    resources :currencies, only: [:index]
   end
-
-  # AngularJS HTML5 routes
-  get '/*path' => 'home#index'
+  resources :sessions, only: [:create, :show, :destroy]
+  resources :projects, only: [:index, :create, :show, :update, :destroy] do
+    resources :memberships, only: [:create, :update, :destroy]
+    resources :accounts, only: [:index, :create, :show, :update, :destroy] do
+      resources :lists, only: [:index, :create, :update, :destroy]
+      resources :transactions, only: [:index, :create, :update, :destroy] do
+        resources :comments, only: [:index, :create]
+      end
+    end
+  end
+  resources :currencies, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -10,7 +10,7 @@ describe "Projects Features", js: true do
     let!(:membership) { create(:membership, user: @user, role: :editor) }
 
     it "shows a list of projects" do
-      visit '/projects'
+      visit '#/projects'
       expect(page).to have_content("Projects")
       expect(page).to have_content(project.name)
       expect(page).to have_content(membership.project.name)
@@ -26,7 +26,7 @@ describe "Projects Features", js: true do
     let(:description) { Faker::Company.catch_phrase }
 
     it "adds a project to the list" do
-      visit '/projects'
+      visit '#/projects'
       click_link "New Project"
       within '#createProjectForm' do
         fill_in "Project Name", with: project_name
@@ -43,7 +43,7 @@ describe "Projects Features", js: true do
     let!(:project) { create(:project, owner: @user) }
 
     it "shows the project name and description" do
-      visit '/projects'
+      visit '#/projects'
       click_link project.name
       expect(page).to have_content(project.name)
       expect(page).to have_content(project.description)
