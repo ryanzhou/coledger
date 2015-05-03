@@ -14,7 +14,7 @@ Make sure you have MongoDB installed in your development machine.
 Clone this project using Git, and install dependencies:
 
 ```
-bundle install
+Bundle Install 
 ```
 
 Then run `rails server` to start the development web server.
