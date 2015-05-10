@@ -75,7 +75,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-ngDraggable', '0.1.4'
   gem 'rails-assets-jquery-flipster'
   gem 'rails-assets-angular-moment'
-  gem 'rails-assets-ng-pickadate'
+  gem 'rails-assets-pickadate', '3.5.6'
   gem 'rails-assets-imagesloaded'
 end
 
