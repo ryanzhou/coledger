@@ -26,5 +26,7 @@
 //= require jquery-flipster
 //= require moment
 //= require angular-moment
+//= require pickadate
+//= require ng-pickadate
 //= require_tree ./templates
 //= require_tree .

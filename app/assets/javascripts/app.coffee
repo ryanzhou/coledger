@@ -8,6 +8,7 @@ app = angular.module("coledger", [
   "xeditable",
   "ngDraggable",
   "angularMoment",
+  "pickadate",
   "templates"
 ])
 
