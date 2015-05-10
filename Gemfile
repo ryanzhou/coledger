@@ -76,6 +76,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-jquery-flipster'
   gem 'rails-assets-angular-moment'
   gem 'rails-assets-ng-pickadate'
+  gem 'rails-assets-imagesloaded'
 end
 
 # For Heroku

@@ -28,5 +28,8 @@
 //= require angular-moment
 //= require pickadate
 //= require ng-pickadate
+//= require eventEmitter
+//= require eventie
+//= require imagesloaded
 //= require_tree ./templates
 //= require_tree .
