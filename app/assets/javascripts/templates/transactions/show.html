@@ -23,7 +23,7 @@
     <div class="col-sm-4">
       <h6>Due date</h6>
       <div class="detail-value">
-        <a editable-text="transaction.due_date" e-type="date" onaftersave="updateTransaction()">{{ (transaction.due_date | amDateFormat:"LL") || "Add a due date..." }}</a>
+        <input type="text" class="form-control pickadate" pick-a-date="transaction.parsed_due_date" placeholder="Add a due date...">
       </div>
     </div>
     <div class="col-sm-4">
