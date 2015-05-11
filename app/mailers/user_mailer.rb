@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-	default from: 'coledger.helper@gmail.com'
+	default from: 'noreply@coledger.io'
 
 	def welcome_email(user)
 		@user = user
-		@url = 'localhost:3000'
+		@url = 'https://coledgerapp.herokuapp.com'
 		mail(to: @user.email, subject: 'Welcome to Coledger!')
 	end
 end

@@ -62,6 +62,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+
 # Install bower components here. See https://rails-assets.org
 source 'http://rails-assets.org' do
   gem 'rails-assets-bootswatch'

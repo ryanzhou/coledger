@@ -9,6 +9,8 @@ angular.module("coledger").config(["$locationProvider", "$stateProvider", "$urlR
       "users.sign_up": { url: "/sign_up", templateUrl: 'users/sign_up.html', controller: 'SignUpController' }
       "users.sign_out": { url: "/sign_out", template: null, controller: 'SignOutController' }
       "users.edit_profile": { url: "/edit_profile", templateUrl: 'users/edit_profile.html', data: { requireLogin: true } }
+      "users.forget_passwd": {url: "/forget_passwd", templateUrl: 'users/forget_passwd.html', controller: 'ForgetPasswdController'}
+      "users.recover_password": {url: "/recover_passwd", templateUrl: 'users/recover_passwd.html', controller: 'RecoverPasswdController'}
       "projects": { url: "/projects", template: "<ui-view/>", abstract: true, data: { requireLogin: true } }
       "projects.index": { url: "", templateUrl: 'projects/index.html', controller: 'ProjectsIndexController' }
       "projects.show": { url: "/:id", templateUrl: 'projects/show.html', controller: 'ProjectsShowController' }
