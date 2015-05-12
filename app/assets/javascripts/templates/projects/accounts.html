@@ -27,11 +27,12 @@
     </div>
   </div>
 </div>
-<h5>Advanced Options</h5>
-<a href ng-click="showArchivedAccounts = true" ng-show="!showArchivedAccounts">Show archived accounts</a>
-<a href ng-click="showArchivedAccounts = false" ng-show="showArchivedAccounts">Hide archived accounts</a>
-<hr>
-<a href ng-click="newAccountModal()" class="btn btn-primary"><i class="fa fa-plus"></i> New Account</a>
+<div class="account-options" ng-show="accounts.length">
+  <h5>Advanced Options</h5>
+  <a href ng-click="showArchivedAccounts = true" ng-show="!showArchivedAccounts">Show archived accounts</a>
+  <a href ng-click="showArchivedAccounts = false" ng-show="showArchivedAccounts">Hide archived accounts</a>
+  <hr>
+  <a href ng-click="newAccountModal()" class="btn btn-primary"><i class="fa fa-plus"></i> New Account</a>
 </div>
 <div class="well blankstate" ng-hide="accounts.length">
   <h4>This project doesn't have any account</h4>
