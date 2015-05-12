@@ -21,7 +21,7 @@ angular.module("coledger").controller("AccountsChartsController", ['$scope', '$s
           $scope.dueData = list_ids.map (list_id) ->
             months.map (month) ->
               $scope.transactions.filter (t) -> t.due_date != null
-              .filter (t) -> (new Date(t.due_date)).getMonth() == month.getMonth() && t.list_id == list_id
+              .filter (t) -> (new Date(t.due_date)).getMonth() == month.getMonth() && (new Date(t.due_date)).getYear() == month.getYear() && t.list_id == list_id
               .map (t) -> parseFloat(t.amount.decimal)
               .reduce ((a,b) -> a + b), 0
 
