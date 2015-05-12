@@ -14,6 +14,7 @@ angular.module("coledger").config(["$locationProvider", "$stateProvider", "$urlR
       "projects.show": { url: "/:id", templateUrl: 'projects/show.html', controller: 'ProjectsShowController' }
       "projects.accounts": { url: "/:project_id/accounts", template: "<ui-view/>", abstract: true }
       "projects.accounts.show": { url: "/:id", templateUrl: 'accounts/show.html', controller: 'AccountsShowController' }
+      "projects.accounts.charts": { url: "/:id/charts", templateUrl: 'accounts/charts.html', controller: 'AccountsChartsController' }
     }
     for state, route of states
       $stateProvider.state(state, route)

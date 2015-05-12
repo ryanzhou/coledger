@@ -9,6 +9,7 @@ app = angular.module("coledger", [
   "ngDraggable",
   "angularMoment",
   "pickadate",
+  "chart.js",
   "templates"
 ])
 

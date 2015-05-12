@@ -31,5 +31,7 @@
 //= require eventEmitter
 //= require eventie
 //= require imagesloaded
+//= require Chart.js
+//= require angular-chart.js
 //= require_tree ./templates
 //= require_tree .

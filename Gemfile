@@ -77,6 +77,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-angular-moment'
   gem 'rails-assets-pickadate', '3.5.6'
   gem 'rails-assets-imagesloaded'
+  gem 'rails-assets-angular-chart.js'
 end
 
 # For Heroku
