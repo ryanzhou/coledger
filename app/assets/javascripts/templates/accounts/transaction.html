@@ -5,6 +5,10 @@
   <div class="name">
     {{ transaction.name }}
   </div>
+  <div class="assignee-placeholder" ng-show="transaction.assignee"></div>
+  <div class="assignee" ng-show="transaction.assignee">
+    <img class="img-rounded" src="https://www.gravatar.com/avatar/{{ transaction.assignee.email_digest }}?s=24&d=retro" tooltip="{{ transaction.assignee.username}}"></img>
+  </div>
   <div class="description">
     {{ transaction.description }}
   </div>
