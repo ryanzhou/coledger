@@ -1,0 +1,21 @@
+<ul class="breadcrumb">
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/projects/{{ project.id }}">{{ project.name }}</a></li>
+  <li><a href="/projects/{{ project.id }}/accounts/{{ account.id }}">{{ account.name }}</a></li>
+  <li class="active">Charts</li>
+</ul>
+<h2>Charts <br><small>{{ account.name }}</small></h2>
+<hr>
+
+<tabset type="tabs">
+  <tab heading="Due in 12 months" select="selectDue()" deselect="deselectDue()">
+    <div ng-if="showDue">
+      <canvas class="chart chart-bar" data="dueData" series="dueSeries" labels="dueLabels" legend="true"></canvas>
+    </div>
+  </tab>
+  <tab heading="Summary of Lists" select="selectSummary()" deselect="deselectSummary()">
+    <div ng-if="showSummary">
+      <canvas class="chart chart-pie" data="summaryData" labels="summaryLabels" legend="true"></canvas>
+    </div>
+  </tab>
+</tabset>
