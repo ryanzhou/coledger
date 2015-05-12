@@ -20,4 +20,16 @@ angular.module("coledger").directive "projectsAccounts", ['Resources', 'flash', 
       .result.then (account) ->
         scope.refreshAccounts()
 
+    scope.showArchivedAccounts = false
+
+    scope.archiveAccount = (account) ->
+      account.archived = true
+      Resources.Account.update { project_id: scope.project.id, id: account.id }, account, (success) ->
+        account = success
+
+    scope.restoreAccount = (account) ->
+      account.archived = false
+      Resources.Account.update { project_id: scope.project.id, id: account.id }, account, (success) ->
+        account = success
+
 ]

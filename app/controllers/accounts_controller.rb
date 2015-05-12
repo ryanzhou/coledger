@@ -24,6 +24,6 @@ class AccountsController < ApplicationController
 
   private
   def account_params
-    params.permit(:name, :account_type)
+    params.permit(:name, :account_type, :archived)
   end
 end

@@ -1,3 +1,8 @@
+<ul class="breadcrumb">
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/projects/{{ project.id }}">{{ project.name }}</a></li>
+  <li class="active">{{ account.name }}</li>
+</ul>
 <h2>
   <span editable-text="account.name" e-form="accountNameForm" onaftersave="updateAccount()">
     {{ account.name }}
@@ -6,7 +11,6 @@
     <i class="fa fa-pencil"></i>
   </button>
 </h2>
-<a ui-sref="projects.show({id:project.id})">Back to <strong>{{ project.name }}</strong></a>
 <hr>
 <div class="row lists">
   <div class="col-md-3" ng-repeat="list in account.lists">

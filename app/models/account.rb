@@ -4,6 +4,7 @@ class Account
   include Mongoid::Enum
 
   field :name, type: String
+  field :archived, type: Boolean, default: false
   enum :account_type, [:income, :expense, :asset, :liability]
 
   validates :name, :account_type, presence: true
@@ -13,7 +14,7 @@ class Account
   has_many :transactions
 
   def total
-    BigDecimal.new("0.00")  # TODO
+    Money.new(transactions.sum(:amount_fractional), money_currency)
   end
 
   def money_currency
