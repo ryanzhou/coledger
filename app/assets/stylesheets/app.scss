@@ -1,6 +1,5 @@
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-top: 100px;
   font-size: 13px;
 }
@@ -141,4 +140,11 @@ nav.navbar-coledger {
 
 .editable-empty {
   opacity: 0.5;
+}
+
+.jumbotron {
+  text-align: center;
+  h1 {
+    font-size: 36px;
+  }
 }

@@ -1,10 +1,28 @@
-<h2>Landing page</h2>
-<hr>
-
-<div class="flipster">
-    <ul>
+<div class="jumbotron">
+  <h1>Reimagine small team accounting</h1>
+  <p><strong>CoLedger</strong> gets all your transactions sorted with an intuitive drag-and-drop interface.</p>
+  <p><a class="btn btn-primary btn-lg" ui-sref="users.sign_up">Sign up and create your first project</a></p>
+  <div>
+    <div class="flipster">
+      <ul>
         <li><%= image_tag asset_path('screenshots/members.png') %></li>
         <li><%= image_tag asset_path('screenshots/projects.png') %></li>
         <li><%= image_tag asset_path('screenshots/transactions.png') %></li>
-    </ul>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h3>Collaborative features</h3>
+    <p>CoLedger is designed for small teams to work on accounting together. All the transactions are stored in the cloud so there's no files to exchange and everyone is kept in sync.</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Visualize your data</h3>
+    <p>Real-time charts can be generated once you have added all your transactions to CoLedger. It has never been easier to visualize accounting transactions.</p>
+  </div>
+  <div class="col-md-4">
+    <h3>Security</h3>
+    <p>All communications between your browser and our server are encrypted with TLS. Your data remains private even if you're using public internet.</p>
+  </div>
 </div>
