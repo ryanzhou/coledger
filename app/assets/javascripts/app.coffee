@@ -29,6 +29,10 @@ app.factory('authInterceptor', ['$rootScope', '$timeout', '$q', '$window', '$inj
       if response.status == 401 && !$rootScope.$state.is("users.sign_up")
         flash.error = "You need to sign in to complete the previous action"
         $rootScope.$state.go('users.sign_in')
+      else if response.status == 422
+        for error in response.data.errors
+          if error == "Current password is incorrect"
+            $rootScope.$broadcast('schemaForm.error.current_password', 'incorrect', "The password is incorrect");
       $q.reject(response)
   }
 ])
