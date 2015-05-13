@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div ng-controller="ForgetPasswdController" class="col-md-6 col-md-offset-3">
     <h2>Forget password?</h2>
     <p>Please enter your email to recover password!</p>
-    <hr>
-    <form ng-submit="submitForm(email)" name="email" sf-schema="schema" sf-form="form" id="email">
+    <br/>
+    <form ng-submit="submitForm(emailForm)" name="emailForm" id="emailForm" sf-schema="schema" sf-form="form" sf-model="user">
     </form>
   </div>
 </div>

@@ -4,11 +4,15 @@ class User
   include ActiveModel::SecurePassword
   include GlobalID::Identification
 
+  RESET_PASS_VALIDATION_PERIOD  = 2.hours
+
   field :username, type: String
   field :email, type: String
   field :password_digest, type: String
   field :first_name, type: String
   field :last_name, type: String
+  field :reset_token, type: String
+  index({ updated_at: 1 }, { expire_after_seconds: RESET_PASS_VALIDITY_PERIOD })
 
   has_secure_password
 
@@ -23,4 +27,13 @@ class User
   def projects
     memberships.map(&:project)
   end
+
+  def assign_reset_token
+    self.reset_token = SecureRandom.urlsafe_base64(32)
+  end
+
+  def reset_expires_at
+    updated_at + RESET_PASS_VALIDATION_PERIOD
+  end
+  
 end

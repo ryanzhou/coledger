@@ -1,5 +1,6 @@
-angular.module("coledger").controller("ForgetPasswdController", ['$scope', '$window', '$location', 'Resources', 'flash', 'state'
+angular.module("coledger").controller("ForgetPasswdController", ['$scope', '$window', '$location', 'Resources', 'flash'
   ($scope, $window, $location, Resources, flash) ->
+    $scope.user = {}
     $scope.errorMessages = []
 
     $scope.schema =
@@ -20,10 +21,11 @@ angular.module("coledger").controller("ForgetPasswdController", ['$scope', '$win
     $scope.submitForm = (form) ->
       $scope.$broadcast("schemaFormValidate")
       if (form.$valid)
-        $scope.user = Resources.User.get(email: form[:email]) (success) ->
-          flash.success = "An email has been sent to you. Please check your inbox for instruction!"
-          $state.go(root)
+        $scope.user = Resources.User.get(email: $scope.email, (success) ->
+          $scope.user.send_passwd_reset_email
+          flash.success = "You have successfully updated your profile!"
+          $localtion.path(home)
         , (failure) ->
-          if failure.data.error_code == "VALIDATION_ERROR"
-            $scope.errorMessages = failure.data.errors
+          flash.error = "Your email is invalid. Please try again!"
+        )
 ])

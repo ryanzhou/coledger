@@ -8,6 +8,11 @@ class UsersController < ApplicationController
     render json: user, serializer: UserSerializer
   end
 
+  def send_passwd_reset_email 
+    self.assign_reset_token
+    UserMailer.password_reset(self).deliver_now
+  end
+
   def show
     render json: current_user, serializer: UserSerializer
   end

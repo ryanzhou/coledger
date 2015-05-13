@@ -6,4 +6,10 @@ class UserMailer < ApplicationMailer
 		@url = 'https://coledgerapp.herokuapp.com'
 		mail(to: @user.email, subject: 'Welcome to Coledger!')
 	end
+
+	def password_reset(user)
+		@user = user
+		@url = 'localhost:3000/password_resets/'+@user.reset_token + '/edit'
+		mail(to: @user.email, subject: 'CoLedger: reset password')
+	end
 end

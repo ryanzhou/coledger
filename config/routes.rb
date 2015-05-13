@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       end
     end
     resources :currencies, only: [:index]
+    resources :password_resets, only: [:new, :create, :edit, :update]
   end
 
   # AngularJS HTML5 routes
