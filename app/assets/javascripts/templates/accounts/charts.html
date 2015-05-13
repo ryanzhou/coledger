@@ -18,4 +18,9 @@
       <canvas class="chart chart-pie" data="summaryData" labels="summaryLabels" legend="true"></canvas>
     </div>
   </tab>
+  <tab heading="Amount by Assignee" select="selectAssignee()" deselect="deselectAssignee()">
+    <div ng-if="showAssignee">
+      <canvas class="chart chart-bar" data="assigneeData" labels="assigneeLabels" series="assigneeSeries" legend="true"></canvas>
+    </div>
+  </tab>
 </tabset>

@@ -39,7 +39,22 @@ angular.module("coledger").controller("AccountsChartsController", ['$scope', '$s
     $scope.deselectSummary = ->
       $scope.showSummary = false
 
+    $scope.selectAssignee = ->
+      $timeout (-> $scope.showAssignee = true), 100
+      $scope.assigneeData = []
+      $scope.assigneeLabels = []
+      $scope.assigneeSeries = $scope.account.lists.map (l) -> l.name
+      list_ids = $scope.account.lists.map (l) -> l.id
+      $scope.account.$promise.then ->
+        $scope.transactions.$promise.then ->
+          $scope.assigneeLabels = $scope.project.memberships.map (m) -> m.user.username
+          $scope.assigneeData = list_ids.map (list_id) ->
+            $scope.assigneeLabels.map (username) ->
+              $scope.transactions.filter (t) -> t.assignee && t.assignee.username == username && t.list_id == list_id
+              .map (t) -> parseFloat(t.amount.decimal)
+              .reduce ((a,b) -> a + b), 0
 
-
+    $scope.deselectAssignee = ->
+      $scope.showAssignee = false
 
 ])
