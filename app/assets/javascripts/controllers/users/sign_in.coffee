@@ -18,7 +18,7 @@ angular.module("coledger").controller("SignInController", ['$scope', '$location'
 
     $scope.form = [
       'username'
-      { key: 'password', type: 'password' }
+      { key: 'password', type: 'password', disableSuccessState: true, feedback: false }
       { type: 'submit', style: 'btn btn-primary', title: 'Sign In'}
     ]
 
