@@ -19,16 +19,8 @@ class User
   validates :password, length: { within: 6..256 }, allow_nil: true
   validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\z/i }
   validates :first_name, presence: true
-  validate :validates_current_password, :on => :update
 
   def projects
     memberships.map(&:project)
-  end
-
-  def validates_current_password
-    return if password_digest_was.nil? || !password_digest_changed?
-    if BCrypt::Password.new(password_digest_was) != current_password
-      errors.add(:current_password, "is incorrect")
-    end
   end
 end

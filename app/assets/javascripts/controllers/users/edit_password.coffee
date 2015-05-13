@@ -28,10 +28,17 @@ angular.module("coledger").controller("EditPasswordController", ['$scope', '$loc
       { key: 'confirm_password', type: 'password' }
       { type: 'submit', style: 'btn btn-primary', title: 'Update Password' }]
     $scope.$watch("user.current_password", (value) ->
-      $scope.$broadcast('schemaForm.error.current_password', 'incorrect', true)
+      if (!value)
+        #Form possibly set to pristine, ignore
+        return
+      else
+        $scope.$broadcast('schemaForm.error.current_password', 'incorrect', true)
     )
     $scope.$watch("user.confirm_password", (value) -> 
-      if (value != $scope.user.password)
+      if (!value)
+        #Form possibly set to pristine, ignore
+        return
+      else if (value != $scope.user.password)
         $scope.$broadcast('schemaForm.error.confirm_password', 'matchPassword', "Passwords must match")
       else
         $scope.$broadcast('schemaForm.error.confirm_password', 'matchPassword', true)
@@ -41,6 +48,8 @@ angular.module("coledger").controller("EditPasswordController", ['$scope', '$loc
       if (form.$valid)
         Resources.User.update(id: "current", $scope.user, (success) ->
           flash.success = "You have successfully updated your password!"
+          $scope.user = {}
+          form.$setPristine()
           $scope.$parent.refreshUser()
         , (failure) ->
           if failure.data.error_code == "VALIDATION_ERROR"
