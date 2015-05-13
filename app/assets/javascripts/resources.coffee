@@ -24,9 +24,9 @@ angular.module("coledger").factory "Resources", ["$resource", ($resource) ->
   )
   Resources.Comment = $resource('/api/projects/:project_id/accounts/:account_id/transactions/:transaction_id/comments/:id')
 
-  Resources.ResetPassword = $resouce('/api/password_resets',null,
-    edit: {url: '/api/password_resets/:reset_token/edit', method: GET}
-    update: {url: '/api/password_resets/:reset_token', method: PATCH}
+  Resources.ResetPassword = $resource('/api/password_resets', null,
+    edit: { url: '/api/password_resets/:reset_token/edit', method: 'GET'}
+    update: {url: '/api/password_resets/:reset_token', method: 'PATCH'}
   )
 
   Resources
