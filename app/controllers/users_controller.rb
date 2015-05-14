@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   end
 
 
+
   def search
     users = User.where(username: /^#{params[:username]}.*/i).limit(10)
     render json: users, each_serializer: UserProfileSerializer

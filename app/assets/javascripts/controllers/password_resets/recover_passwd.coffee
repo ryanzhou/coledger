@@ -35,10 +35,10 @@ angular.module("coledger").controller("RecoverPasswdController", ['$scope', '$lo
     $scope.submitForm = (form) ->
       $scope.$broadcast("schemaFormValidate")
       email = $location.search().email
-      token = $stateParams.reset_token
+      reset_token = $stateParams.reset_token
 
       if (form.$valid)
-        $scope.user = Resources.ResetPassword.update_password({reset_token: token, email: email}, (success) ->
+        Resources.ResetPassword.update_password({reset_token: reset_token, email: email}, (success) ->
           flash.success = "You have successfully reset your password!"
           $scope.$parent.refreshUser()
         , (failure) ->

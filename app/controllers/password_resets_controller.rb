@@ -1,9 +1,12 @@
 class PasswordResetsController < ApplicationController
+  skip_before_filter :authenticate_user!, only: [:create, :update_password]
   before_action :get_user,         only: [:edit, :update]
   before_action :valid_user,       only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
 
   def create
+    user  = User.find_by(email: params[:email])
+    render json: user, serializer: UserSerializer
   end
 
   def new
@@ -19,11 +22,17 @@ class PasswordResetsController < ApplicationController
     if password_blank?
       flash.now[:danger] = "Password can't be blank"
       render 'edit'
-    elsif @user.reset_password(user_params)
-      log_in @user
-      redirect_to @users
-    else
-      render 'edit'
+    else 
+      user = User.find_by(email: params[:emai])
+      if user
+        debugger
+        user.update_attributes!(user_params)
+        flash.now[:success] = "I am stupid!" 
+        log_in user
+      else
+        flash.now[error] = "Invalid email"
+        redirect_to root_url
+      end
     end
   end
 
