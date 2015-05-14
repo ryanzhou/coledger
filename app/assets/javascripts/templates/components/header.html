@@ -14,6 +14,7 @@
       <ul class="nav navbar-nav">
         <li ng-class="{active: state.includes('home')}"><a ui-sref="home">Home</a></li>
         <li ng-class="{active: state.includes('projects')}"><a ui-sref="projects.index">Projects</a></li>
+        <li ng-class="{active: state.includes('faq')}"><a ui-sref="faq">FAQ</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" ng-if="currentUser">
         <li ng-controller="UserPanelController" class="dropdown" on-toggle="toggled(open)" dropdown>
