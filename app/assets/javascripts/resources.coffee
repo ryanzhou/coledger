@@ -5,6 +5,7 @@ angular.module("coledger").factory "Resources", ["$resource", ($resource) ->
   Resources.User = $resource('/api/users/:id', null,
     update: { method: 'PATCH' }
     search: { url: '/api/users/search', method: "POST", isArray: true }
+    send_passwd_reset_email: {url: '/api/users/send_passwd_reset_email', method: 'POST'}
   )
   Resources.Project = $resource('/api/projects/:id', null
     update: { method: 'PATCH' }
@@ -24,9 +25,10 @@ angular.module("coledger").factory "Resources", ["$resource", ($resource) ->
   )
   Resources.Comment = $resource('/api/projects/:project_id/accounts/:account_id/transactions/:transaction_id/comments/:id')
 
-  Resources.ResetPassword = $resouce('/api/password_resets',null,
-    edit: {url: '/api/password_resets/:reset_token/edit', method: GET}
-    update: {url: '/api/password_resets/:reset_token', method: PATCH}
+  Resources.ResetPassword = $resource('/api/password_resets',null,
+    edit: {url: '/api/password_resets/:reset_token/edit', method: 'GET'}
+    update: {url: '/api/password_resets/:reset_token', method: 'PATCH'}
+    update_password: {url: '/api/password_resets/:reset_token', method: 'POST'}
   )
 
   Resources

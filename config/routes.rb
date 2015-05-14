@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show] do
       collection do
         post :search
+        post :send_passwd_reset_email
       end
     end
     resources :sessions, only: [:create, :show, :destroy]
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
       end
     end
     resources :currencies, only: [:index]
-    resources :password_resets, only: [:new, :create, :edit, :update]
+    resources :password_resets, only: [:new, :create, :edit, :update] 
   end
 
   # AngularJS HTML5 routes

@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
 
 	def password_reset(user)
 		@user = user
-		@url = 'localhost:3000/password_resets/'+@user.reset_token + '/edit'
+		@url = 'localhost:3000/password_resets/'+@user.reset_token + '/edit?email='+@user.email
 		mail(to: @user.email, subject: 'CoLedger: reset password')
 	end
 end

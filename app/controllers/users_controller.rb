@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_filter :authenticate_user!, only: [:create]
+  skip_before_filter :authenticate_user!, only: [:create, :send_passwd_reset_email, :reset_password]
 
   def create
     user = User.create!(user_params)
@@ -9,9 +9,12 @@ class UsersController < ApplicationController
   end
 
   def send_passwd_reset_email 
-    self.assign_reset_token
-    UserMailer.password_reset(self).deliver_now
+    user = User.where(email: params[:email]).first
+    user.assign_reset_token
+    UserMailer.password_reset(user).deliver_now
+    render json: user, each_serializer: UserProfileSerializer
   end
+
 
   def show
     render json: current_user, serializer: UserSerializer
@@ -21,6 +24,7 @@ class UsersController < ApplicationController
     current_user.update!(user_params)
     render json: current_user, serializer: UserSerializer
   end
+
 
   def search
     users = User.where(username: /^#{params[:username]}.*/i).limit(10)

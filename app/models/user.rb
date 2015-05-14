@@ -4,7 +4,7 @@ class User
   include ActiveModel::SecurePassword
   include GlobalID::Identification
 
-  RESET_PASS_VALIDATION_PERIOD  = 2.hours
+  RESET_PASS_VALIDITY_PERIOD  = 2.hours
 
   field :username, type: String
   field :email, type: String
@@ -33,7 +33,7 @@ class User
   end
 
   def reset_expires_at
-    updated_at + RESET_PASS_VALIDATION_PERIOD
+    updated_at + RESET_PASS_VALIDITY_PERIOD
   end
   
 end
