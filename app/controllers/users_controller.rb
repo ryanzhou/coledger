@@ -12,8 +12,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    authenticated_user = current_user.authenticate(params[:current_password])
-    if authenticated_user
+    if !params[:password].present? or current_user.authenticate(params[:current_password])
       current_user.update!(user_params)
       render json: current_user, serializer: UserSerializer
     else
