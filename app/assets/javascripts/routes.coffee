@@ -13,7 +13,6 @@ angular.module("coledger").config(["$locationProvider", "$stateProvider", "$urlR
       "projects.index": { url: "", templateUrl: 'projects/index.html', controller: 'ProjectsIndexController' }
       "projects.show": { url: "/:id", templateUrl: 'projects/show.html', controller: 'ProjectsShowController' }
       "projects.accounts": { url: "/:project_id/accounts", template: "<ui-view/>", abstract: true }
-      "projects.balance_sheet": { url: "/:project_id/balance_sheet", templateUrl: "balance/sheet.html", controller: 'BalanceSheetController' }
       "projects.accounts.show": { url: "/:id", templateUrl: 'accounts/show.html', controller: 'AccountsShowController' }
       "projects.accounts.charts": { url: "/:id/charts", templateUrl: 'accounts/charts.html', controller: 'AccountsChartsController' }
     }
