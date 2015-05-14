@@ -10,6 +10,7 @@ class Transaction
   has_many :comments
   belongs_to :account
   belongs_to :list
+  belongs_to :assignee, class_name: "User"
 
   validates :name, :amount, :account, :list_id, presence: true
   validate :list_belongs_to_account
@@ -28,5 +29,13 @@ class Transaction
 
   def list_belongs_to_account
     errors.add(:list, "does not belong to account") unless list && list.account == account
+  end
+
+  def assignee_username
+    assignee.try(:username)
+  end
+
+  def assignee_username=(username)
+    self.assignee = User.find_by(username: username)
   end
 end
