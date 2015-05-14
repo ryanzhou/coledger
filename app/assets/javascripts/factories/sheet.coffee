@@ -1,9 +1,10 @@
 angular.module("coledger").factory 'Sheet', ->
   class Sheet
-    constructor: ->
+    constructor: (type) ->
       @sum = 0
       @accounts = []
       @selectedLists = []
+      @type = type
 
     addAccount: (account) ->
       @accounts.push(account)

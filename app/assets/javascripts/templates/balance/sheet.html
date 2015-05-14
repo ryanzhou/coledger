@@ -9,11 +9,11 @@
 <hr>
 <div class="row sheets">
   <div class="col-md-6 sheet in">
-    <h3>Income and Assets <span class="sheet-total">{{ project.currency.symbol }}{{ in.sum }}</span></h3>
+    <h3>{{in.type == "income" ? 'Income' : 'Assets'}} <span class="sheet-total">{{ project.currency.symbol }}{{ in.sum }}</span></h3>
     <balance-accounts sheet="in" project="project"></balance-accounts>
   </div>
   <div class="col-md-6 sheet out">
-    <h3>Expenses and Liabilities <span class="sheet-total">{{ project.currency.symbol }}{{ out.sum }}</span></h3>
+    <h3>{{out.type == "expense" ? 'Expenses' : 'Liabilities'}} <span class="sheet-total">{{ project.currency.symbol }}{{ out.sum }}</span></h3>
     <balance-accounts sheet="out" project="project"></balance-accounts>
   </div>
 </div>
