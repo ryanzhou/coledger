@@ -4,9 +4,8 @@ angular.module("coledger").controller("MainController", ['$scope', '$rootScope',
     $scope.state = $state
     $scope.refreshUser = ->
       if Auth.isLoggedIn()
-        $scope.currentUser = null
-        Resources.User.get id: 'current', (data) ->
-          $scope.currentUser = data
+        $scope.currentUser = Resources.User.get(id: 'current', (data) ->
+          $scope.currentUser = data).$promise
         Resources.Session.get id: 'current', (data) ->
           $scope.currentSession = data
       else
