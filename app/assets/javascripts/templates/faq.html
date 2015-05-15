@@ -1,5 +1,78 @@
 <h2>Frequently Asked Questions</h2>
 <hr>
-<ol>
-	<li><h3>What is Coledger?</h3></li>
-</ol>
+<div class="row">
+	<div class="col-xs-3">
+			<ul id="sidebar" class="nav nav-pills nav-stacked fixed">
+				<li class="active">
+					<a href="#whatIsColedger">What is Coledger?</a>
+				</li>
+				<li>
+					<a href="#projects">Projects</a>
+				</li>
+				<li>
+					<a href="#accounts">Accounts</a>
+				</li>
+				<li>
+					<a href="#transactions">Transactions</a>
+				</li>
+			</ul>
+	</div>
+	<div class="col-xs-9">
+		<h3 id="whatIsColedger"><strong>What is Coledger?</strong></h3>
+		<hr>
+		<h5>CoLedger is a collaborative, simplified and customized accounting and budgeting software for teams with and without accounting backgrounds.</h5>
+		<hr>
+		<h3 id="projects"><strong>Projects</strong></h3>
+		<p>This is nice, hey I can see you from here. How are you I'm fine. Node.js is required for asset compilation and JavaScript runtime. Microsoft's JScript is also supported, but it requires a patch to work in Windows 8.Installing Node.js is easier: https://nodejs.org/download/Do you really want to make a side navbar look just like the one from the Bootstrap Documentation pages? Then this is the article for you.In addition to really liking the bootstrap library, I have to say that I really enjoy the presentational style of their documentation page. I think it’s a great idea to show off the big picture of a document, while automatically expanding each section when appropriate. It’s especially helpful for long documents that require a lot of scrolling. Unfortunately, they don’t specifically outline how their documentation pages are put together. But since they’re just delivering HTML/CSS/JS, we can reverse engineer how they put it together. Here are the results of dissecting Bootstrap’s Doc’s side nav bar.The research revealed that the literal ups and downs of individual human height closely track variations in two factors: diet and disease. Particularly, where these two factors are at work during childhood. If children do not get enough food to eat or cannot absorb nutrients because of diarrhoeal illness, say, their chances of sprouting into their full potential adult height are greatly diminished.  "Bottom line," says William Leonard, a professor of anthropology at Northwestern University in Illinois, "the major drivers behind increased adult stature are improved nutrition, health, and in general a better quality of life."History is replete with examples of this height-health link. In the Western European late medieval period, after the Black Death had wiped out as much as 60% of the population, the survivors found they had access to plentiful food and uncrowded living conditions – both of which kept disease spread in check. People could thus grow relatively tall, with Englishmen just 4cm on average shorter than their fellow countrymen today.</p>
+		<h3 id="accounts"><strong>Accounts</strong></h3>
+		<p>This is nice, hey I can see you from here. How are you I'm fine. Node.js is required for asset compilation and JavaScript runtime. Microsoft's JScript is also supported, but it requires a patch to work in Windows 8.Installing Node.js is easier: https://nodejs.org/download/Do you really want to make a side navbar look just like the one from the Bootstrap Documentation pages? Then this is the article for you.In addition to really liking the bootstrap library, I have to say that I really enjoy the presentational style of their documentation page. I think it’s a great idea to show off the big picture of a document, while automatically expanding each section when appropriate. It’s especially helpful for long documents that require a lot of scrolling. Unfortunately, they don’t specifically outline how their documentation pages are put together. But since they’re just delivering HTML/CSS/JS, we can reverse engineer how they put it together. Here are the results of dissecting Bootstrap’s Doc’s side nav bar.The research revealed that the literal ups and downs of individual human height closely track variations in two factors: diet and disease. Particularly, where these two factors are at work during childhood. If children do not get enough food to eat or cannot absorb nutrients because of diarrhoeal illness, say, their chances of sprouting into their full potential adult height are greatly diminished.  "Bottom line," says William Leonard, a professor of anthropology at Northwestern University in Illinois, "the major drivers behind increased adult stature are improved nutrition, health, and in general a better quality of life."History is replete with examples of this height-health link. In the Western European late medieval period, after the Black Death had wiped out as much as 60% of the population, the survivors found they had access to plentiful food and uncrowded living conditions – both of which kept disease spread in check. People could thus grow relatively tall, with Englishmen just 4cm on average shorter than their fellow countrymen today.</p>
+		<h3 id="transactions"><strong>Transactions</strong></h3>
+		<p>This is nice, hey I can see you from here. How are you I'm fine. Node.js is required for asset compilation and JavaScript runtime. Microsoft's JScript is also supported, but it requires a patch to work in Windows 8.Installing Node.js is easier: https://nodejs.org/download/Do you really want to make a side navbar look just like the one from the Bootstrap Documentation pages? Then this is the article for you.In addition to really liking the bootstrap library, I have to say that I really enjoy the presentational style of their documentation page. I think it’s a great idea to show off the big picture of a document, while automatically expanding each section when appropriate. It’s especially helpful for long documents that require a lot of scrolling. Unfortunately, they don’t specifically outline how their documentation pages are put together. But since they’re just delivering HTML/CSS/JS, we can reverse engineer how they put it together. Here are the results of dissecting Bootstrap’s Doc’s side nav bar.The research revealed that the literal ups and downs of individual human height closely track variations in two factors: diet and disease. Particularly, where these two factors are at work during childhood. If children do not get enough food to eat or cannot absorb nutrients because of diarrhoeal illness, say, their chances of sprouting into their full potential adult height are greatly diminished.  "Bottom line," says William Leonard, a professor of anthropology at Northwestern University in Illinois, "the major drivers behind increased adult stature are improved nutrition, health, and in general a better quality of life."History is replete with examples of this height-health link. In the Western European late medieval period, after the Black Death had wiped out as much as 60% of the population, the survivors found they had access to plentiful food and uncrowded living conditions – both of which kept disease spread in check. People could thus grow relatively tall, with Englishmen just 4cm on average shorter than their fellow countrymen today.</p>
+	</div>
+</div>
+<script>
+var lastId,
+    topMenu = $("#sidebar"),
+    topMenuHeight = topMenu.outerHeight()+15,
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 300);
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+   
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+   
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("active")
+         .end().filter("[href=#"+id+"]").parent().addClass("active");
+   }                   
+});
+</script>
