@@ -10,23 +10,23 @@ angular.module("coledger").controller("FaqController", ($scope) ->
 			accounting backgrounds. You could record and manage your incomes, expenses, assets and liabilities in an extreme convenient
 			and powerful way.<br><br>
 			<ul>
-				<li><h4><b>Drag and drop between lists</b></h4>
+				<li><h4><strong>Drag and drop between lists</strong></h4>
 					You could drag and drop any transaction between lists, and the amount total for each list is automatically 
 					updated. Whether it's a received bill payment to paid, or a
 					debt to a repayment, CoLedger makes the whole process for you incredibly easy.
 				</li>
 				<br>
-				<li><h4><b>Collaborative features</b></h4>
+				<li><h4><strong>Collaborative features</strong></h4>
 					CoLedger is designed for small teams to work on accounting together. 
 					All the transactions are stored in the cloud so there's no files to exchange and everyone is kept in sync.
 				</li>
 				<br>
-				<li><h4><b>Visualize your data</b></h4>
+				<li><h4><strong>Visualize your data</strong></h4>
 					Real-time charts can be generated once you have added all your transactions to CoLedger. 
 					It has never been easier to visualize accounting transactions.
 				</li>
 				<br>
-				<li><h4><b>Security</b></h4>
+				<li><h4><strong>Security</strong></h4>
 					All communications between your browser and our server are encrypted with TLS. 
 					Your data remains private even if you're using public internet.
 				</li>
@@ -34,61 +34,61 @@ angular.module("coledger").controller("FaqController", ($scope) ->
 		{
 			"id": "project",
 			"barTitle": "Project",
-			"title": "What is a <i>project</i> ?",
+			"title": "What is a <em>project</em> ?",
 			"content": "
-				A <i><b>project</b></i> can be anything: a company's financial record, a personal account book...
+				A <span class=\"tech\">project</span> can be anything: a company's financial record, a personal account book...
 				<br><br><br>
 				You could include almost everything around you related to money at CoLedger. Wow!",
 		},
 		{
 			"id": "account",
 			"barTitle": "Account",
-			"title": "What is an <i>account</i> ?",
+			"title": "What is an <em>account</em> ?",
 			"content": "
 				In CoLedger, accounts constitute a project, and there are four types of them:
 				<br><br><br><br>
-				An <i><b>income account&nbsp;</b></i> manages transactions related to revenues and incomes.
+				An <span class=\"tech\">income account&nbsp;</span> manages transactions related to revenues and incomes.
 				<br><br><br>
-				An <i><b>expense account&nbsp;</b></i> takes charge of your spendings and expenditures
+				An <span class=\"tech\">expense account&nbsp;</span> takes charge of your spendings and expenditures
 				<br><br><br>
-				An <i><b>asset account&nbsp;</b></i> keeps track of your fixed and variable assets like properties and cash.
+				An <span class=\"tech\">asset account&nbsp;</span> keeps track of your fixed and variable assets like properties and cash.
 				<br><br><br>
-				A <i><b>liability account&nbsp;</b></i> hold records of your loans or debts.
+				A <span class=\"tech\">liability account&nbsp;</span> hold records of your loans or debts.
 			"
 		},
 		{
 			"id": "list",
 			"barTitle": "List",
-			"title": "What is a <i>list</i> ?",
+			"title": "What is a <em>list</em> ?",
 			"content": "
 				Many lists constitute an account. You can name them with anything and play them with any roles.
 				<br><br><br><br>
 				Examples of potential lists for different types of account:
 				<br><br><br>
 				<ul>
-					<li><i><b>Monthly Salary&nbsp;</b></i> and <i><b>Bonus&nbsp;</b></i> for a personal income accounts</li>
+					<li><span class=\"tech\">Monthly Salary&nbsp;</span> and <span class=\"tech\">Bonus&nbsp;</span> for a personal income accounts</li>
 					<br><br>
-					<li><i><b>Meal Cost&nbsp;</b></i> and <i><b>Accommodation Fee&nbsp;</b></i> for a <i><b>\"Beijing trip\"&nbsp;</b></i> expense account</li>
+					<li><span class=\"tech\">Meal Cost&nbsp;</span> and <span class=\"tech\">Accommodation Fee&nbsp;</span> for a <span class=\"tech\">\"Beijing trip\"&nbsp;</span> expense account</li>
 					<br><br>
-					<li><i><b>Saving&nbsp;</b></i> and <i><b>Cash&nbsp;</b></i> for a <i><b>\"Bank\"&nbsp;</b></i> asset accounts</li>
+					<li><span class=\"tech\">Saving&nbsp;</span> and <span class=\"tech\">Cash&nbsp;</span> for a <span class=\"tech\">\"Bank\"&nbsp;</span> asset accounts</li>
 					<br><br>
-					<li><i><b>Debt Owed&nbsp;</b></i> and <i><b>Repayment Returned&nbsp;</b></i> for a <i><b>\"Debt\"&nbsp;</b></i> liability accounts</li>
+					<li><span class=\"tech\">Debt Owed&nbsp;</span> and <span class=\"tech\">Repayment Returned&nbsp;</span> for a <span class=\"tech\">\"Debt\"&nbsp;</span> liability accounts</li>
 				</ul>
 			"
 		},
 		{
 			"id": "transaction",
 			"barTitle": "Transaction",
-			"title": "What is a <i>transaction&nbsp;</i> and how to creat it?",
+			"title": "What is a <em>transaction&nbsp;</em> and how to creat it?",
 			"content": "
-				A <i><b>transaction&nbsp;</b></i> is the smallest unit of CoLedger. Transactions constitute a list.
+				A <span class=\"tech\">transaction&nbsp;</span> is the smallest unit of CoLedger. Transactions constitute a list.
 				<br><br><br>
-				To creat a <i><b>transaction&nbsp;</b></i>, simply typing in a name inside the <i><b>new transaction&nbsp;</b></i> bar 
+				To creat a <span class=\"tech\">transaction&nbsp;</span>, simply typing in a name inside the <span class=\"tech\">new transaction&nbsp;</span> bar 
 				and a new form will appear for filling in the amount.
 				<br><br><br>
-				Click on existing transactions to see the detail. You could also add or edit the <i><b>name&nbsp;</b></i>, 
-				<i><b>description&nbsp;</b></i>, <i><b>amount&nbsp;</b></i>, <i><b>due date&nbsp;</b></i>, 
-				and <i><b>assignee&nbsp;</b></i>, or even make comments about the transaction.
+				Click on existing transactions to see the detail. You could also add or edit the <span class=\"tech\">name&nbsp;</span>, 
+				<span class=\"tech\">description&nbsp;</span>, <span class=\"tech\">amount&nbsp;</span>, <span class=\"tech\">due date&nbsp;</span>, 
+				and <span class=\"tech\">assignee&nbsp;</span>, or even make comments about the transaction.
 			"
 		},
 		{
@@ -96,20 +96,20 @@ angular.module("coledger").controller("FaqController", ($scope) ->
 			"barTitle":"Member and permissions"
 			"title":"How to invite members and set their permissions?"
 			"content":"
-				Within each <i><b>project</b></i> 's detail page, you can click on the <i><b>Members&nbsp;</b></i> tab to enter the member settings.
+				Within each <span class=\"tech\">project</span> 's detail page, you can click on the <span class=\"tech\">Members&nbsp;</span> tab to enter the member settings.
 				<br><br><br>
 				Inside the search bar, you can search for names across the whole CoLedger database 
 				to add people to projects.
 				<br><br><br>
 				Each member can be granted to one of three permissions.
 				<br><br><br>
-				An <i><b>admin&nbsp;</b></i> has the permission to remove existing members, change other members' permission setting
+				An <span class=\"tech\">admin&nbsp;</span> has the permission to remove existing members, change other members' permission setting
 				and has the access to read and edit.
 				<br><br><br>
-				An <i><b>editor&nbsp;</b></i> has the access to Create, Read, Update and Delete (CRUD) an account or a list, within a project. 
-				An <i><b>editor&nbsp;</b></i> has no permission to member settings.
+				An <span class=\"tech\">editor&nbsp;</span> has the access to Create, Read, Update and Delete (CRUD) an account or a list, within a project. 
+				An <span class=\"tech\">editor&nbsp;</span> has no permission to member settings.
 				<br><br><br>
-				A <i><b>viewer&nbsp;</b></i> only has the read access to accounts and lists.
+				A <span class=\"tech\">viewer&nbsp;</span> only has the read access to accounts and lists.
 			"
 		},
 		{
