@@ -1,0 +1,56 @@
+.sheets {
+  > [class*="col-lg"], > [class*="col-md"], > [class*="col-sm"] {
+    padding: 0px;
+  }
+  .sheet {
+    > h3 {
+      margin-top: 0px;
+      margin-left: 40px;
+    }
+    .sheet-total {
+      float: right;
+    }
+  }
+  .in {
+    .sheet-total, .list-total, .total {
+      color: green;
+    }
+  }
+
+  .out {
+    .sheet-total, .list-total, .total {
+      color: red;
+    }
+  }
+  .sheet-total {
+    font-weight: 300;
+    margin-right: 20px;
+  }
+  .list-total, .total {
+    font-weight: 300;
+    margin-right: 10px;
+  }
+}
+.balance-result {
+  position: absolute;
+  right: 0px;
+  top: -80px;
+  .result {
+    font-weight: 300;
+    font-size: 52px;
+    &.positive {
+      color: green;
+    }
+    &.negative {
+      color: red;
+    }
+  }
+}
+
+.list-select, .list-select-title {
+  padding-left: 72px;
+}
+.list-total {
+  font-size: 14px;
+  text-align: right;
+}
