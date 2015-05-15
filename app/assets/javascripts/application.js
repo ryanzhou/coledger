@@ -33,5 +33,6 @@
 //= require imagesloaded
 //= require Chart.js
 //= require angular-chart.js
+//= require angular-scroll.js
 //= require_tree ./templates
 //= require_tree .

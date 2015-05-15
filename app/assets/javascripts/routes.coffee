@@ -4,6 +4,7 @@ angular.module("coledger").config(["$locationProvider", "$stateProvider", "$urlR
     $urlMatcherFactoryProvider.strictMode(false)
     states = {
       "home": { url: "", templateUrl: 'index.html', controller: 'IndexController' }
+      "faq": { url: "/faq", templateUrl: 'faq.html', controller: 'FaqController' }
       "users": { url: "/users", template: "<ui-view/>", abstract: true }
       "users.sign_in": { url: "/sign_in", templateUrl: 'users/sign_in.html', controller: 'SignInController' }
       "users.sign_up": { url: "/sign_up", templateUrl: 'users/sign_up.html', controller: 'SignUpController' }

@@ -10,6 +10,7 @@ app = angular.module("coledger", [
   "angularMoment",
   "pickadate",
   "chart.js",
+  "duScroll",
   "templates"
 ])
 
