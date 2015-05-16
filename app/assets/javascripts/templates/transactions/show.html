@@ -24,6 +24,7 @@
       <h6>Due date</h6>
       <div class="detail-value">
         <input type="text" class="form-control pickadate" pick-a-date="transaction.parsed_due_date" placeholder="Add a due date...">
+        <a href ng-click="clearDueDate()" ng-show="transaction.parsed_due_date" class="btn btn-danger btn-xs"><i class="fa fa-times"></i> Clear</a>
       </div>
     </div>
     <div class="col-sm-4">

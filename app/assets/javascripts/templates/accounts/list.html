@@ -9,7 +9,7 @@
   </div>
   <div class="panel-body">
     <div class="blankslate" ng-show="listTransactions.length == 0">
-      This list is empty. Create a new transaction or <a href ng-click="deleteList(list)">delete this list</a>.
+      This list is empty. Create a new transaction or <a href ng-click="deleteList(list)" class="danger">delete this list</a>.
     </div>
     <div class="transactions">
       <accounts-transaction transaction="transaction" ng-repeat="transaction in listTransactions"

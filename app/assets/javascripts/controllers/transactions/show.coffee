@@ -29,6 +29,10 @@ angular.module("coledger").controller("TransactionsShowController", ['$scope', '
       $scope.transaction.assignee_username = null
       $scope.updateTransaction()
 
+    $scope.clearDueDate = ->
+      $scope.transaction.parsed_due_date = null
+      $scope.updateTransaction()
+
     $scope.transactionParams = { project_id: project.id, account_id: account.id, transaction_id: transaction.id }
 
     $scope.parseTransactionDate()
