@@ -12,3 +12,5 @@
 !/log/.keep
 /tmp
 .DS_STORE
+
+/.powenv
