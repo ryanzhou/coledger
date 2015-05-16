@@ -11,6 +11,7 @@ app = angular.module("coledger", [
   "pickadate",
   "chart.js",
   "duScroll",
+  "naif.base64",
   "templates"
 ])
 
@@ -52,3 +53,13 @@ app.config ["flashProvider", (flashProvider) ->
 app.run ["editableOptions", (editableOptions) ->
   editableOptions.theme = 'bs3'  # Bootstrap 3
 ]
+
+app.filter 'bytes', ->
+	(bytes, precision) ->
+		if (isNaN(parseFloat(bytes)) || !isFinite(bytes))
+      '-'
+		if (typeof precision == 'undefined')
+      precision = 1
+		units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB']
+		number = Math.floor(Math.log(bytes) / Math.log(1024))
+		(bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number]

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         resources :lists, only: [:index, :create, :update, :destroy]
         resources :transactions, only: [:index, :create, :update, :destroy] do
           resources :comments, only: [:index, :create]
+          resources :attachments, only: [:index, :create, :destroy]
         end
       end
     end

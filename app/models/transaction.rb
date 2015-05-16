@@ -8,6 +8,7 @@ class Transaction
   field :due_date, type: Date
 
   has_many :comments
+  has_many :attachments
   belongs_to :account
   belongs_to :list
   belongs_to :assignee, class_name: "User"
