@@ -70,3 +70,22 @@
     }
   }
 }
+
+.account-carousel {
+  width: 400px;
+  height: 200px;
+  background: #2196f3;
+  color: #fff;
+  padding: 30px;
+  cursor: pointer;
+
+  .name {
+    margin-top: 70px;
+    font-size: 18px;
+  }
+
+  .balance {
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
