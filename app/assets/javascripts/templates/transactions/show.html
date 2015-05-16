@@ -87,7 +87,13 @@
     </div>
   </div>
   <h4>Delete transaction</h4>
-  <div>No longer want this transaction? <a href ng-click="deleteTransaction()" class="danger">Delete this transaction</a></div>
+  <div ng-show="confirmDelete">
+    <p><strong>Are you sure?</strong> All comments and attachments will be permanently lost.</p>
+    <p><a href ng-click="deleteTransaction()" class="btn btn-danger">Confirm</a> <a href ng-click="confirmDelete = false" class="btn btn-default">Cancel</a></p>
+  </div>
+  <div ng-hide="confirmDelete">
+    <div>No longer want this transaction? <a href ng-click="confirmDelete = true" class="danger">Delete this transaction</a></div>
+  </div>
 </div>
 <div class="modal-footer">
 </div>
