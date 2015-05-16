@@ -29,10 +29,15 @@
     <div class="col-sm-4">
       <h6>Assignee</h6>
       <div class="detail-value">
-        <span editable-select="transaction.assignee_username" e-ng-options="m.user.username as m.user.first_name + ' ' + m.user.last_name for m in memberships" onaftersave="updateTransaction()">
-          <span ng-show="transaction.assignee"><img class="img-rounded" src="https://www.gravatar.com/avatar/{{ transaction.assignee.email_digest }}?s=24&d=retro"></img> {{ transaction.assignee.first_name }} {{ transaction.assignee.last_name }}</span>
-          <span ng-hide="transaction.assignee">Assign to someone...</span>
+        <span editable-select="transaction.assignee_username" e-form="assigneeForm" e-ng-options="m.user.username as m.user.first_name + ' ' + m.user.last_name for m in memberships" onaftersave="updateTransaction()">
+          <div ng-show="transaction.assignee"><img class="img-rounded" src="https://www.gravatar.com/avatar/{{ transaction.assignee.email_digest }}?s=24&d=retro"></img> {{ transaction.assignee.first_name }} {{ transaction.assignee.last_name }}</div>
         </span>
+        <div ng-hide="transaction.assignee || assigneeForm.$visible">
+          <a href ng-click="assigneeForm.$show()" class="btn btn-xs btn-primary">Assign to someone...</a>
+        </div>
+        <div ng-show="transaction.assignee && !assigneeForm.$visible">
+          <a href ng-click="assigneeForm.$show()" class="btn btn-xs btn-primary">Edit assignee</a> <a href ng-click="removeAssignment()" class="btn btn-xs btn-danger">Remove</a>
+        </div>
       </div>
     </div>
   </div>

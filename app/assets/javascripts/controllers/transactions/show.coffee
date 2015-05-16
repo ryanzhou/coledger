@@ -25,6 +25,10 @@ angular.module("coledger").controller("TransactionsShowController", ['$scope', '
       , (failure) ->
         flash.error = "Transaction does not exist, or you are not authorized to perform this action."
 
+    $scope.removeAssignment = ->
+      $scope.transaction.assignee_username = null
+      $scope.updateTransaction()
+
     $scope.transactionParams = { project_id: project.id, account_id: account.id, transaction_id: transaction.id }
 
     $scope.parseTransactionDate()
