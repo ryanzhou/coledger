@@ -23,7 +23,7 @@ angular.module("coledger").controller("FaqController", ['$scope', ($scope) ->
 				</p>
 			<h4>Summary of accounts</h4>
 			<p>A summary of net values is available for your assets and liabilities (Balance Sheet) as well as your incomes and expenses
-			(Profit/Loss). You can select between lists to give a more customized feedback.
+			(Profit/Loss). You can select between lists to give a more customized result.
 			</p>
 			<h4>Security</h4>
 			<p>All communications between your browser and our server are encrypted with TLS. Your data remains private even if you're using public internet.</p>
@@ -61,8 +61,8 @@ angular.module("coledger").controller("FaqController", ['$scope', ($scope) ->
 				<ul>
 					<li><span class=\"tech\">Monthly Salary</span> and <span class=\"tech\">Bonus</span> for a personal income account</li>
 					<li><span class=\"tech\">Meal Cost</span> and <span class=\"tech\">Accommodation Fee</span> for a <span class=\"tech\">\"Beijing trip\"</span> expense account</li>
-					<li><span class=\"tech\">Saving</span> and <span class=\"tech\">Cash</span> for a <span class=\"tech\">\"Bank\"</span> asset accounts</li>
-					<li><span class=\"tech\">Debt Owed</span> and <span class=\"tech\">Repayment Returned</span> for a <span class=\"tech\">\"Debt\"</span> liability accounts</li>
+					<li><span class=\"tech\">Saving</span> and <span class=\"tech\">Cash</span> for a <span class=\"tech\">\"Bank\"</span> asset account</li>
+					<li><span class=\"tech\">Debt Owed</span> and <span class=\"tech\">Repayment Returned</span> for a <span class=\"tech\">\"Debt\"</span> liability account</li>
 				</ul>
 			"
 		},
@@ -75,8 +75,9 @@ angular.module("coledger").controller("FaqController", ['$scope', ($scope) ->
 				<p>To create a <span class=\"tech\">transaction</span>, simply typing in a name inside the <span class=\"tech\">new transaction</span> bar
 				and a new form will appear for filling in the amount.</p>
 				<p>Click on existing transactions to see the detail. You could also add or edit the <span class=\"tech\">name</span>,
-				<span class=\"tech\">description</span>, <span class=\"tech\">amount</span>, <span class=\"tech\">due date</span>,
-				and <span class=\"tech\">assignee</span>, or even make comments about the transaction.</p>
+				<span class=\"tech\">description</span>, <span class=\"tech\">amount</span>, <span class=\"tech\">due date</span>, 
+				<span class=\"tech\">assignee</span> and <span class=\"tech\">attachment</span>, 
+				or even make <span class=\"tech\">comments</span> about the transaction.</p>
 			"
 		},
 		{
