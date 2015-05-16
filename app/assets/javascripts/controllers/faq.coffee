@@ -21,6 +21,10 @@ angular.module("coledger").controller("FaqController", ['$scope', ($scope) ->
 			<p>Real-time charts can be generated once you have added all your transactions to CoLedger.
 					It has never been easier to visualize accounting transactions.
 				</p>
+			<h4>Summary of accounts</h4>
+			<p>A summary of net values is available for your assets and liabilities (Balance Sheet) as well as your incomes and expenses
+			(Profit/Loss). You can select between lists to give a more customized feedback.
+			</p>
 			<h4>Security</h4>
 			<p>All communications between your browser and our server are encrypted with TLS. Your data remains private even if you're using public internet.</p>
 			"
