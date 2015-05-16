@@ -1,4 +1,4 @@
-angular.module("coledger").controller("FaqController", ($scope) ->
+angular.module("coledger").controller("FaqController", ['$scope', ($scope) ->
 	$scope.offset=100
 	$scope.faqs = [
 		{
@@ -110,7 +110,7 @@ angular.module("coledger").controller("FaqController", ($scope) ->
 			"
 		}
 	]
-)
+])
 angular.module("coledger").filter("html", ['$sce',($sce)->
 	(input)->
 		$sce.trustAsHtml(input)
