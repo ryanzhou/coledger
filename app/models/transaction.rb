@@ -36,6 +36,6 @@ class Transaction
   end
 
   def assignee_username=(username)
-    self.assignee = User.find_by(username: username)
+    self.assignee = User.find_by(username: username) if username.present?
   end
 end
