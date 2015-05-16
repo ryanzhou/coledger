@@ -1,4 +1,4 @@
-angular.module("coledger").directive "projectsAccounts", ['Resources', 'flash', '$modal', (Resources, flash, $modal) ->
+angular.module("coledger").directive "projectsAccounts", ['Resources', 'flash', '$modal', '$timeout', (Resources, flash, $modal, $timeout) ->
   restrict: 'E'
   templateUrl: 'projects/accounts.html'
   scope: true
@@ -8,8 +8,14 @@ angular.module("coledger").directive "projectsAccounts", ['Resources', 'flash', 
     scope.refreshAccounts = ->
       scope.projectPromise.then (data) ->
         scope.accounts = Resources.Account.query { project_id: data.id }
+        scope.accounts.$promise.then (data) ->
+          scope.loadFlipster()
 
     scope.refreshAccounts()
+    scope.loadFlipster = () ->
+      $timeout ->
+        $('.flipster').flipster(style: 'carousel')
+      , 0
 
     scope.newAccountModal = ->
       $modal.open

@@ -1,3 +1,17 @@
+<div class="flipster" style="margin-bottom: 20px;">
+  <ul>
+    <li ng-repeat="account in accounts">
+      <div class="account-carousel" ui-sref="projects.accounts.show({project_id:project.id, id:account.id})">
+        <div class="name">
+          {{ account.name }}
+        </div>
+        <div class="balance">
+          {{ account.total.formatted }}
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
 <div class="accounts-list" ng-show="accounts.length">
   <div class="account" ng-repeat="account in accounts" ng-hide="account.archived && !showArchivedAccounts">
     <div class="row">
