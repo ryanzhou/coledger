@@ -32,10 +32,12 @@ angular.module("coledger").directive "projectsAccounts", ['Resources', 'flash', 
       account.archived = true
       Resources.Account.update { project_id: scope.project.id, id: account.id }, account, (success) ->
         account = success
+        scope.loadFlipster()
 
     scope.restoreAccount = (account) ->
       account.archived = false
       Resources.Account.update { project_id: scope.project.id, id: account.id }, account, (success) ->
         account = success
+        scope.loadFlipster()
 
 ]

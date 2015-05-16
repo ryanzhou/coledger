@@ -1,9 +1,9 @@
 <div class="flipster" style="margin-bottom: 20px;">
   <ul>
-    <li ng-repeat="account in accounts">
-      <div class="account-carousel" ui-sref="projects.accounts.show({project_id:project.id, id:account.id})">
+    <li ng-repeat="account in accounts" >
+      <div class="account-carousel" ng-class="{archived:account.archived}" ui-sref="projects.accounts.show({project_id:project.id, id:account.id})">
         <div class="name">
-          {{ account.name }}
+          {{ account.name }} <span ng-if="account.archived">(Archived)</span>
         </div>
         <div class="balance">
           {{ account.total.formatted }}
