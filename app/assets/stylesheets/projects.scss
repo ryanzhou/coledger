@@ -79,6 +79,10 @@
   padding: 30px;
   cursor: pointer;
 
+  &.archived {
+    background: #999;
+  }
+
   .name {
     margin-top: 70px;
     font-size: 18px;
