@@ -1,21 +1,21 @@
-<h2>Frequently Asked Questions</h2>
-<hr>
 <div class="row">
-	<div class="col-xs-3">
-		<ul class="nav nav-pills nav-stacked fixed">
-			<li ng-repeat="faq in faqs" du-scrollspy={{faq.id}} offset={{offset}}>
-				<a href="#{{faq.id}}" du-smooth-scroll offset={{offset}}>{{faq.title}}</a>
-			</li>
-			<br>
-			<li><h6>Search: </h6><input type="text" ng-model="query"></li>
-		</ul>
-	</div>
-	<div class="col-xs-9">
-		<section ng-repeat="faq in faqs | filter:query" id={{faq.id}}>
-			<h3><strong>{{faq.title}}</strong></h3>
+	<div class="col-sm-9">
+		<h2>Frequently Asked Questions</h2>
+		<hr>
+		<section class="faq" ng-repeat="faq in faqs | filter:query" id="{{faq.id}}">
+			<h3>{{ faq.title }}</h3>
+			<div ng-bind-html="faq.content | html"></div>
 			<hr>
-			<h5 ng-bind-html="faq.content | html"></h5>
-			<br>
 		</section>
+	</div>
+	<div class="col-sm-3">
+		<div class="fixed">
+			<ul class="nav nav-pills nav-stacked">
+				<li ng-repeat="faq in faqs" du-scrollspy={{faq.id}} offset={{offset}}>
+					<a href="#{{faq.id}}" du-smooth-scroll offset={{offset}}>{{faq.barTitle}}</a>
+				</li>
+			</ul>
+			<h6>Search: </h6><input type="text" ng-model="query">
+		</div>
 	</div>
 </div>
