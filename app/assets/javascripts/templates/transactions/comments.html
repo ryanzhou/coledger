@@ -1,5 +1,5 @@
 <h4>Comments</h4>
-<div class="well comment" ng-repeat="comment in comments">
+<div class="well comment" ng-repeat="comment in comments | limitTo:limit">
   <div class="row">
     <div class="avatar col-sm-2">
       <img src="https://www.gravatar.com/avatar/{{ comment.user.email_digest }}?s=32&d=retro"
@@ -10,6 +10,9 @@
       <div class="content">{{ comment.content }}</div>
     </div>
   </div>
+</div>
+<div class="well comment" ng-show="limit < comments.length">
+  <a href ng-click="showAll()">Show all {{ comments.length }} comments...</a>
 </div>
 <div class="well comment" style="border-bottom: none">
   <div class="row">
