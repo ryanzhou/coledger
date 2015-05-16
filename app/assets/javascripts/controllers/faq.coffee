@@ -98,7 +98,7 @@ angular.module("coledger").controller("FaqController", ($scope) ->
 			"barTitle":"CoLedger API"
 			"title":"Is there an API available so that I can develop an app on top of CoLedger?"
 			"content":"
-				<p>Yes! Check out our <a href=\"https://docs.coledger.apiary.io/\" target=\"_blank\">API documentation</a>!
+				<p>Yes! Check out our <a href=\"http://docs.coledger.apiary.io/\" target=\"_blank\">API documentation</a>!
 			"
 		},
 		{
