@@ -17,8 +17,9 @@ angular.module("coledger").directive "balanceSheet", ['$location', '$stateParams
         $scope.projectPromise.then (data) ->
           $scope.project = data
           accounts = Resources.Account.query { project_id: data.id }
-          accounts.$promise.then (accounts) -> 
+          accounts.$promise.then (accounts) ->
             angular.forEach(accounts, (account) ->
+              return if account.archived
               if (account.account_type == $scope.typeIn)
                 $scope.in.addAccount(account)
               else if (account.account_type == $scope.typeOut)

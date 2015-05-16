@@ -24,6 +24,13 @@ angular.module("coledger").controller("AccountsShowController", ['$scope', '$loc
       , (success)->
         $scope.refreshAccount()
 
+    $scope.deleteList = (list) ->
+      Resources.List.delete { project_id: $scope.project.id, account_id: $scope.account.id, id: list.id }, (success) ->
+        $scope.refreshAccount()
+        flash.success = "The list #{success.name} has been deleted."
+      , (failure) ->
+        flash.error = "The list is not found or you are not authorized to perform this action."
+
     $scope.refreshAccount()
     $scope.refreshTransactions()
 ])

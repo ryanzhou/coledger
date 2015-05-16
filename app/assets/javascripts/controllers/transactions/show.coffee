@@ -18,6 +18,21 @@ angular.module("coledger").controller("TransactionsShowController", ['$scope', '
     $scope.cancel = ->
       $modalInstance.dismiss('cancel')
 
+    $scope.deleteTransaction = ->
+      Resources.Transaction.delete { project_id: project.id, account_id: account.id, id: transaction.id }, (success) ->
+        flash.success = "Transaction has been deleted."
+        $modalInstance.dismiss('cancel')
+      , (failure) ->
+        flash.error = "Transaction does not exist, or you are not authorized to perform this action."
+
+    $scope.removeAssignment = ->
+      $scope.transaction.assignee_username = null
+      $scope.updateTransaction()
+
+    $scope.clearDueDate = ->
+      $scope.transaction.parsed_due_date = null
+      $scope.updateTransaction()
+
     $scope.transactionParams = { project_id: project.id, account_id: account.id, transaction_id: transaction.id }
 
     $scope.parseTransactionDate()
