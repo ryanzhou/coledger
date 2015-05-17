@@ -18,6 +18,12 @@ class TransactionsController < ApplicationController
     render json: transaction, serializer: TransactionSerializer
   end
 
+  def destroy
+    transaction = current_editing_account.transactions.find(params[:id])
+    transaction.delete
+    render json: transaction, serializer: TransactionSerializer
+  end
+
   private
   def current_account
     current_project.accounts.find(params[:account_id])
@@ -28,6 +34,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.permit(:name, :description, :amount, :list_id, :due_date)
+    params.permit(:name, :description, :amount, :list_id, :assignee_username, :due_date)
   end
 end

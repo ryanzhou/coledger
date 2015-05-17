@@ -1,12 +1,51 @@
-<div class="accounts" ng-show="accounts.length">
-  <div class="list-group">
-    <a ui-sref="projects.accounts.show({project_id: project.id, id: account.id})" class="list-group-item" ng-repeat="account in accounts">
-      <h5 class="list-group-item-heading">
-        {{ account.name }}
-        <small><span class="label label-default">{{ account.account_type | uppercase }}</span></small>
-      </h5>
-    </a>
+<div class="flipster" style="margin-bottom: 20px;">
+  <ul>
+    <li ng-repeat="account in accounts" >
+      <div class="account-carousel" ng-class="{archived:account.archived}" ui-sref="projects.accounts.show({project_id:project.id, id:account.id})">
+        <div class="name">
+          {{ account.name }} <span ng-if="account.archived">(Archived)</span>
+        </div>
+        <div class="balance">
+          {{ account.total.formatted }}
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="accounts-list" ng-show="accounts.length">
+  <div class="account" ng-repeat="account in accounts" ng-hide="account.archived && !showArchivedAccounts">
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="icon">
+          <i class="fa fa-3x" ng-class="{'fa-sign-in':account.account_type == 'income', 'fa-sign-out':account.account_type == 'expense', 'fa-bank':account.account_type == 'asset', 'fa-credit-card':account.account_type == 'liability'}"></i>
+        </div>
+        <div class="name">
+          <a ui-sref="projects.accounts.show({project_id: project.id, id: account.id})" ng-hide="account.archived">{{ account.name }}</a>
+          <div ng-show="account.archived">{{ account.name }} (Archived)</div>
+          <div class="type">
+            {{ account.account_type }}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="total">
+          {{ account.total.formatted }}
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="action">
+          <a ng-click="archiveAccount(account)" class="btn btn-danger" ng-hide="account.archived">Archive</a>
+          <a ng-click="restoreAccount(account)" class="btn btn-success" ng-show="account.archived">Restore</a>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<div class="account-options" ng-show="accounts.length">
+  <h5>Advanced Options</h5>
+  <a href ng-click="showArchivedAccounts = true" ng-show="!showArchivedAccounts">Show archived accounts</a>
+  <a href ng-click="showArchivedAccounts = false" ng-show="showArchivedAccounts">Hide archived accounts</a>
+  <hr>
   <a href ng-click="newAccountModal()" class="btn btn-primary"><i class="fa fa-plus"></i> New Account</a>
 </div>
 <div class="well blankstate" ng-hide="accounts.length">

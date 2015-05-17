@@ -1,6 +1,6 @@
 .members-list {
   border-bottom: 1px solid #EEE;
-  
+
   .member {
     padding: 10px;
     border-top: 1px solid #EEE;
@@ -26,5 +26,70 @@
     .role, .actions {
       padding-top: 10px;
     }
+  }
+}
+
+.accounts-list {
+  border-bottom: 1px solid #EEE;
+  margin-bottom: 20px;
+
+  .account {
+    padding: 10px;
+    border-top: 1px solid #EEE;
+
+    .icon {
+      padding: 8px;
+      width: 48px;
+      float: left;
+      color: #2196f3;
+      opacity: 0.5;
+      text-align: center;
+    }
+
+    .name {
+      font-size: 16px;
+      margin-left: 24px;
+      float: left;
+    }
+
+    .type {
+      font-size: 14px;
+      color: #999;
+      text-transform: capitalize;
+    }
+
+    .total {
+      margin-top: 10px;
+      font-size: 18px;
+      text-align: right;
+    }
+
+    .action {
+      margin-top: 10px;
+      text-align: right;
+    }
+  }
+}
+
+.account-carousel {
+  width: 400px;
+  height: 200px;
+  background: #2196f3;
+  color: #fff;
+  padding: 30px;
+  cursor: pointer;
+
+  &.archived {
+    background: #999;
+  }
+
+  .name {
+    margin-top: 70px;
+    font-size: 18px;
+  }
+
+  .balance {
+    font-size: 28px;
+    font-weight: bold;
   }
 }

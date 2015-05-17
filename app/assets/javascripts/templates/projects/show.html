@@ -1,3 +1,7 @@
+<ul class="breadcrumb">
+  <li><a href="/projects">Projects</a></li>
+  <li class="active">{{ project.name }}</li>
+</ul>
 <h2>
   <span editable-text="project.name" e-form="projectNameForm" onaftersave="updateProject()">
     {{ project.name }}
@@ -11,4 +15,6 @@
 <tabset type="tabs">
   <tab heading="Accounts"><projects-accounts></projects-accounts></tab>
   <tab heading="Members"><projects-members></projects-members></tab>
+  <tab heading="Profit/Loss"><balance-sheet type-in="income" type-out="expense" project-promise="projectPromise"></balance-sheet></tab>
+  <tab heading="Balance Sheet"><balance-sheet type-in="asset" type-out="liability" project-promise="projectPromise"></balance-sheet></tab>
 </tabset>

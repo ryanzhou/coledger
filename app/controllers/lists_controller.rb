@@ -16,6 +16,12 @@ class ListsController < ApplicationController
     render json: list, serializer: ListSerializer
   end
 
+  def destroy
+    list = current_editing_account.lists.find(params[:id])
+    list.delete
+    render json: list, serializer: ListSerializer
+  end
+
   private
   def current_account
     current_project.accounts.find(params[:account_id])

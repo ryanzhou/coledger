@@ -14,6 +14,9 @@
  *= require fontawesome
  *= require angular-xeditable
  *= require jquery-flipster
+ *= require pickadate/classic.scss
+ *= require pickadate/classic.date.scss
+ *= require angular-chart.js/angular-chart.css
  *= require_tree .
  *= require_self
  */

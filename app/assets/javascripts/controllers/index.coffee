@@ -1,8 +1,9 @@
-angular.module("coledger").controller("IndexController", ['$scope', 'Resources'
-  ($scope, Resources) ->
+angular.module("coledger").controller("IndexController", ['$scope', '$window', '$timeout', 'Resources'
+  ($scope, $window, $timeout, Resources) ->
 
-    $('.flipster').flipster(style: 'carousel')
-
-
+    imagesLoaded '.flipster', ->
+      $timeout ->
+        $('.flipster').flipster(style: 'carousel')
+      , 100
 
 ])

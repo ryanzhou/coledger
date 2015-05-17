@@ -38,6 +38,8 @@ gem 'active_model_serializers'
 gem 'angular-rails-templates', '0.1.3'
 gem 'money-rails'
 gem "mongoid-enum"
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'aws-sdk', '~> 1.3.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -77,6 +79,11 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-ngDraggable', '0.1.4'
   gem 'rails-assets-jquery-flipster'
   gem 'rails-assets-angular-moment'
+  gem 'rails-assets-pickadate', '3.5.6'
+  gem 'rails-assets-imagesloaded'
+  gem 'rails-assets-angular-chart.js'
+  gem 'rails-assets-angular-scroll'
+  gem 'rails-assets-angular-base64-upload'
 end
 
 # For Heroku

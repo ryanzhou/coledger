@@ -21,8 +21,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update!(user_params)
-    render json: current_user, serializer: UserSerializer
+    if !params[:password].present? or current_user.authenticate(params[:current_password])
+      current_user.update!(user_params)
+      render json: current_user, serializer: UserSerializer
+    else
+      render json: {errors: ["Current password is incorrect"], error_code: "VALIDATION_ERROR"}.to_json, status: 422
+    end
   end
 
 

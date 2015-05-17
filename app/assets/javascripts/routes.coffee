@@ -4,6 +4,7 @@ angular.module("coledger").config(["$locationProvider", "$stateProvider", "$urlR
     $urlMatcherFactoryProvider.strictMode(false)
     states = {
       "home": { url: "", templateUrl: 'index.html', controller: 'IndexController' }
+      "faq": { url: "/faq", templateUrl: 'faq.html', controller: 'FaqController' }
       "users": { url: "/users", template: "<ui-view/>", abstract: true }
       "users.sign_in": { url: "/sign_in", templateUrl: 'users/sign_in.html', controller: 'SignInController' }
       "users.sign_up": { url: "/sign_up", templateUrl: 'users/sign_up.html', controller: 'SignUpController' }
@@ -15,8 +16,12 @@ angular.module("coledger").config(["$locationProvider", "$stateProvider", "$urlR
       "projects.show": { url: "/:id", templateUrl: 'projects/show.html', controller: 'ProjectsShowController' }
       "projects.accounts": { url: "/:project_id/accounts", template: "<ui-view/>", abstract: true }
       "projects.accounts.show": { url: "/:id", templateUrl: 'accounts/show.html', controller: 'AccountsShowController' }
+<<<<<<< HEAD
       "password_resets": {url: '/password_resets', template: "<ui-view/>", abstract: true}
       "password_resets": {url: "/password_resets/:reset_token/edit", templateUrl: "password_resets/recover_passwd.html", controller: "RecoverPasswdController"}
+=======
+      "projects.accounts.charts": { url: "/:id/charts", templateUrl: 'accounts/charts.html', controller: 'AccountsChartsController' }
+>>>>>>> master
     }
     for state, route of states
       $stateProvider.state(state, route)

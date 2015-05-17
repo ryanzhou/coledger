@@ -8,6 +8,7 @@ class User
 
   field :username, type: String
   field :email, type: String
+  field :current_password, type: String
   field :password_digest, type: String
   field :first_name, type: String
   field :last_name, type: String

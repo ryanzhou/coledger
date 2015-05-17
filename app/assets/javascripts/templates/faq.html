@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-sm-9">
+		<h2>Frequently Asked Questions</h2>
+		<hr>
+		<section class="faq" ng-repeat="faq in faqs | filter:query" id="{{faq.id}}">
+			<h3>{{ faq.title }}</h3>
+			<div ng-bind-html="faq.content | html"></div>
+			<hr>
+		</section>
+	</div>
+	<div class="col-sm-3">
+		<div class="fixed">
+			<ul class="nav nav-pills nav-stacked">
+				<li ng-repeat="faq in faqs" du-scrollspy={{faq.id}} offset={{offset}}>
+					<a href="#{{faq.id}}" du-smooth-scroll offset={{offset}}>{{faq.barTitle}}</a>
+				</li>
+			</ul>
+			<h6>Search: </h6><input type="text" ng-model="query">
+		</div>
+	</div>
+</div>

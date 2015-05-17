@@ -1,0 +1,38 @@
+<div class="accounts-list" ng-show="sheet.accounts.length">
+  <div class="account" ng-repeat="account in sheet.accounts" ng-hide="account.archived && !showArchivedAccounts">
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="icon">
+          <i class="fa fa-3x" ng-class="{'fa-sign-in':account.account_type == 'income', 'fa-sign-out':account.account_type == 'expense', 'fa-bank':account.account_type == 'asset', 'fa-credit-card':account.account_type == 'liability'}"></i>
+        </div>
+        <div class="name">
+          <a ui-sref="projects.accounts.show({project_id: project.id, id: account.id})" ng-hide="account.archived">{{ account.name }}</a>
+          <div ng-show="account.archived">{{ account.name }} (Archived)</div>
+          <div class="type">
+            {{ account.account_type }}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="total">
+          {{ project.currency.symbol }}{{ account.sum }}
+        </div>
+      </div>
+      <div class="col-sm-12" ng-if="account.lists.length > 0">
+        <h6 class="list-select-title">Select lists</h6>
+      </div>
+      <div class="" ng-repeat="list in account.lists">
+        <div class="col-sm-7">
+          <div class="list-select">
+            <input ng-model="list.selected" ng-change="sheet.toggleSelected(account, list)" type="checkbox" /> {{ list.name }} 
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="list-total">
+            {{ list.total.formatted }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

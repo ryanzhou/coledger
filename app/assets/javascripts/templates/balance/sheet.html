@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-8">
+    <p>Add lists from different accounts as either {{in.type}}s or {{out.type == "expense" ? 'expenses' : 'liabilities'}} and calculate their net value.</p>
+  </div>
+  <div class="col-md-4 text-right">
+    <balance-result class="balance-result" in="in" out="out" currency="project.currency"></balance-result>
+  </div>
+</div>
+<hr>
+<div class="row sheets">
+  <div class="col-md-6 sheet in">
+    <h3>{{in.type == "income" ? 'Income' : 'Assets'}} <span class="sheet-total">{{ project.currency.symbol }}{{ in.sum }}</span></h3>
+    <balance-accounts sheet="in" project="project"></balance-accounts>
+  </div>
+  <div class="col-md-6 sheet out">
+    <h3>{{out.type == "expense" ? 'Expenses' : 'Liabilities'}} <span class="sheet-total">{{ project.currency.symbol }}{{ out.sum }}</span></h3>
+    <balance-accounts sheet="out" project="project"></balance-accounts>
+  </div>
+</div>

@@ -1,4 +1,12 @@
+<ul class="breadcrumb">
+  <li><a href="/projects">Projects</a></li>
+  <li><a href="/projects/{{ project.id }}">{{ project.name }}</a></li>
+  <li class="active">{{ account.name }}</li>
+</ul>
 <h2>
+  <div style="float: right">
+    <a ui-sref="projects.accounts.charts({project_id: project.id, id: account.id})" class="btn btn-primary"><i class="fa fa-bar-chart"></i> Charts</a>
+  </div>
   <span editable-text="account.name" e-form="accountNameForm" onaftersave="updateAccount()">
     {{ account.name }}
   </span>
@@ -6,7 +14,6 @@
     <i class="fa fa-pencil"></i>
   </button>
 </h2>
-<a ui-sref="projects.show({id:project.id})">Back to <strong>{{ project.name }}</strong></a>
 <hr>
 <div class="row lists">
   <div class="col-md-3" ng-repeat="list in account.lists">
