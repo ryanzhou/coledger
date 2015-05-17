@@ -33,7 +33,7 @@
 //= require imagesloaded
 //= require Chart.js
 //= require angular-chart.js
-//= require angular-scroll.js
+//= require angular-scroll
 //= require angular-base64-upload
 //= require_tree ./templates
 //= require_tree .
