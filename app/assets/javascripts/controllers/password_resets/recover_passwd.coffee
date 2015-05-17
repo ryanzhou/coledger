@@ -36,11 +36,12 @@ angular.module("coledger").controller("RecoverPasswdController", ['$scope', '$lo
       $scope.$broadcast("schemaFormValidate")
       email = $location.search().email
       reset_token = $stateParams.reset_token
+      password = form.password.$modelValue
 
       if (form.$valid)
-        Resources.ResetPassword.update_password({reset_token: reset_token, email: email}, (success) ->
+        $scope.user = Resources.ResetPassword.update({reset_token: reset_token, email: email,password}, (success) ->
           flash.success = "You have successfully reset your password!"
-          $scope.$parent.refreshUser()
+          $location.path("users/sign_in")
         , (failure) ->
           if failure.data.error_code == "VALIDATION_ERROR"
             $scope.errorMessages = failure.data.errors

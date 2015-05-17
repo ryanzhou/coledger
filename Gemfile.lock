@@ -178,6 +178,7 @@ GEM
       rails-assets-angular-sanitize (>= 1.2)
       rails-assets-objectpath (~> 1.1.0)
       rails-assets-tv4 (~> 1.0.15)
+    rails-assets-angular-scroll (0.7.0)
     rails-assets-angular-ui-router (0.2.14)
       rails-assets-angular (>= 1.0.8)
     rails-assets-angular-xeditable (0.1.8)

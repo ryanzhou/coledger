@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     user = User.where(email: params[:email]).first
     user.assign_reset_token
     UserMailer.password_reset(user).deliver_now
-    render json: user, each_serializer: UserProfileSerializer
+    render json: user, serializer: UserProfileSerializer
   end
 
 
