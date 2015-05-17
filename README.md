@@ -41,6 +41,9 @@ CoLedger offers a range of features which exceed the mininum accounting transact
 * **Application Server**: Rails Back-end (RESTfull API)
 * **Database Server**: MongoDB
 
-## External Framework
-
 ## Security
+* **Using MongodDB to prevent injection vulnerabilities.
+* **Authentication We have opted to use token-based API authentication, instead of cookies for our back-end session management. This ensures that a session token must be explicitly set in the HTTP header for every request, rather than being automatically managed by the browser. Even though cookies can be made secure, using token-based authentication eliminates a whole class of risks related to the use of cookies, including CSRF. The session token persists in the browser's SessionStorage area.
+* **CORS: By default, CoLedger serves the front-end code and back-end API in the same domain name for simplicity of deployment. In the future, however, the front-end can be separated from the back-end. In that case, the CORS setting for the back-end service will be set to only allow XMLHttpRequest requests from the authorised front-end domain name.
+* **By default: CoLedger serves the front-end code and back-end API in the same domain name for simplicity of deployment. In the future, however, the front-end can be separated from the back-end. In that case, the CORS setting for the back-end service will be set to only allow XMLHttpRequest requests from the authorised front-end domain name.
+
