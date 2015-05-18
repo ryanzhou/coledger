@@ -2,6 +2,8 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   include ActiveModel::SecurePassword
+  include GlobalID::Identification
+
 
   field :username, type: String
   field :email, type: String
@@ -9,6 +11,12 @@ class User
   field :password_digest, type: String
   field :first_name, type: String
   field :last_name, type: String
+  field :reset_token, type: String
+  field :reset_sent_at, type: Time
+  field :activated, type: Boolean
+  field :activate_token, type: String
+  field :activate_sent_at, type: Time
+  
 
   has_secure_password
 
@@ -23,4 +31,28 @@ class User
   def projects
     memberships.map(&:project)
   end
+
+  def assign_reset_token
+    self.reset_token = SecureRandom.urlsafe_base64(32)
+    self.reset_sent_at = Time.zone.now
+    self.save
+  end
+
+  def reset_token_expired?
+    time_now = Time.zone.now
+    reset_sent_at + 2.hours < time_now
+  end
+
+  def assign_activate_token
+    self.activated = false
+    self.activate_token = SecureRandom.urlsafe_base64
+    self.activate_sent_at = Time.zone.now
+    self.save
+  end
+
+  def activate_token_expired?
+    time_now = Time.zone.now
+    activate_sent_at + 3.hours <time_now
+  end
+  
 end

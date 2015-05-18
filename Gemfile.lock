@@ -75,7 +75,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1.1)
+    coffee-script-source (1.8.0)
     columnize (0.9.0)
     connection_pool (2.2.0)
     database_cleaner (1.4.1)
@@ -179,7 +179,6 @@ GEM
       rails-assets-objectpath (~> 1.1.0)
       rails-assets-tv4 (~> 1.0.15)
     rails-assets-angular-scroll (0.7.0)
-      rails-assets-angular (>= 1.2.16, < 2)
     rails-assets-angular-ui-router (0.2.14)
       rails-assets-angular (>= 1.0.8)
     rails-assets-angular-xeditable (0.1.8)
@@ -299,6 +298,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  coffee-script-source (= 1.8.0)
   database_cleaner
   factory_girl_rails
   faker
