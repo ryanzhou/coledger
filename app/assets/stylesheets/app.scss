@@ -158,3 +158,15 @@ a.danger {
 section.faq {
   margin-bottom: 40px;
 }
+.navbar-inverse {
+  .navbar-toggle {
+    .icon-bar {
+      background-color: gray;
+    }
+    &.open {
+      .icon-bar {
+        background-color: white;
+      }
+    }
+  }
+}
