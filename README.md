@@ -7,6 +7,10 @@ This is the backend and frontend repository of CoLedger....
 
 [CoLedger API documentation](http://docs.coledger.apiary.io)
 
+## Demo
+
+To check out and play around with the application you can go to the [App sign-in page](https://coledgerapp.herokuapp.com/users/sign_in) and login with username **testuser** and password **password**.
+
 ## Installation
 
 Make sure you have MongoDB installed in your development machine.
